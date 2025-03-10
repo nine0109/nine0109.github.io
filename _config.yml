@@ -10,8 +10,8 @@
 # Review documentation to determine if you should use `theme` or `remote_theme`
 # https://mmistakes.github.io/minimal-mistakes/docs/quick-start-guide/#installing-the-theme
 
-theme                  : "minimal-mistakes-jekyll"
-remote_theme           : "minimal-mistakes-jekyll"  #"mmistakes/minimal-mistakes"
+# theme                  : "minimal-mistakes-jekyll"
+remote_theme           : "mmistakes/minimal-mistakes" # 정확한 형식으로 수정
 minimal_mistakes_skin    : "default" # "air", "aqua", "contrast", "dark", "dirt", "neon", "mint", "plum", "sunrise"
 
 # Site Settings
@@ -22,7 +22,7 @@ title_separator          : "-"
 subtitle                 : # site tagline that appears below site title in masthead
 name                     : "Wonkyu Kim"
 description              : "Learning together<br>Growing together<br>Advancing together." #"An amazing website."
-url                      : # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
+url                      : "https://nine0109.github.io" # 이 부분 추가 # the base hostname & protocol for your site e.g. "https://mmistakes.github.io"
 baseurl                  : # the subpath of your site, e.g. "/blog"
 repository               : nine0109/nine0109.github.io # GitHub username/repo-name e.g. "mmistakes/minimal-mistakes"
 teaser                   : # path of fallback teaser image, e.g. "/assets/images/500x300.png"
