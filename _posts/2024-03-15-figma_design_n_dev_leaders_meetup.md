@@ -9,7 +9,10 @@ typora-root-url: ../
 2024년 3월 15일 금요일
 피그마 디자인 & 데브 리더 모임을 다녀왔다.
 
-
+![[../figma_240315_04.jpg]]
+![[figma_240315_02.jpg]]
+![[../figma_240315_03.jpg]]
+![[../figma_240315_01.jpg]]
 ![figma](/assets/Img_240315/figma_240315_01.jpg){:height="150px" width="150px"}
 ![figma](/assets/Img_240315/figma_240315_03.jpg){:height="150px" width="150px"}
 <!-- ![figma](/assets/Img_240315/figma_240315_04.jpg){:height="150px" width="150px"} -->
