@@ -57,5 +57,4 @@ group :jekyll_plugins do
   gem "jekyll-gist"
   gem "jekyll-feed"
   gem "jekyll-include-cache"  # minimal-mistakes에 필수!
-  gem 'jekyll-image-size' #obsidian > image size
 end

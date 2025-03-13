@@ -7,7 +7,14 @@ typora-root-url:
 ---
 
 2024년 3월 15일 금요일
-피그마 디자인 & 데브 리더 모임을 다녀왔다
+피그마 디자인 & 데브 리더 모임을 다녀왔다.
+
+
+![figma|320x240](/assets/images/figma_240315_01.jpg)
+![figma](/assets/images/figma_240315_03.jpg){:height="150px" width="150px"}
+<!-- ![figma](/assets/images/figma_240315_04.jpg){:height="150px" width="150px"} -->
+![figma](/assets/images/figma_240315_07.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_08.jpg){:height="150px" width="150px"}
 
 
 <!-- 연사로는 피그마 CEO Dylan, ㅣ.. 
@@ -23,13 +30,6 @@ typora-root-url:
 ![figma](/assets/images/figma_240315_20.jpg){:height="150px" width="150px"}
 <br>Dylan Field(CEO, Co-founder of Figma
 <br><br>
-
-![figma|320x240](/assets/images/figma_240315_01.jpg){:height="150px" width="150px"}
-![figma](/assets/images/figma_240315_03.jpg){:height="150px" width="150px"}
-<!-- ![figma](/assets/images/figma_240315_04.jpg){:height="150px" width="150px"} -->
-![figma](/assets/images/figma_240315_07.jpg){:height="150px" width="150px"}
-![figma](/assets/images/figma_240315_08.jpg){:height="150px" width="150px"}
-
 
 ![figma](/assets/images/figma_240315_21.jpg){:height="150px" width="150px"}
 ![figma](/assets/images/figma_240315_22.jpg){:height="150px" width="150px"}
