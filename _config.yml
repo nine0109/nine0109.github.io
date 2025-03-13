@@ -263,8 +263,8 @@ plugins:
   - jekyll-gist
   - jekyll-feed
   - jekyll-include-cache
-  # - jekyll-image-size
-  - jekyll-resize
+  - jekyll-image-size
+  # - jekyll-resize
 
 # mimic GitHub Pages with --safe
 whitelist:
