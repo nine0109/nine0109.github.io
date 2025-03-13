@@ -15,10 +15,10 @@
     {% include_cached masthead.html %}
 
     <div class="initial-content">
-      {% capture markdown_content %}{{ content | markdownify }}{% endcapture %}
-      {% assign new_content = markdown_content | regex_replace: '<img src="([^"]+)" alt="([^|]+)\|(\d+)x(\d+)"', '<img src="\1" alt="\2" width="\3" height="\4">' %}
-      {{ new_content }}
-      {% include after-content.html %}
+      {{ content }}
+      <!-- {% assign new_content = content | regex_replace: '\!\[(.*?)\|(.*?)x(.*?)\]\((.*?)\)', '<img src="\4" alt="\1" width="\2" height="\3">' %}
+      {{ new_content }} -->
+      <!-- {% include after-content.html %} -->
     </div>
 
     {% if site.search == true %}
