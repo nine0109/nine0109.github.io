@@ -24,7 +24,7 @@ typora-root-url:
 <br>Dylan Field(CEO, Co-founder of Figma
 <br><br>
 
-![figma|320x240](/assets/images/figma_240315_01.jpg)
+![figma|320x240](/assets/images/figma_240315_01.jpg){:height="150px" width="150px"}
 ![figma](/assets/images/figma_240315_03.jpg){:height="150px" width="150px"}
 <!-- ![figma](/assets/images/figma_240315_04.jpg){:height="150px" width="150px"} -->
 ![figma](/assets/images/figma_240315_07.jpg){:height="150px" width="150px"}
