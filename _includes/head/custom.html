@@ -2,4 +2,50 @@
 
 <!-- insert favicons. use https://realfavicongenerator.net/ -->
 
+<!-- Image size script -->
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+      // 모든 이미지 요소 찾기
+      const pTags = document.querySelectorAll('p');
+      
+      pTags.forEach(p => {
+        // <p> 태그 내용이 이미지와 일치하는지 확인
+        const imgElement = p.querySelector('img[alt*="|"]');
+        if (imgElement) {
+          try {
+            const altText = imgElement.getAttribute('alt');
+            const altParts = altText.split('|');
+            
+            if (altParts.length > 1) {
+              // 실제 alt 텍스트만 남기기
+              const newAlt = altParts[0];
+              
+              // 크기 정보 추출
+              const sizeParts = altParts[1].split('x');
+              let width, height;
+              
+              if (sizeParts.length === 2) {
+                width = parseInt(sizeParts[0]);
+                height = parseInt(sizeParts[1]);
+              } else {
+                width = parseInt(sizeParts[0]);
+              }
+              
+              // 이미지 속성 업데이트
+              imgElement.alt = newAlt;
+              if (width) imgElement.width = width;
+              if (height) imgElement.height = height;
+              
+              console.log('Image processed:', imgElement.src);
+            }
+          } catch (error) {
+            console.error('Error processing image:', error);
+          }
+        }
+      });
+      
+      console.log('Image processing script executed');
+    });
+    </script>
+
 <!-- end custom head snippets -->
