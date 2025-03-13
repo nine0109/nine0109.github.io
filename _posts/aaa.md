@@ -42,7 +42,7 @@ https://youtu.be/VEuwKJAz7Jg
 
 [링크](https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables)
 
-![링크](assets/images/Create%20and%20manage%20variables%20–%20Figma%20Learn%20-%20Help%20Center_000002.png)
+![링크](assets/images/Help_Center_000002.png)
 
 
 Figma Variable 또한 Plugin을 사용한 Design Token 관리와 같이 Data를 Export, Import 할 것 같았으나 아직 지원하지 않고 있다. Figma Variable을 Export하는 플러그인을 확인했으나 나에게 맞는 도구가 없어 개발했다. 

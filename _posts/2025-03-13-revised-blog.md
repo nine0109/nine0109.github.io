@@ -40,7 +40,7 @@ Figma Variable은 디자인 속성 또는 저장된 상태를 나타내는 지�
 
 Figma에서 변수 생성 및 관리에 대한 자세한 내용은 [Figma 공식 문서](https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables)에서 확인할 수 있습니다. 또한 프로토타입에서의 변수 활용 방법은 [이 문서](https://help.figma.com/hc/ko/articles/14506587589399-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%97%90%EC%84%9C-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9)를 참고하시면 도움이 됩니다.
 
-![Figma Variables 관리 화면](assets/images/Create%20and%20manage%20variables%20–%20Figma%20Learn%20-%20Help%20Center_000002.png)
+![Figma Variables 관리 화면](/assets/images/Help_Center_000002.png)
 
 처음 예상했던 것과 달리, Figma Variable은 Plugin을 사용한 Design Token 관리처럼 데이터 내보내기/가져오기 기능을 기본적으로 지원하지 않고 있었습니다. 필요한 기능을 제공하는 적절한 플러그인을 찾지 못해, 직접 [Variables2Sheets](https://www.figma.com/community/plugin/1458735501504134412/variables2sheets) 플러그인을 개발했습니다.
 
