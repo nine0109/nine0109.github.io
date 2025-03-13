@@ -3,7 +3,7 @@ layout: post
 title:  "Design & Dev Leaders Meetup in Seoul"
 date:   2024-03-25 19:00:00 +0900
 categories: Figma
-typora-root-url: ../
+typora-root-url: 
 ---
 
 2024년 3월 15일 금요일
