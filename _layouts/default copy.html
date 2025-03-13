@@ -15,8 +15,10 @@
     {% include_cached masthead.html %}
 
     <div class="initial-content">
+      
       {% assign new_content = content | regex_replace: '\!\[(.*?)\|(.*?)x(.*?)\]\((.*?)\)', '<img src="\4" alt="\1" width="\2" height="\3">' %}
       {{ new_content }}
+      <!-- {{ content }} -->
       {% include after-content.html %}
     </div>
 
