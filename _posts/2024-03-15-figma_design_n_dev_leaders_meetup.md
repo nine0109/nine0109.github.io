@@ -11,6 +11,7 @@ typora-root-url:
 
 
 ![zz|305x229](/assets/images/figma_240315_01.jpg)
+![zz|305x229](/assets/images/figma_240315_01.jpg)
 ![figma](/assets/images/figma_240315_03.jpg){:height="150px" width="150px"}
 <!-- ![figma](/assets/images/figma_240315_04.jpg){:height="150px" width="150px"} -->
 ![figma](/assets/images/figma_240315_07.jpg){:height="150px" width="150px"}
