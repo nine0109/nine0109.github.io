@@ -264,8 +264,7 @@ plugins:
   - jekyll-feed
   - jekyll-include-cache
   - jekyll-image-size
-  - jekyll-image-size-filter
-  # - jekyll-resize
+  # - jekyll-image-size-filter
 
 # mimic GitHub Pages with --safe
 whitelist:
