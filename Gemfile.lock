@@ -1,19 +1,23 @@
 GEM
   remote: https://rubygems.org/
   specs:
-    activesupport (7.1.4.2)
+    activesupport (7.1.5.1)
       base64
+      benchmark (>= 0.3)
       bigdecimal
       concurrent-ruby (~> 1.0, >= 1.0.2)
       connection_pool (>= 2.2.5)
       drb
       i18n (>= 1.6, < 2)
+      logger (>= 1.4.2)
       minitest (>= 5.1)
       mutex_m
+      securerandom (>= 0.3)
       tzinfo (~> 2.0)
     addressable (2.8.7)
       public_suffix (>= 2.0.2, < 7.0)
     base64 (0.2.0)
+    benchmark (0.4.0)
     bigdecimal (3.1.9)
     coffee-script (2.4.1)
       coffee-script-source
@@ -218,7 +222,7 @@ GEM
       gemoji (>= 3, < 5)
       html-pipeline (~> 2.2)
       jekyll (>= 3.0, < 5.0)
-    json (2.10.1)
+    json (2.10.2)
     kramdown (2.4.0)
       rexml
     kramdown-parser-gfm (1.1.0)
@@ -233,7 +237,7 @@ GEM
       jekyll (>= 3.5, < 5.0)
       jekyll-feed (~> 0.9)
       jekyll-seo-tag (~> 2.1)
-    minitest (5.25.4)
+    minitest (5.25.5)
     mutex_m (0.3.0)
     net-http (0.6.0)
       uri
@@ -263,6 +267,7 @@ GEM
     sawyer (0.9.2)
       addressable (>= 2.3.5)
       faraday (>= 0.17.3, < 3)
+    securerandom (0.3.2)
     simpleidn (0.2.3)
     terminal-table (1.8.0)
       unicode-display_width (~> 1.1, >= 1.1.1)
