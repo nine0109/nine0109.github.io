@@ -1,5 +1,5 @@
 ---
-title: 다국어 지원 프로젝트
+title: 다국어 지원 프로젝트 revised
 header: Figma
 teaser: https://farm5.staticflickr.com/4076/4940499208_b79b77fb0a_z.jpg
 categories:
