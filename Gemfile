@@ -59,5 +59,5 @@ group :jekyll_plugins do
   gem "jekyll-include-cache"  # minimal-mistakes에 필수!
   # gem 'jekyll-image-size'
   # gem "jekyll-resize", git: "https://github.com/MichaelCurrin/jekyll-resize"
-  gem "obsidian-to-jekyll"
+  gem "obsidian-to-jekyll", git: "https://github.com/smaroukis/obsidian-to-jekyll.git"
 end
