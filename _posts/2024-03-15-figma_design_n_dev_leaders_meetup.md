@@ -3,18 +3,20 @@ layout: post
 title:  "Design & Dev Leaders Meetup in Seoul"
 date:   2024-03-25 19:00:00 +0900
 categories: Figma
-typora-root-url: ../
+typora-root-url: 
 ---
 
 2024년 3월 15일 금요일
 피그마 디자인 & 데브 리더 모임을 다녀왔다.
 
 
-![figma](../assets/images/figma_240315_01.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_03.jpg){:height="150px" width="150px"}
-<!-- ![figma](/assets/Img_240315/figma_240315_04.jpg){:height="150px" width="150px"} -->
-![figma](/assets/Img_240315/figma_240315_07.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_08.jpg){:height="150px" width="150px"}
+![zz|305x229](/assets/images/figma_240315_01.jpg)
+![zz|305x229](/assets/images/figma_240315_01.jpg){{ "/assets/images/figma_240315_01.jpg" | resize: "200x200" }}
+![zz|resize: "200x200>](/assets/images/figma_240315_01.jpg)
+![figma](/assets/images/figma_240315_03.jpg){:height="150px" width="150px"}
+<!-- ![figma](/assets/images/figma_240315_04.jpg){:height="150px" width="150px"} -->
+![figma](/assets/images/figma_240315_07.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_08.jpg){:height="150px" width="150px"}
 
 
 <!-- 연사로는 피그마 CEO Dylan, ㅣ.. 
@@ -25,20 +27,20 @@ typora-root-url: ../
 
 # **그래픽 저작도구 Figma Vs. 생산성 협업 플랫폼**
 
-![figma](/assets/Img_240315/figma_240315_18.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_19.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_20.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_18.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_19.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_20.jpg){:height="150px" width="150px"}
 <br>Dylan Field(CEO, Co-founder of Figma
 <br><br>
 
-![figma](/assets/Img_240315/figma_240315_21.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_22.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_24.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_26.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_27.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_28.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_29.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_30.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_21.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_22.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_24.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_26.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_27.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_28.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_29.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_30.jpg){:height="150px" width="150px"}
 
 피그마는 디자인 저작도구일까? 
 피그마는 플랫폼이다. 피그마는 생산 프로세스의 모든 영역에 걸쳐서 사용하고 있으며, 미국 사용자의 80%는 디자이너가 아닌 사용함.
@@ -48,23 +50,23 @@ typora-root-url: ../
 
 <br><br>
 
-![figma](/assets/Img_240315/figma_240315_31.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_32.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_33.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_34.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_35.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_36.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_37.jpg){:height="150px" width="150px"}
-<!-- ![figma](/assets/Img_240315/figma_240315_38.jpg){:height="150px" width="150px"} -->
-![figma](/assets/Img_240315/figma_240315_39.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_41.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_44.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_45.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_46.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_47.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_48.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_49.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_51.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_31.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_32.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_33.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_34.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_35.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_36.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_37.jpg){:height="150px" width="150px"}
+<!-- ![figma](/assets/images/figma_240315_38.jpg){:height="150px" width="150px"} -->
+![figma](/assets/images/figma_240315_39.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_41.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_44.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_45.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_46.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_47.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_48.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_49.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_51.jpg){:height="150px" width="150px"}
 
 과거에는 서버를 통해 매니징을 했다면, 현재는 앱스토어와 앱을 통해 매니징을 하고 있다.
 개발자의 생산성은 갈수록 극대화하고 있으며 AI로 더 다양한 소프트웨어로 가속화하고 있다.
@@ -95,91 +97,91 @@ DEV모드는 핸드오프를 통해 개발에 전달하는 것이 아닌 개발�
 
 
 
-<!-- ![figma](/assets/Img_240315/figma_240315_11.jpg){:height="150px" width="150px"} -->
+<!-- ![figma](/assets/images/figma_240315_11.jpg){:height="150px" width="150px"} -->
 
 <!-- Scott
-![figma](/assets/Img_240315/figma_240315_12.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_13.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_14.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_15.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_16.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_17.jpg){:height="150px" width="150px"} -->
+![figma](/assets/images/figma_240315_12.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_13.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_14.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_15.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_16.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_17.jpg){:height="150px" width="150px"} -->
 
-![figma](/assets/Img_240315/figma_240315_52.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_53.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_55.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_56.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_57.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_58.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_59.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_60.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_52.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_53.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_55.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_56.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_57.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_58.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_59.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_60.jpg){:height="150px" width="150px"}
 61
-![figma](/assets/Img_240315/figma_240315_61.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_62.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_64.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_65.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_66.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_67.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_68.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_69.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_70.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_61.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_62.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_64.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_65.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_66.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_67.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_68.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_69.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_70.jpg){:height="150px" width="150px"}
 71
-![figma](/assets/Img_240315/figma_240315_71.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_72.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_73.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_74.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_75.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_76.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_77.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_78.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_79.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_80.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_81.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_71.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_72.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_73.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_74.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_75.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_76.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_77.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_78.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_79.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_80.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_81.jpg){:height="150px" width="150px"}
 
 <br><br>
 
 # **GDS G마켓**
-![figma](/assets/Img_240315/figma_240315_84.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_85.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_86.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_88.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_89.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_90.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_91.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_92.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_93.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_84.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_85.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_86.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_88.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_89.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_90.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_91.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_92.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_93.jpg){:height="150px" width="150px"}
 <figcaption>크기 유형화</figcaption>
 
-![figma](/assets/Img_240315/figma_240315_95.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_97.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_98.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_99.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_95.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_97.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_98.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_99.jpg){:height="150px" width="150px"}
 <figcaption>단 한명의 디자이너라도 지키지 않으면 본인이 책임질꺼에요?</figcaption>
 
-![figma](/assets/Img_240315/figma_240315_100.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_101.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_103.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_100.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_101.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_103.jpg){:height="150px" width="150px"}
 <figcaption>반성, 교육, 일관성</figcaption>
 
-![figma](/assets/Img_240315/figma_240315_104.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_107.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_109.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_111.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_112.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_113.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_114.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_115.jpg){:height="150px" width="150px"}
-<!-- ![figma](/assets/Img_240315/figma_240315_116.jpg){:height="150px" width="150px"} -->
-![figma](/assets/Img_240315/figma_240315_117.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_118.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_119.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_122.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_123.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_124.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_125.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_126.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_128.jpg){:height="150px" width="150px"}
-![figma](/assets/Img_240315/figma_240315_130.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_104.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_107.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_109.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_111.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_112.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_113.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_114.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_115.jpg){:height="150px" width="150px"}
+<!-- ![figma](/assets/images/figma_240315_116.jpg){:height="150px" width="150px"} -->
+![figma](/assets/images/figma_240315_117.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_118.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_119.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_122.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_123.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_124.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_125.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_126.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_128.jpg){:height="150px" width="150px"}
+![figma](/assets/images/figma_240315_130.jpg){:height="150px" width="150px"}
 
 
 <br><br>
