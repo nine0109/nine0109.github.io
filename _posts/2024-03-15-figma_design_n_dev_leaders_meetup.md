@@ -10,7 +10,7 @@ typora-root-url:
 피그마 디자인 & 데브 리더 모임을 다녀왔다.
 
 
-![figma](../assets/images/figma_240315_01.jpg){:height="150px" width="150px"}
+![figma|320x240](../assets/images/figma_240315_01.jpg)
 ![figma](../assets/images/figma_240315_03.jpg){:height="150px" width="150px"}
 <!-- ![figma](../assets/images/figma_240315_04.jpg){:height="150px" width="150px"} -->
 ![figma](../assets/images/figma_240315_07.jpg){:height="150px" width="150px"}
