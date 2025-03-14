@@ -12,9 +12,9 @@ tags:
 
 ## 프로젝트 개요
 
-**24년 상반기 Phase1**에서는 Figma Components를 구조화한 디자인 시스템을 사용해 한국어로 UX와 GUI를 하나의 문서로 만들고, Export 관리를 통해 설계에서 디자인 자원관리를 하나로 통합했습니다. 이후 파일 포맷 변경과 도트작업으로 이미지 품질을 개선했습니다.
+**Phase1** 24년 상반기에 Figma Components를 구조화한 디자인 시스템을 사용해 한국어로 UX와 GUI를 하나의 문서로 만들고, Export 관리를 통해 설계에서 디자인 자원관리를 하나로 통합했습니다. 이후 파일 포맷 변경과 도트작업으로 이미지 품질을 개선했습니다.
 
-**25년 상반기 Phase2**에서는 영어, 중국어를 지원하는 다국어 프로젝트를 진행했습니다. Assets 파일명을 유지하면서 변경된 언어로 자원을 전달하는 것이 주요 목표였습니다. 다국어 지원 시에도 인터랙션 흐름은 모두 동일하나, 언어 길이의 특성에 따라 스크롤 양이 달라지게 됩니다. 또한 글자 크기가 달라질 수 있습니다.
+**Phase2**25년 상반기에 영어, 중국어를 지원하는 다국어 프로젝트를 진행했습니다. Assets 파일명을 유지하면서 변경된 언어로 자원을 전달하는 것이 주요 목표였습니다. 다국어 지원 시에도 인터랙션 흐름은 모두 동일하나, 언어 길이의 특성에 따라 스크롤 양이 달라지게 됩니다. 또한 글자 크기가 달라질 수 있습니다.
 
 Phase 1에서 개발한 문서를 활용해 한국어, 영어, 중국어를 한 화면에 정의함으로써 검수 시 맥락 파악에 도움을 주고자 했습니다. 또한 이 작업은 다국어 지원을 위한 UX Sketch 작업에도 큰 도움이 되었습니다.
 
@@ -40,7 +40,7 @@ Figma Variable은 디자인 속성 또는 저장된 상태를 나타내는 지�
 
 Figma에서 변수 생성 및 관리에 대한 자세한 내용은 [Figma 공식 문서](https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables)에서 확인할 수 있습니다. 또한 프로토타입에서의 변수 활용 방법은 [이 문서](https://help.figma.com/hc/ko/articles/14506587589399-%ED%94%84%EB%A1%9C%ED%86%A0%ED%83%80%EC%9E%85%EC%97%90%EC%84%9C-%EB%B3%80%EC%88%98-%EC%82%AC%EC%9A%A9)를 참고하시면 도움이 됩니다.
 
-![Figma Variables 관리 화면](/assets/images/Help_Center_000002.png)
+![Figma Variables 관리 화면](assets/images/Create%20and%20manage%20variables%20–%20Figma%20Learn%20-%20Help%20Center_000002.png)
 
 처음 예상했던 것과 달리, Figma Variable은 Plugin을 사용한 Design Token 관리처럼 데이터 내보내기/가져오기 기능을 기본적으로 지원하지 않고 있었습니다. 필요한 기능을 제공하는 적절한 플러그인을 찾지 못해, 직접 [Variables2Sheets](https://www.figma.com/community/plugin/1458735501504134412/variables2sheets) 플러그인을 개발했습니다.
 
