@@ -1,6 +1,6 @@
 Sketch, Figma, adobeXD와 같은 어플리케이션 저작도구는 Main Object를 디자인 후 Instance를 여러 Case로  복제해서 사용한다. 작업 도구가 발달하기 이전에는 GUI는 주요 키 스크린만을 디자인했으나, 지금은 전체 화면 흐름을 디자인하고 있다.
 더욱이 어러한 개발을 가능하게 하는 것은 Atomic design 과 Semantic naming을 사용한 Design system의 사용이다. 
-이러한 구조와 체계를 갖춘 개발 방MH21Y OLED Remote Control법 기획에서 개발한 Design system을 스위칭할 수도 있다. 하지만 스위칭을 위해 사전에 서로 얼라인을 맞추고 그 틀에서 작업하는것 보다 GUI는 GUI로 새로 시스템을 만드는 일이 더 많다. 
+이러한 구조와 체계를 갖춘 개발 방법 기획에서 개발한 Design system을 스위칭할 수도 있다. 하지만 스위칭을 위해 사전에 서로 얼라인을 맞추고 그 틀에서 작업하는것 보다 GUI는 GUI로 새로 시스템을 만드는 일이 더 많다. 
 본 프로젝트느는  
 
 구조화한 자원과 
