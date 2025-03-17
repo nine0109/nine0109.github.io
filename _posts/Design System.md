@@ -3,9 +3,13 @@
 
 텍스트 기반의 프로젝트로 기획단계에서 개발 제약조건(Constraints)으로 정해진 Requiremnets 따르며 스케치 GUI와 설계 문서를 하나로 했다. ~~
 
-다국어 지원을 위해 Text style와 Components를 
+다국어 지원을 위해 Text style와 Figma variable을 사용해언어별 최적화를 했다. 
+
+![](assets/images/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000119%201.mp4)
 
 
+
+![[LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000125.png]]
 **Phase1** 24년 상반기에 Figma Components를 구조화한 디자인 시스템을 사용해 한국어로 UX와 GUI를 하나의 문서로 만들고, Export 관리를 통해 설계에서 디자인 자원관리를 하나로 통합다. 이후 파일 포맷 변경과 도트작업으로 이미지 품질을 개선다.
 
 **Phase2** 25년 상반기에 영어, 중국어를 지원하는 다국어 프로젝트를 진행했습니다. Assets 파일명을 유지하면서 변경된 언어로 자원을 전달하는 것이 주요 목표였습니다. 다국어 지원 시에도 인터랙션 흐름은 모두 동일하나, 언어 길이의 특성에 따라 스크롤 양이 달라지게 됩니다. 또한 글자 크기가 달라질 수 있습니다.
