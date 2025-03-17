@@ -17,17 +17,6 @@ tags:
 ![[Untitled-1 @ 640 _Test RGB8_ _000112.png]]
 
 
-[이게뭐야]()
-[Phase 1](_posts/Phase%201.md)
-[[_posts/Phase 1.md#|Phase 1]]
-
-[Phase 1](_posts/Phase%201.md#)
-
-[[_posts/Phase 1.md#asdfasdfasdfasdfasdfasdfasf]]
-
-[Phase 1#aaaaaaa](_posts/Phase%201.md)
-
-[Phase 1](_posts/Phase%201.md)
 
 ## ~~프로젝트 개요~~ > Phase 1
 
