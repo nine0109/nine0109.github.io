@@ -4,11 +4,8 @@ Sketch, Figma, adobeXD와 같은 어플리케이션 저작도구는 Main Object�
 
 텍스트 기반의 프로젝트로 기획단계에서 개발 제약조건(Constraints)으로 정해진 Requiremnets 따르며 스케치 GUI와 설계 문서를 하나로 했다. 
 
-구조화한 자원과 
-Semantic
+다국어 지원을 위해 
 
-이는 설계와 GUI 양쪽
-설계
 
 **Phase1** 24년 상반기에 Figma Components를 구조화한 디자인 시스템을 사용해 한국어로 UX와 GUI를 하나의 문서로 만들고, Export 관리를 통해 설계에서 디자인 자원관리를 하나로 통합다. 이후 파일 포맷 변경과 도트작업으로 이미지 품질을 개선다.
 
