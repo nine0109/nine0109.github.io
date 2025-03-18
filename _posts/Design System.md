@@ -1,12 +1,13 @@
 ~~Sketch, Figma, adobeXD와 같은 어플리케이션 저작도구는 Main Object를 디자인 후 Instance를 여러 Case로  복제해서 사용한다. 작업 도구가 발달하기 이전에는 GUI는 주요 키 스크린만을 디자인했으나, 지금은 전체 화면 흐름을 디자인하고 있다. 더욱이 어러한 개발을 가능하게 하는 것은 Atomic design 과 Semantic naming을 사용한 Design system의 사용이다. 
 이러한 구조와 체계를 갖춘 개발 방법 기획에서 개발한 Design system을 스위칭할 수도 있다. 하지만 스위칭을 위해 사전에 서로 얼라인을 맞추고 그 틀에서 작업하는것 보다 GUI는 GUI로 새로 시스템을 만드는 일이 더 많다. 
 
-텍스트 기반의 프로젝트로 기획단계에서 개발 제약조건(Constraints)으로 정해진 Requiremnets 따르며 스케치 GUI와 설계 문서를 하나로 했다. ~~
+~~텍스트 기반의 프로젝트로 기획단계에서 개발 제약조건(Constraints)으로 정해진 Requiremnets 따르며 스케치 GUI와 설계 문서를 하나로 했다. ~~~~
 
-다국어 지원을 위해 Text style와 Figma variable을 사용해언어별 최적화를 했다. 
+다국어 지원을 위해 Text style와 Figma variable을 사용해언어별 최적화를 했다. 각 언어 모드 구역에 아이템을 올려 놓으면 동영상과 같이 정의된 언어로 자동 변경할 수 있다. 
 
 ![](assets/images/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000119%201.mp4)
 
+Figma 에서는 Variable을 Export하는 기능을 제공하고 있지 않다. Design Token
 
 
 ![[LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000125.png]]
