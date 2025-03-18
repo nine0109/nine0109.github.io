@@ -18,15 +18,8 @@ Mode에는 상속 개념이 있다. 영역을 특정 Mode로 정의 후 아이�
 
 ## Figma Plugin: Variables2Sheets 
 
-Figma 에서는 Variables을 Export하는 기능을 제공하고 있지 않다. 일반 사용자가 열람할 수 있는 형식으로 Data Sharing을 제공해서 고객과 직접 소통한다면 
-
-언어 변환
-
- 오류를 줄이고 
-Figma Variables과 같이 데이터 베이스화 된 항목은 고
-
-
-을 직접 고객과 소통하는 것은 오류를 줄이고 업무 효율성도 극대화 할 수 있다. Figma Variable을 Export할 수 있는 플러그인을 검새 봤으나 시트 형태를 제공하지 않았아며, JOSN 또한, (ㅇㅇㅇ)
+Figma 에서는 Variables을 Export하는 기능을 제공하고 있지 않다. 일반 사용자가 열람할 수 있는 형식으로 Data Sharing을 제공해서 고객과 직접 소통한다면 수동입력(Manual Input)에 따른 오류와 손실을 제거해 업무 효율성을 극대화 할 수 있다. Figma Plugin에서 V
+ Variable을 Export할 수 있는 플러그인을 검새 봤으나 시트 형태를 제공하지 않았아며, JOSN 또한, (ㅇㅇㅇ)
 
 
 ![](assets/images/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_mov_000136-converted.mp4 )
