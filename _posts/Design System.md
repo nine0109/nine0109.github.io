@@ -3,23 +3,27 @@
 
 ~~텍스트 기반의 프로젝트로 기획단계에서 개발 제약조건(Constraints)으로 정해진 Requiremnets 따르며 스케치 GUI와 설계 문서를 하나로 했다. ~~~~
 
-## Design Token Vs. Figma Variable
-Design Token을 사용해서 String을 
-다국어 지원을 위해 Text style와 Figma variable을 사용해언어별 최적화를 했다. 각 언어 모드 구역에 아이템을 올려 놓으면 동영상과 같이 정의된 언어로 자동 변경할 수 있다. 
+## Figma Variable
 
-Variable은 Native 기능으로 
-
-![](assets/images/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000119%201.mp4)
-
-Figma 에는 Variable
-Figma 에서는 Variable을 Export하는 기능을 제공하고 있지 않다. Design Token
-
+다국어 지원을 위해 Text style와 Figma variable을 사용해언어별 최적화를 했다. Variable에서 Pro사용자는 최대 3개의 Mode를 사용할 수 있다. 
+다국어 지원을 위해 Text style와 KO, EN, CN 3개의 Variable Mode를 사용해언어별 최적화를 했다.
 
 ![[LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000125.png]]
-**Phase1** 24년 상반기에 Figma Components를 구조화한 디자인 시스템을 사용해 한국어로 UX와 GUI를 하나의 문서로 만들고, Export 관리를 통해 설계에서 디자인 자원관리를 하나로 통합다. 이후 파일 포맷 변경과 도트작업으로 이미지 품질을 개선다.
+
+
+Mode에는 상속 개념이 있다. 영역을 특정 Mode로 정의 후 아이템을 모드 위에 올려 놓으면 동영상과 같이 모드를 상속받아 언어가 변경된다.
+
+![](assets/images/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000119%201.mp4)
+(사전 정의된 모드에 따라 아이템의 언어 변경)
+
+## Figma Plugin: Variables2Sheets 
+
+
+Figma 에서는 Variable을 Export하는 기능을 제공하고 있지 않다. Variable과 같이 데이터 베이스화 된 항목을 직접 고객과 소통하는 것은 오류를 줄이고 업무 효율성도 극대화 할 수 있다. Figma Variable을 Export할 수 있는 플러그인을 검새 봤으나 시트 형태를 제공하지 않았아며, JOSN 또한, (ㅇㅇㅇ)
+
 
 ![](assets/images/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_mov_000136-converted.mp4 )
-Figma Plugin Variables2Sheets 
+
 
 Variables2Sheets 플러그인을 개발했다. Variables2Sheets는 Figma의 Variable을 Export하거나 임포트하는 플러그인이다.
 
@@ -41,6 +45,15 @@ Figma Variables은 CSV와 JSON 파일로 Export 하거나 Import 할 수도 있�
  
 
 Text style은 H1~H4와 Body로 정의하였으며, 이는 이후 Glyphs Find&Replace에서의 분류로 사용했다.
+
+
+
+
+
+
+
+**Phase1** 24년 상반기에 Figma Components를 구조화한 디자인 시스템을 사용해 한국어로 UX와 GUI를 하나의 문서로 만들고, Export 관리를 통해 설계에서 디자인 자원관리를 하나로 통합다. 이후 파일 포맷 변경과 도트작업으로 이미지 품질을 개선다.
+
 Variable 
 
 **Phase2** 25년 상반기에 영어, 중국어를 지원하는 다국어 프로젝트를 진행했습니다. Assets 파일명을 유지하면서 변경된 언어로 자원을 전달하는 것이 주요 목표였습니다. 다국어 지원 시에도 인터랙션 흐름은 모두 동일하나, 언어 길이의 특성에 따라 스크롤 양이 달라지게 됩니다. 또한 글자 크기가 달라질 수 있습니다.
