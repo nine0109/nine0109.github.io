@@ -3,7 +3,9 @@
 
 ~~텍스트 기반의 프로젝트로 기획단계에서 개발 제약조건(Constraints)으로 정해진 Requiremnets 따르며 스케치 GUI와 설계 문서를 하나로 했다. ~~~~
 
-다국어 지원을 위해 Text style와 Figma variable을 사용해언어별 최적화를 했다. 각 언어 모드 구역에 아이템을 올려 놓으면 동영상과 같이 정의된 언어로 자동 변경할 수 있다. Design System에서 말하는 Token을 사용해서 String을 
+## Design Token Vs. Figma Variable
+Design Token을 사용해서 String을 
+다국어 지원을 위해 Text style와 Figma variable을 사용해언어별 최적화를 했다. 각 언어 모드 구역에 아이템을 올려 놓으면 동영상과 같이 정의된 언어로 자동 변경할 수 있다. 
 
 Variable은 Native 기능으로 
 
