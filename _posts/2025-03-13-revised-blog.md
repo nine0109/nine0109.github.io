@@ -8,6 +8,9 @@ tags:
   - 회고
 ---
 
+- [[#Figma Variable|Figma Variable]]
+- [[#Figma Plugin: Variables2Sheets|Figma Plugin: Variables2Sheets]]
+- [[#AI를 활용한 개발의 어려움|AI를 활용한 개발의 어려움]]
 
 
 본 프로젝트는 검정색과 흰색 2개의 색상만을 사용하는 디스플레이를 위한 그래픽 자원 개발이다. 웹 엔진을 기반으로 설계된 Figma 의 경우 Anti-aliasing을 해제하는 기능을 제공하지 않는다. 
