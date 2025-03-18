@@ -98,7 +98,7 @@ Figma에서 변수 생성 및 관리에 대한 자세한 내용은 [Figma 공식
 
 ![Figma Variables 관리 화면](assets/images/Create%20and%20manage%20variables%20–%20Figma%20Learn%20-%20Help%20Center_000002.png)
 
-처음 예상했던 것과 달리, Figma Variable은 Plugin을 사용한 Design Token 관리처럼 데이터 내보내기/가져오기 기능을 기본적으로 지원하지 않고 있었다. 필요한 기능을 제공하는 적절한 플러그인을 찾지 못해, 직접 [Variables2Sheets](https://www.figma.com/community/plugin/1458735501504134412/variables2sheets) 플러그인을 개발했다.
+처음 예상했던 것과 달리, Figma Variable은 Plugin을 사용한 Design Token 층관리처럼 데이터 내보내기/가져오기 기능을 기본적으로 지원하지 않고 있었다. 필요한 기능을 제공하는 적절한 플러그인을 찾지 못해, 직접 [Variables2Sheets](https://www.figma.com/community/plugin/1458735501504134412/variables2sheets) 플러그인을 개발했다.
 
 이 플러그인을 통해 Figma variable의 Mode 컬럼을 유지한 채 스프레드시트로 내보낼 수 있게 되었다. 생성한 시트를 고객사에 전달하고, 고객사에서 다국어로 수정된 시트를 다시 Figma로 가져와 변경된 스트링을 적용할 수 있었다. 이 과정을 통해 다국어 관리가 훨씬 효율적으로 이루어질 수 있었다.
 
