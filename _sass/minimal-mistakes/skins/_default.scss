@@ -1,0 +1,34 @@
+/* ==========================================================================
+   Default skin
+   ========================================================================== */
+
+// Intentionally left blank
+$link-color: #2380ED !default;
+$masthead-link-color: $text-color !default;
+$masthead-link-color-hover: $text-color !default;
+$navicon-link-color-hover: mix(#fff, $text-color, 80%) !default;
+
+
+
+// html,
+// html[data-theme="light"] {
+//     --color-bg-main: #FFFFFF;
+//     --color-bg-sub: #FAFAFC;
+//     --color-text-main: #282832;
+//     --color-text-sub: #5D5D67;
+//     --color-text-link: #2380ED;
+//     --color-border-dark: #363636;
+//     --color-border: #BABCBD;
+//     --color-border-light: #E5E5E5;
+// }
+
+// html[data-theme="dark"] {
+//     --color-bg-main: #262626;
+//     --color-bg-sub: #18181C;
+//     --color-text-main: #FAFAFC;
+//     --color-text-sub: #FFFEFF;
+//     --color-text-link: #6D9EFF;
+//     --color-border-dark: #E6E6E6;
+//     --color-border: #696969;
+//     --color-border-light: #353535;
+// }
