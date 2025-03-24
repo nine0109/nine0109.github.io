@@ -7,8 +7,7 @@ categories:
 tags:
   - 회고
 ---
-```table-of-contents
-```
+
 # Image Find & Replace
 
 ![](assets/images/0323%20at%2022.20.21.mp4)
