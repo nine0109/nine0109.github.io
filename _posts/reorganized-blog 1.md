@@ -1,5 +1,5 @@
 ---
-title: 다국어 지원 프로젝트 revised
+title: 다국어 지원 프로젝트 1. 협업
 header: Figma
 teaser: https://farm5.staticflickr.com/4076/4940499208_b79b77fb0a_z.jpg
 categories:
@@ -15,7 +15,6 @@ tags:
 
 본 프로젝트는 검정색과 흰색 2개의 색상만을 사용하는 디스플레이를 위한 그래픽 자원 개발이다. 웹 엔진을 기반으로 설계된 Figma의 경우 Anti-aliasing을 해제하는 기능을 제공하지 않는다. 포토샵의 경우 Font smoothing을 None으로 선택해 Anti-aliasing을 해제 후 개발할 수 있다. 하지만, 이 경우 벡터로 개발된 폰트를 픽셀 그리드에 맞춰 출력하는 것이지 최적화하는 것은 아니다. 따라서 폰트의 크기가 작을수록 획이 사라지거나 뭉친다. 
 
-자원 개발의 편의성과 효율성 그리고 유지 관리를 고려해 Figma로 작업 후 SVG 또는 PNG로 Export한 그래픽 자원을 흑백만 표현하는 1Bit BMP에 최적화시키는 방식으로 개발했다.
 
 ![[Untitled-1 @ 640 _Test RGB8_ _000114.png]]
 
