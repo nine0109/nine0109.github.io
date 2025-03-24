@@ -9,9 +9,11 @@ tags:
 ---
 ```table-of-contents
 ```
-# 2. Image Find & Replace
-Figma를 사용해 GUI Assets을 PNG File format으로 Export했다. 최종 산출물은 흰색과 검정색만을 사용하는 1bit BMP이다. PNG에는 Ant-Aliasing이 적용 되어 있다. 이것을 2단계로 나눠서 작업을 했다.
+# Image Find & Replace
+
 ![](assets/images/0323%20at%2022.20.21.mp4)
+Figma를 사용해 GUI Assets을 PNG File format으로 Export했다. 최종 산출물은 흰색과 검정색만을 사용하는 1bit BMP이다. PNG에는 Ant-Aliasing이 적용 되어 있다. 이것을 2단계로 나눠서 작업을 했다.
+
 
 첫번째는 PNG를 BMP로 변경한다. BMP로 변경하면서 세리프를 직교형태로 다듬었다. 또한 디더링이 생기지 않도록했다. (디더링 사례 이미지.)
 이것의 일부를 고객사에 전달해 컨폼을 받고 최종 산출물의 퀄리티로 정의했다. 협의 기준점을 만들었지만, 이는 최종 산출물 납품 받은 이후 퀄리티를 이슈화할 가능성이 있다.

@@ -44,6 +44,12 @@ tags:
 
 다국어 지원을 위해 Text style와 Figma variable을 사용해 언어별 최적화를 했다. Figma Pro사용자는 최대 3개의 Variable Mode를 사용할 수 있다. 다국어 지원을 위해 Text style와 KO, EN, CN 3개의 Variable Mode를 사용해 언어별 최적화를 했다.
 
+[링크](https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables)
+
+![링크](assets/images/Help_Center_000002.png)
+
+
+
 ![[figma_variable-1.png]]
 
 Mode에는 상속 개념이 있다. 영역을 특정 Mode로 정의 후 아이템을 모드 위에 올려 놓으면 동영상과 같이 모드를 상속받아 언어가 변경된다.
