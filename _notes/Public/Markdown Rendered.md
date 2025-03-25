@@ -3,7 +3,7 @@ title : Markdown Rendered
 feed: show
 date : 01-02-2021
 ---
- 
+
 This page contains a quick reference to all markdown properties. 90% of this was part of the [Simple Jekyll](https://github.com/raghuveerdotnet/simply-jekyll) theme, which we forked to built this one. Great job, makers!
 
 By the way, how did you reach this page?  
@@ -152,6 +152,13 @@ Some text to show that the reference links can follow later.
 --- 
 From what I understood, Jekyll doesn't support source files inside collection folders like `_notes`. 
 Currently, what I do is, I upload images and attachments manually to `/assets/img/` and use
+
+ ![bio](/assets/img/bio-photo.jpg "testphoto")
+
+![video](/assets/img/000119.mp4)
+
+![youtube](https://www.youtube.com/watch?v=7DxJloGFHrQ)
+
 
 ```
 From Assets/Img
