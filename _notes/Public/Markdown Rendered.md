@@ -19,7 +19,7 @@ private link
 aa -->
 
 ![bio](/assets/img/bio-photo.jpg "testphoto")
-![video](/assets/img/000119.mp4)
+![video](/assets/img/000119.mp4|localvideo)
 [[/assets/img/000119.mp4::localvideo]]
 [[https://www.youtube.com/watch?v=7DxJloGFHrQ::youtubevideo]]
 
