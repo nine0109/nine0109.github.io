@@ -28,14 +28,19 @@ From backlink under [[Hidden Note] or from feed, along with [[Welcome to the gar
 
 
 ![bio](/assets/img/bio-photo.jpg "testphoto")
+
 ![video](/assets/img/000119.mp4)
 ![youtube](https://www.youtube.com/watch?v=7DxJloGFHrQ)
 
-[[/assets/img/bio-photo.jpg "testphoto"]]
+
 [[/assets/img/000119.mp4]]
 [[https://www.youtube.com/watch?v=7DxJloGFHrQ]]
 
+aa
+{% video /assets/img/000119.mp4 %}
+aa
 
+[[/assets/img/000119.mp4]]
 [[/assets/img/000119.mp4::localvideo]]
 [[https://www.youtube.com/watch?v=7DxJloGFHrQ::youtubevideo]]
 
