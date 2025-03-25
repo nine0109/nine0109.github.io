@@ -4,6 +4,27 @@ feed: show
 date : 01-02-2021
 ---
 
+
+
+
+
+
+
+private link
+[[/assets/img/000119.mp4]]
+[[https://www.youtube.com/watch?v=7DxJloGFHrQ]]
+
+<!-- aa
+{% video /assets/img/000119.mp4 %}
+aa -->
+
+![bio](/assets/img/bio-photo.jpg "testphoto")
+![video](/assets/img/000119.mp4)
+[[/assets/img/000119.mp4::localvideo]]
+[[https://www.youtube.com/watch?v=7DxJloGFHrQ::youtubevideo]]
+
+
+
 This page contains a quick reference to all markdown properties. 90% of this was part of the [Simple Jekyll](https://github.com/raghuveerdotnet/simply-jekyll) theme, which we forked to built this one. Great job, makers!
 
 By the way, how did you reach this page?  
@@ -25,26 +46,6 @@ From backlink under [[Hidden Note] or from feed, along with [[Welcome to the gar
 ##### H5 
 ###### H6
 ```
-
-
-![bio](/assets/img/bio-photo.jpg "testphoto")
-
-![video](/assets/img/000119.mp4)
-![youtube](https://www.youtube.com/watch?v=7DxJloGFHrQ)
-
-
-[[/assets/img/000119.mp4]]
-[[https://www.youtube.com/watch?v=7DxJloGFHrQ]]
-
-aa
-{% video /assets/img/000119.mp4 %}
-aa
-
-[[/assets/img/000119.mp4]]
-[[/assets/img/000119.mp4::localvideo]]
-[[https://www.youtube.com/watch?v=7DxJloGFHrQ::youtubevideo]]
-
-
 # H1
 ## H2
 ### H3
