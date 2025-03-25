@@ -1,0 +1,12 @@
+<div class="video-container">
+  {% if include.type == 'youtube' %}
+    <iframe src="https://www.youtube.com/embed/{{ include.id }}" frameborder="0" allowfullscreen></iframe>
+  {% elsif include.type == 'vimeo' %}
+    <iframe src="https://player.vimeo.com/video/{{ include.id }}" frameborder="0" allowfullscreen></iframe>
+  {% else %}
+    <video width="100%" controls>
+      <source src="{{ include.src }}" type="{{ include.format | default: 'video/mp4' }}">
+      Your browser does not support the video tag.
+    </video>
+  {% endif %}
+</div>

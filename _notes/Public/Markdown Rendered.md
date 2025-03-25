@@ -26,6 +26,20 @@ From backlink under [[Hidden Note] or from feed, along with [[Welcome to the gar
 ###### H6
 ```
 
+
+![bio](/assets/img/bio-photo.jpg "testphoto")
+![video](/assets/img/000119.mp4)
+![youtube](https://www.youtube.com/watch?v=7DxJloGFHrQ)
+
+[[/assets/img/bio-photo.jpg "testphoto"]]
+[[/assets/img/000119.mp4]]
+[[https://www.youtube.com/watch?v=7DxJloGFHrQ]]
+
+
+[[/assets/img/000119.mp4::localvideo]]
+[[https://www.youtube.com/watch?v=7DxJloGFHrQ::youtubevideo]]
+
+
 # H1
 ## H2
 ### H3
@@ -152,13 +166,6 @@ Some text to show that the reference links can follow later.
 --- 
 From what I understood, Jekyll doesn't support source files inside collection folders like `_notes`. 
 Currently, what I do is, I upload images and attachments manually to `/assets/img/` and use
-
- ![bio](/assets/img/bio-photo.jpg "testphoto")
-
-![video](/assets/img/000119.mp4)
-
-![youtube](https://www.youtube.com/watch?v=7DxJloGFHrQ)
-
 
 ```
 From Assets/Img

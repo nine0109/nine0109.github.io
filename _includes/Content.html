@@ -108,6 +108,12 @@
                 {%- if site.preferences.wrapping.enabled -%}
                     {%- assign link_text = '<img src="' | append: title | append: '"/>' -%}
                 {%- endif -%}
+            {%- elsif url == "localvideo" -%}
+                {%- assign link_text = '<div class="video-container"><video controls width="100%"><source src="' | append: title | append: '" type="video/mp4">Your browser does not support video tags.</video></div>' -%}
+            {%- elsif url == "youtube" -%}
+                {%- assign link_text = '<div class="video-container"><iframe src="https://www.youtube.com/embed/' | append: title | append: '" frameborder="0" allowfullscreen></iframe></div>' -%}
+            {%- elsif url == "vimeo" -%}
+                {%- assign link_text = '<div class="video-container"><iframe src="https://player.vimeo.com/video/' | append: title | append: '" frameborder="0" allowfullscreen></iframe></div>' -%}
             {%- elsif url == "lsn" or url == "rsn" or url == "lsn-transclude" or url == "rsn-transclude"  or url == "lmn" or url == "rmn" or url == "lmn-transclude" or url == "rmn-transclude" -%}
                 {%- assign toggleLabel = "" -%}
                 {%- assign sideNoteNum = "" -%}

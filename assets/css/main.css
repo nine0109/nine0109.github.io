@@ -5,6 +5,23 @@
   to {
     transform: rotate(359deg); } }
 
+.video-container {
+  position: relative;
+  padding-bottom: 56.25%; /* 16:9 비율 */
+  padding-top: 25px;
+  height: 0;
+  margin-bottom: 1rem;
+}
+
+.video-container iframe,
+.video-container video {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+}
+    
 .delete, .is-unselectable, .button {
   -webkit-touch-callout: none;
   -webkit-user-select: none;
