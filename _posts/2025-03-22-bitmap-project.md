@@ -2,10 +2,10 @@
 title: 비트맵 프로젝트
 header: 프로젝트의 이해
 teaser: https://farm5.staticflickr.com/4076/4940499208_b79b77fb0a_z.jpg
-categories:
-  - Figma
-tags:
-  - 회고
+# categories:
+#   - Figma
+# tags:
+#   - 회고
 ---
 
 # 프로젝트의 이해
