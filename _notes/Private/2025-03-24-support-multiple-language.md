@@ -1,6 +1,7 @@
 ---
 title: 피그마 다국어 협업
-header: Figma
+feed: show
+date: 23-03-2025
 format: blog
 ---
 
