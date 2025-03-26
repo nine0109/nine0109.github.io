@@ -3,6 +3,21 @@ title : Markdown Rendered
 feed: show
 date : 01-02-2021
 ---
+
+
+1
+![](assets/img/000119.mp4)
+
+2
+[[/assets/img/000119.mp4::localvideo]]
+
+3
+[[https://www.youtube.com/watch?v=7DxJloGFHrQ::youtubevideo]]
+
+4
+![video](/assets/img/000119.mp4)
+
+
 This page contains a quick reference to all markdown properties. 90% of this was part of the [Simple Jekyll](https://github.com/raghuveerdotnet/simply-jekyll) theme, which we forked to built this one. Great job, makers!
 
 By the way, how did you reach this page?  
