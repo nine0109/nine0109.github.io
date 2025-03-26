@@ -1,5 +1,5 @@
-# Modified workflow for building and deploying a Jekyll site to GitHub Pages with custom plugins
-name: Deploy Jekyll with Custom Plugins
+# Simple workflow for building Jekyll with JavaScript video processing
+name: Deploy Jekyll with Video Processing
 
 on:
   # Runs on pushes targeting the default branch
@@ -15,8 +15,7 @@ permissions:
   pages: write
   id-token: write
 
-# Allow only one concurrent deployment, skipping runs queued between the run in-progress and latest queued.
-# However, do NOT cancel in-progress runs as we want to allow these production deployments to complete.
+# Allow only one concurrent deployment
 concurrency:
   group: "pages"
   cancel-in-progress: false
@@ -28,28 +27,111 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Setup Ruby
         uses: ruby/setup-ruby@v1
         with:
-          ruby-version: '3.0'
-          bundler-cache: true
-      
+          ruby-version: '3.2' # 더 최신 버전 사용
+          bundler-cache: false # 캐시 문제 방지
+
+      - name: Debug Ruby Info
+        run: |
+          ruby --version
+          gem --version
+          bundle --version
+
       - name: Setup Pages
         id: pages
         uses: actions/configure-pages@v5
-      
-      - name: Install Dependencies
+
+      # 비디오 처리를 위한 JavaScript 생성
+      - name: Create JavaScript for Video Processing
+        run: |
+          mkdir -p assets/js
+          cat > assets/js/video-processor.js << 'EOL'
+          document.addEventListener('DOMContentLoaded', function() {
+            // Process local video files in image tags
+            const images = document.querySelectorAll('img');
+            
+            images.forEach(function(img) {
+              const src = img.getAttribute('src');
+              
+              if (src && /\.(mp4|webm|ogg|mov)$/i.test(src)) {
+                const videoType = src.match(/\.([^.]+)$/)[1].toLowerCase();
+                const mimeType = videoType === 'mov' ? 'mp4' : videoType;
+                
+                const video = document.createElement('div');
+                video.className = 'video-container';
+                video.innerHTML = `<video controls width="100%"><source src="${src}" type="video/${mimeType}">Your browser does not support the video tag.</video>`;
+                
+                img.parentNode.replaceChild(video, img);
+              }
+            });
+            
+            // Process YouTube links
+            const youtubeLinks = document.querySelectorAll('a[href$="youtubevideo"]');
+            
+            youtubeLinks.forEach(function(link) {
+              const href = link.textContent;
+              let videoId;
+              
+              if (href.includes('youtube.com/watch')) {
+                const url = new URL(href);
+                videoId = url.searchParams.get('v');
+              } else if (href.includes('youtu.be/')) {
+                videoId = href.split('youtu.be/')[1].split('?')[0];
+              }
+              
+              if (videoId) {
+                const video = document.createElement('div');
+                video.className = 'video-container';
+                video.innerHTML = `<iframe src="https://www.youtube.com/embed/${videoId}" frameborder="0" allowfullscreen></iframe>`;
+                
+                link.parentNode.replaceChild(video, link);
+              }
+            });
+          });
+          EOL
+          echo "Created JavaScript video processor"
+
+      # JS 인젝터 스크립트 생성
+      - name: Create JS Injector Script
+        run: |
+          cat > js-injector.rb << 'EOL'
+          #!/usr/bin/env ruby
+          # _site 폴더의 모든 HTML 파일을 찾아 스크립트 태그 삽입
+          Dir.glob('./_site/**/*.html').each do |file|
+            content = File.read(file)
+            
+            # 만약 이미 스크립트가 포함되어 있지 않다면 추가
+            unless content.include?('video-processor.js')
+              # </body> 태그 앞에 스크립트 삽입
+              modified = content.gsub('</body>', '<script src="/assets/js/video-processor.js"></script></body>')
+              
+              # 변경된 내용 저장
+              File.write(file, modified)
+              puts "Updated: #{file}"
+            end
+          end
+          EOL
+          chmod +x js-injector.rb
+          echo "Created JS injector script"
+
+      - name: Install Dependencies (Simple Approach)
         run: |
           gem install jekyll bundler
+          bundle config set --local path 'vendor/bundle'
           bundle install
-      
-      - name: Build with Jekyll (with custom plugins)
-        run: |
-          bundle exec jekyll build --baseurl "${{ steps.pages.outputs.base_path }}"
+
+      - name: Build with Jekyll
+        run: bundle exec jekyll build
         env:
           JEKYLL_ENV: production
-      
+
+      # 빌드된 HTML 파일에 스크립트 삽입
+      - name: Inject Script Tags
+        run: ruby ./js-injector.rb
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:
