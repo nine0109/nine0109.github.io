@@ -26,7 +26,7 @@ format: blog
 ### 다국어 지원 기능 개발
 #### 화면 정의
 
-[2025-03-23-bitmap-project](_posts/2025-03-23-bitmap-project.md)번역팀과 개발팀에 다국어 문맥을 파악하는데 도움이 되고자 한 화면에 3개 언어로 흐름을 정의했다. 이를 통해 언어별 글자 수 길이와 크기 등을 더 쉽게 가늠하고 어떤 차이가 발생할 수 있는지를 알 수 있었다. 인터랙션을 수정하지 않는 언어를 변경할 수 있게했다. 
+[2025-03-23-bitmap-project](_posts/2025-03-23-bitmap-project.md)번역팀과 개발팀의 다국어 문맥 이해를 돕기 위해, 한 화면에 3개 언어의 흐름을 정의하여 언어별 글자 수 길이와 크기 차이를 쉽게 파악하고 발생 가능한 UI 변경을 예측할 수 있도록 했습니다. 또한, 인터랙션 수정 없이 언어 변경이 가능하도록 구현했습니다
 
 ![](/assets/img/Screen_Flow_1-1.png)
 ![](/assets/img/Screen_Flow_2-2.png)
@@ -35,7 +35,7 @@ format: blog
 
 ## Figma Variable
 
-다국어 지원을 위해 Text style와 Figma variable을 사용해 언어별 최적화를 했다. Figma Pro사용자는 최대 3개의 Variable Mode를 사용할 수 있다. 다국어 지원을 위해 Text style와 KO, EN, CN 3개의 Variable Mode를 사용해 언어별 최적화를 했다.
+다국어 지원을 위해 Text style과 Figma variable을 활용하여 언어별 최적화를 구현했습니다. Figma Pro 사용자는 최대 3개의 Variable Mode를 사용할 수 있으며, 본 프로젝트에서는 한국어(KO), 영어(EN), 중국어(CN)의 3가지 Mode를 사용하여 각 언어에 최적화된 UI를 구성했습니다.
 
 [링크](https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables)
 
@@ -43,12 +43,12 @@ format: blog
 
 ![[figma_variable-1.png]]
 
-Mode에는 상속 개념이 있다. 영역을 특정 Mode로 정의 후 아이템을 모드 위에 올려 놓으면 동영상과 같이 모드를 상속받아 언어가 변경된다.
+Figma Mode는 상속 개념을 기반으로 합니다. 특정 영역을 Mode로 정의한 후, 해당 Mode 위에 아이템을 배치하면 아이템이 Mode의 속성을 상속받아 언어에 따라 내용이 자동으로 변경됩니다.
 
 ![](/assets/img/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000119%201.mp4)
 (사전 정의된 모드에 따라 아이템의 언어 변경)
 
-Text style은 H1~H4와 Body로 정의하였으며, 이는 이후 Glyphs Find&Replace에서의 분류로 사용했다.
+Text style은 H1부터 H4, 그리고 Body 스타일로 정의되었으며, 이는 추후 Glyphs Find&Replace 기능을 활용한 폰트 관리의 기준으로 사용되었습니다.
 
 # Figma Plugin 개발
 ## Variables2Sheets
