@@ -1,7 +1,7 @@
 ---
-title: 비트맵 프로젝트
-header: 개발
-teaser: https://farm5.staticflickr.com/4076/4940499208_b79b77fb0a_z.jpg
+title: 비트맵 프로젝트, Find & Replace 개발
+feed: show
+date: 03-23-2025
 categories:
   - Figma
 tags:

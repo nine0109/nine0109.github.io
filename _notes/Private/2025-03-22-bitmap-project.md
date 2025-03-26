@@ -1,11 +1,9 @@
 ---
-title: 비트맵 프로젝트
-header: 프로젝트의 이해
-teaser: https://farm5.staticflickr.com/4076/4940499208_b79b77fb0a_z.jpg
-categories:
-  - Figma
-tags:
-  - 회고
+title: 비트맵 프로젝트(프로젝트의 이해)
+feed: show
+date: 03-02-2025
+permalink: /credits
+format: list
 ---
 
 # 프로젝트의 이해
