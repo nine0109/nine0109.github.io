@@ -53,26 +53,24 @@ Text style은 H1부터 H4, 그리고 Body 스타일로 정의되었으며, 이�
 # Figma Plugin 개발
 ## Variables2Sheets
 
-Figma에서는 Variables을 Export하는 기능을 제공하고 있지 않다. 일반 사용자가 열람할 수 있는 형식으로 Data Sharing을 제공해서 고객과 직접 소통한다면 수동입력(Manual Input)에 따른 오류와 손실을 제거해 업무 효율성을 극대화할 수 있다. 
+Figma는 Variables 내보내기 기능을 공식적으로 제공하지 않습니다. 이에 Variables 데이터를 일반 사용자가 쉽게 열람할 수 있는 형태로 공유하여 고객과의 직접적인 소통을 가능하게 함으로써, 수동 입력으로 인한 오류와 데이터 손실을 줄이고 업무 효율성을 극대화하고자 했습니다.
 
-Figma Plugin에서 Variables을 Export할 수 있는 플러그인을 검색했으나 시트 형태를 제공하는 플러그인을 발견하지 못했다. JSON으로 제공하는 플러그인은 있었으나 스파게티 코드와 같은 복잡한 코드 구조로 Export/Import 외에 다른 응용프로그램에서 활용을 할 수 없게 되어 있었다. 그래서 Variables를 시트로 내보내고 재사용 가능한 JSON과 CSV파일로 Export했다.
+Figma Plugin 마켓플레이스에서 Variables 내보내기 플러그인을 검색했지만, 스프레드시트 형태를 지원하는 플러그인은 찾을 수 없었습니다. JSON 형식으로 내보내는 플러그인은 존재했으나, 복잡한 코드 구조로 인해 단순 내보내기/가져오기 외에는 다른 애플리케이션에서 활용하기 어려웠습니다. 따라서 Variables를 스프레드시트(.xlsx, .csv 등)로 내보내고, 재사용 가능한 JSON 및 CSV 파일 형식으로도 Export 기능을 구현했습니다.
 
 ![](/assets/img/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_mov_000136-converted.mp4)
 
 ## 사용 방법
 
-Figma Variables을 클립보드에 복사 후 시트에 (Ctrl+V; Command+V)로 붙여 넣기하면 Figma Variables를 붙여 넣을 수 있다. 이후 편집한 시트를 다시 Ctrl+C로 클립 보드에 복사 후 Figma Variables의 Paste 탭에 붙여 넣으면 시트에 편집한 Variable을 Figma로 넣을 수 있다.
-(다르게 말하면 시트와 Figma 사이를 Ctrl+C & Ctrl+V로 데이터를 넣고 빼고 하는 것이다.)
+Figma Variables를 복사하여 스프레드시트에 붙여넣기(Ctrl+V 또는 Command+V)하면 Variables 데이터를 확인할 수 있습니다. 편집된 스프레드시트를 다시 복사(Ctrl+C)하여 Figma Variables의 "Paste" 탭에 붙여넣으면 스프레드시트의 내용을 Figma에 반영할 수 있습니다. (간단히 말해, Ctrl+C와 Ctrl+V 단축키로 스프레드시트와 Figma 간에 데이터를 양방향으로 이동시키는 방식입니다.)
 
-Export한 Figma 데이터를 엑셀 등의 파일로 고객사에 전달 후 고객사에 편집한 다국어 스트링 문서를 임포트하면 한번에 문서 전체를 고객사에서 수정한 스트링으로 업데이트할 수 있다. 👍
+Export한 Figma 데이터를 엑셀 파일 등으로 고객사에 전달하고, 고객사가 편집한 다국어 스트링 문서를 임포트하면 문서 전체의 스트링을 한 번에 업데이트할 수 있습니다. 👍
 
-Figma Variables은 CSV와 JSON 파일로 Export하거나 Import할 수도 있다.
+Figma Variables는 CSV 및 JSON 파일 형식으로 내보내거나 가져올 수도 있습니다.
 
-동영상 예시의 경우 편집한 데이터를 Import 후 Figma Variable은 업데이트 되었으나, 많은 데이터 변경으로 화면에 업데이트에 조금 시간이 걸리는 것을 볼 수 있다.
-
+동영상 예시에서 볼 수 있듯이, 편집된 데이터를 Import한 후 Figma Variable은 즉시 업데이트되지만, 데이터 양이 많을 경우 화면 업데이트에 약간의 시간이 소요될 수 있습니다.
 
 # 마치며
-Variable2Sheets 플러그인을 로컬에서 사용할 경우 기능만 동작하면 되었다. 퍼블리싱을 통해 여러 곳에서도 사용할 수 있게 만들려고 하니 UI수정이 필요했다. UI 고도화는 생각보다 노력이 필요했다. 로직을 개발에 한 2배에서 3배의 시간을 들었던것 같다. 처음에는 크리스마스 연휴에 릴리즈를 목표했으나, 이후 신년 등 연휴기간을 모두 보냈다. 하지만, 계속 늦어져 25년 1월 8일에 릴리즈할 수 있었다.
+Variable2Sheets 플러그인을 로컬 환경에서 사용할 때는 기능 구현에 집중했습니다. 하지만 퍼블리싱을 통해 여러 사용자가 활용할 수 있도록 만들려니 UI 개선이 필수적이었습니다. UI 고도화 작업은 예상보다 많은 노력이 필요했으며, 로직 개발에 소요된 시간의 2~3배에 달했습니다. 당초 크리스마스 연휴 기간 내 릴리즈를 목표했으나, 여러 차례 연기되어 2025년 1월 8일에 최종적으로 릴리즈할 수 있었습니다.
 https://www.figma.com/community/plugin/1458735501504134412/variables2sheets
 
 
