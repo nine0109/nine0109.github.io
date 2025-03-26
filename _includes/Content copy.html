@@ -1,3 +1,35 @@
+{%- comment -%}
+*
+* MIT License
+* Copyright (c) 2020 Raghuveer S, Hiran Venugopalan
+*
+* Permission is hereby granted, free of charge, to any person obtaining a copy
+* of this software and associated documentation files (the "Software"), to deal
+* in the Software without restriction, including without limitation the rights
+* to use, copy, modify, merge, publish, distribute, sublicense, and/or sell
+* copies of the Software, and to permit persons to whom the Software is
+* furnished to do so, subject to the following conditions:
+*
+* The above copyright notice and this permission notice shall be included in all
+* copies or substantial portions of the Software.
+*
+* THE SOFTWARE IS PROVIDED "AS IS", WITHOUT WARRANTY OF ANY KIND, EXPRESS OR
+* IMPLIED, INCLUDING BUT NOT LIMITED TO THE WARRANTIES OF MERCHANTABILITY,
+* FITNESS FOR A PARTICULAR PURPOSE AND NONINFRINGEMENT. IN NO EVENT SHALL THE
+* AUTHORS OR COPYRIGHT HOLDERS BE LIABLE FOR ANY CLAIM, DAMAGES OR OTHER
+* LIABILITY, WHETHER IN AN ACTION OF CONTRACT, TORT OR OTHERWISE, ARISING FROM,
+* OUT OF OR IN CONNECTION WITH THE SOFTWARE OR THE USE OR OTHER DEALINGS IN THE
+* SOFTWARE.
+*
+* File: Content.html
+* Author Raghuveer S, Hiran Venugopalan
+*
+* This file contains the markup for the context menu thingy you see when you right
+* click on the post titles on the home page.
+*
+{%- endcomment -%}
+
+
 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
 <div class="content">
     {% comment %}
@@ -15,34 +47,16 @@
             {%- assign url = url_rest[0] -%}
             {%- assign rest = url_rest[1] -%}
             
-            {%- assign is_video = false -%}
             {%- if url contains '.mp4' or url contains '.webm' or url contains '.ogg' or url contains '.mov' -%}
-                {%- assign is_video = true -%}
                 {%- assign video_type = 'mp4' -%}
                 {%- if url contains '.webm' -%}
                     {%- assign video_type = 'webm' -%}
                 {%- elsif url contains '.ogg' -%}
                     {%- assign video_type = 'ogg' -%}
-                {%- elsif url contains '.mov' -%}
-                    {%- assign video_type = 'mp4' -%}
                 {%- endif -%}
                 
                 {%- assign processed_content = processed_content | append: '<div class="video-container"><video controls width="100%"><source src="' | append: url | append: '" type="video/' | append: video_type | append: '">Your browser does not support the video tag.</video></div>' | append: rest -%}
-            {%- elsif url contains '|localvideo' -%}
-                {%- assign is_video = true -%}
-                {%- assign real_url = url | split: '|localvideo' | first -%}
-                {%- assign video_type = 'mp4' -%}
-                {%- if real_url contains '.webm' -%}
-                    {%- assign video_type = 'webm' -%}
-                {%- elsif real_url contains '.ogg' -%}
-                    {%- assign video_type = 'ogg' -%}
-                {%- elsif real_url contains '.mov' -%}
-                    {%- assign video_type = 'mp4' -%}
-                {%- endif -%}
-                
-                {%- assign processed_content = processed_content | append: '<div class="video-container"><video controls width="100%"><source src="' | append: real_url | append: '" type="video/' | append: video_type | append: '">Your browser does not support the video tag.</video></div>' | append: rest -%}
             {%- elsif url contains 'youtube.com' or url contains 'youtu.be' -%}
-                {%- assign is_video = true -%}
                 {%- if url contains 'youtube.com/watch?v=' -%}
                     {%- assign youtube_id = url | split: 'watch?v=' -%}
                     {%- assign youtube_id = youtube_id[1] | split: '&' -%}
@@ -54,14 +68,11 @@
                 
                 {%- assign processed_content = processed_content | append: '<div class="video-container"><iframe src="https://www.youtube.com/embed/' | append: youtube_id | append: '" frameborder="0" allowfullscreen></iframe></div>' | append: rest -%}
             {%- elsif url contains 'vimeo.com' -%}
-                {%- assign is_video = true -%}
                 {%- assign vimeo_id = url | split: 'vimeo.com/' -%}
                 {%- assign vimeo_id = vimeo_id[1] -%}
                 
                 {%- assign processed_content = processed_content | append: '<div class="video-container"><iframe src="https://player.vimeo.com/video/' | append: vimeo_id | append: '" frameborder="0" allowfullscreen></iframe></div>' | append: rest -%}
-            {%- endif -%}
-            
-            {%- if is_video == false -%}
+            {%- else -%}
                 {%- assign processed_content = processed_content | append: '![' | append: alt_text | append: '](' | append: url | append: ')' | append: rest -%}
             {%- endif -%}
         {%- else -%}
