@@ -20,7 +20,7 @@ aa -->
 1
 ![bio](/assets/img/bio-photo.jpg "testphoto")
 2
-![video](/assets/img/000119.mp4|localvideo)
+![video](/assets/img/000119.mp4)
 
 3
 [[/assets/img/000119.mp4::localvideo]]
