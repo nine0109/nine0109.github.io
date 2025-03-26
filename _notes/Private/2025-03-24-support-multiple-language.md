@@ -29,10 +29,8 @@ format: blog
 
 [2025-03-23-bitmap-project](_posts/2025-03-23-bitmap-project.md)번역팀과 개발팀에 다국어 문맥을 파악하는데 도움이 되고자 한 화면에 3개 언어로 흐름을 정의했다. 이를 통해 언어별 글자 수 길이와 크기 등을 더 쉽게 가늠하고 어떤 차이가 발생할 수 있는지를 알 수 있었다. 인터랙션을 수정하지 않는 언어를 변경할 수 있게했다. 
 
-![[Screen_Flow_1-1.png]]
-
-
-![[Screen_Flow_2-2.png]]
+![](/assets/img/Screen_Flow_1-1.png)
+![](/assets/img/Screen_Flow_2-2.png)
 
 
 
@@ -42,15 +40,13 @@ format: blog
 
 [링크](https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables)
 
-![링크](assets/images/Help_Center_000002.png)
-
-
+![링크](/assets/img/Help_Center_000002.png)
 
 ![[figma_variable-1.png]]
 
 Mode에는 상속 개념이 있다. 영역을 특정 Mode로 정의 후 아이템을 모드 위에 올려 놓으면 동영상과 같이 모드를 상속받아 언어가 변경된다.
 
-![](assets/images/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000119%201.mp4)
+![](/assets/img/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000119%201.mp4)
 (사전 정의된 모드에 따라 아이템의 언어 변경)
 
 Text style은 H1~H4와 Body로 정의하였으며, 이는 이후 Glyphs Find&Replace에서의 분류로 사용했다.
@@ -62,7 +58,7 @@ Figma에서는 Variables을 Export하는 기능을 제공하고 있지 않다. �
 
 Figma Plugin에서 Variables을 Export할 수 있는 플러그인을 검색했으나 시트 형태를 제공하는 플러그인을 발견하지 못했다. JSON으로 제공하는 플러그인은 있었으나 스파게티 코드와 같은 복잡한 코드 구조로 Export/Import 외에 다른 응용프로그램에서 활용을 할 수 없게 되어 있었다. 그래서 Variables를 시트로 내보내고 재사용 가능한 JSON과 CSV파일로 Export했다.
 
-![](assets/images/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_mov_000136-converted.mp4)
+![](/assets/img/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_mov_000136-converted.mp4)
 
 ## 사용 방법
 
