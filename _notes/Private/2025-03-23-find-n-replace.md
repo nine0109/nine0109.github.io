@@ -1,16 +1,13 @@
 ---
 title: 비트맵 프로젝트, Find & Replace 개발
 feed: show
-date: 03-23-2025
-categories:
-  - Figma
-tags:
-  - 회고
+date: 23-03-2025
 ---
 
 # Image Find & Replace
 
-![](assets/images/0323%20at%2022.20.21.mp4)
+
+![](/assets/img/0323%20at%2022.20.21.mp4)
 Figma를 사용해 GUI Assets을 PNG File format으로 Export했다. 최종 산출물은 흰색과 검정색만을 사용하는 1bit BMP이다. PNG에는 Ant-Aliasing이 적용 되어 있다. 이것을 2단계로 나눠서 작업을 했다.
 
 

@@ -1,11 +1,7 @@
 ---
 title: 피그마 다국어 협업
 header: Figma
-teaser: https://farm5.staticflickr.com/4076/4940499208_b79b77fb0a_z.jpg
-categories:
-  - Figma
-tags:
-  - 회고
+format: blog
 ---
 
 # 다국어 지원 개발 프로세스와 고려사항
