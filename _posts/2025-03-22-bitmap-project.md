@@ -1,9 +1,5 @@
 ---
 title: 비트맵 프로젝트(프로젝트의 이해)
-feed: show
-date: 03-02-2025
-permalink: /credits
-format: list
 ---
 
 # 프로젝트의 이해
