@@ -14,6 +14,9 @@ private link
 [[/assets/img/000119.mp4]]
 [[https://www.youtube.com/watch?v=7DxJloGFHrQ]]
 
+
+new
+![](assets/img/000119.mp4)
 <!-- aa
 {% video /assets/img/000119.mp4 %}
 aa -->
