@@ -17,10 +17,15 @@ private link
 <!-- aa
 {% video /assets/img/000119.mp4 %}
 aa -->
-
+1
 ![bio](/assets/img/bio-photo.jpg "testphoto")
+2
 ![video](/assets/img/000119.mp4|localvideo)
+
+3
 [[/assets/img/000119.mp4::localvideo]]
+
+4
 [[https://www.youtube.com/watch?v=7DxJloGFHrQ::youtubevideo]]
 
 
