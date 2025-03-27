@@ -71,7 +71,6 @@ collections:
       permalink: /note/:title
       # permalink: /note/:path
 
-
 markdown: kramdown
 
 kramdown:
