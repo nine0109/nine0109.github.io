@@ -56,8 +56,13 @@ Figma는 Variables 내보내기 기능을 공식적으로 제공하지 않습니
 
 Figma Plugin 마켓플레이스에서 Variables 내보내기 플러그인을 검색했지만, 스프레드시트 형태를 지원하는 플러그인은 찾을 수 없었습니다. JSON 형식으로 내보내는 플러그인은 존재했으나, 복잡한 코드 구조로 인해 단순 내보내기/가져오기 외에는 다른 애플리케이션에서 활용하기 어려웠습니다. 따라서 Variables를 스프레드시트(.xlsx, .csv 등)로 내보내고, 재사용 가능한 JSON 및 CSV 파일 형식으로도 Export 기능을 구현했습니다.
 
+https://www.figma.com/community/plugin/1458735501504134412/variables2sheets
+
 ![](/assets/img/bp_video_plugin_shortcut.mp4)
-![](assets/img/bp_video_plugin2.mp4)
+
+
+![](/assets/img/bp_video_plugin_shortcut.mp4)
+
 
 ## 사용 방법
 
@@ -72,6 +77,9 @@ Figma Variables는 CSV 및 JSON 파일 형식으로 내보내거나 가져올 �
 # 마치며
 Variable2Sheets 플러그인을 로컬 환경에서 사용할 때는 기능 구현에 집중했습니다. 하지만 퍼블리싱을 통해 여러 사용자가 활용할 수 있도록 만들려니 UI 개선이 필수적이었습니다. UI 고도화 작업은 예상보다 많은 노력이 필요했으며, 로직 개발에 소요된 시간의 2~3배에 달했습니다. 당초 크리스마스 연휴 기간 내 릴리즈를 목표했으나, 여러 차례 연기되어 2025년 1월 8일에 최종적으로 릴리즈할 수 있었습니다.
 https://www.figma.com/community/plugin/1458735501504134412/variables2sheets
+
+
+
 
 
 
