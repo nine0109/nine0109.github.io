@@ -41,10 +41,13 @@ date: 22-03-2025
 이러한 점을 고려하여 UI/UX 설계 및 GUI 개발 효율성을 높이기 위해 Figma를 사용하여 개발한 후, 최종적으로 GUI Assets 파일 포맷을 변경하는 방식으로 결정했습니다.
 
 
-#### 폴더와 파일명 구조화하기
+#### 디자인 시스템
+
+
+폴더와 파일명 구조화하기
 ![](/assets/img/01_bp_folder_n_filenaming.png)
 폴더면돠 
-
+Asset Management Structure
 
 [[https://atomicdesign.bradfrost.com/chapter-2/ |Atomic design]]
 그림과 같이 
