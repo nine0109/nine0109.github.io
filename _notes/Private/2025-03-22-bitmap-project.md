@@ -34,13 +34,14 @@ date: 22-03-2025
 
 
 #### 폴더와 파일명 구조화하기
-![[Folder_n_Filenaming-3.png]]
+![](/assets/img/01_bp_folder_n_filenaming.png)
 최종 결과물에서 안티앨리어싱을 제거해야 하므로, 작업 효율성을 위해 설계 및 그래픽 결과물 제작에 적합한 Figma를 사용했습니다.
+
 [[https://atomicdesign.bradfrost.com/chapter-2/ |Atomic design]]
 그림과 같이 Design System 형태로 구성하여 재사용성을 높였으며, 이를 통해 설계와 GUI를 통합적으로 관리할 수 있도록 했습니다.
 
 #### 도트작업
-![[dot-1.png]]
+![](/assets/img/01_bp_dot_ps.png)
 비트맵 전환 시 획이 뭉치거나 사라지는 현상을 최소화하기 위해 최적화 작업을 거쳤습니다. 이후 포토샵에서 펜 도구를 사용하여 픽셀 단위의 도트 작업을 진행했습니다. 도트 작업 창을 복제하여 실제 화면에서의 느낌을 미리 확인하면서 작업을 진행했습니다.
 
 ### 마치며

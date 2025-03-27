@@ -26,10 +26,10 @@ format: blog
 ### 다국어 지원 기능 개발
 #### 화면 정의
 
-[2025-03-23-bitmap-project](_posts/2025-03-23-bitmap-project.md)번역팀과 개발팀의 다국어 문맥 이해를 돕기 위해, 한 화면에 3개 언어의 흐름을 정의하여 언어별 글자 수 길이와 크기 차이를 쉽게 파악하고 발생 가능한 UI 변경을 예측할 수 있도록 했습니다. 또한, 인터랙션 수정 없이 언어 변경이 가능하도록 구현했습니다
+~~[2025-03-23-bitmap-project](_posts/2025-03-23-bitmap-project.md)~~번역팀과 개발팀의 다국어 문맥 이해를 돕기 위해, 한 화면에 3개 언어의 흐름을 정의하여 언어별 글자 수 길이와 크기 차이를 쉽게 파악하고 발생 가능한 UI 변경을 예측할 수 있도록 했습니다. 또한, 인터랙션 수정 없이 언어 변경이 가능하도록 구현했습니다
 
-![](/assets/img/Screen_Flow_1-1.png)
-![](/assets/img/Screen_Flow_2-2.png)
+![](/assets/img/03_bp_screen_Flow_1.png)
+![](/assets/img/03_bp_screen_Flow_2.png)
 
 
 
@@ -39,13 +39,13 @@ format: blog
 
 [링크](https://help.figma.com/hc/en-us/articles/15145852043927-Create-and-manage-variables)
 
-![링크](/assets/img/Help_Center_000002.png)
-
-![[figma_variable-1.png]]
+![링크](/assets/img/03_bp_help_center.png)
+![](/assets/img/03_bp_figma_variable.png)
 
 Figma Mode는 상속 개념을 기반으로 합니다. 특정 영역을 Mode로 정의한 후, 해당 Mode 위에 아이템을 배치하면 아이템이 Mode의 속성을 상속받아 언어에 따라 내용이 자동으로 변경됩니다.
 
-![](/assets/img/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_000119%201.mp4)
+![](/assets/img/bp_video_mode.mp4)
+
 (사전 정의된 모드에 따라 아이템의 언어 변경)
 
 Text style은 H1부터 H4, 그리고 Body 스타일로 정의되었으며, 이는 추후 Glyphs Find&Replace 기능을 활용한 폰트 관리의 기준으로 사용되었습니다.
@@ -57,7 +57,8 @@ Figma는 Variables 내보내기 기능을 공식적으로 제공하지 않습니
 
 Figma Plugin 마켓플레이스에서 Variables 내보내기 플러그인을 검색했지만, 스프레드시트 형태를 지원하는 플러그인은 찾을 수 없었습니다. JSON 형식으로 내보내는 플러그인은 존재했으나, 복잡한 코드 구조로 인해 단순 내보내기/가져오기 외에는 다른 애플리케이션에서 활용하기 어려웠습니다. 따라서 Variables를 스프레드시트(.xlsx, .csv 등)로 내보내고, 재사용 가능한 JSON 및 CSV 파일 형식으로도 Export 기능을 구현했습니다.
 
-![](/assets/img/LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_mov_000136-converted.mp4)
+![](/assets/img/bp_video_plugin_shortcut.mp4)
+![](assets/img/bp_video_plugin2.mp4)
 
 ## 사용 방법
 
@@ -89,8 +90,8 @@ https://www.figma.com/community/plugin/1458735501504134412/variables2sheets
 Phase 1에서 개발한 문서를 활용해 한국어, 영어, 중국어를 한 화면에 정의해 작업자들이 각자의 익숙한 언어로 인터랙션을 확인하고 상대적으로 이해하기 어려운 언어의 맥락 파악에 도움을 주고자 했다.
 
 UX 문서와 GUI를 일원화했을 뿐만 아니라 3가지 언어의 인터랙션을 한 화면에 표현해 열람하는 사람의 모국어를 기준으로 다른 언어에서의 상태를 판단하고 이해할 수 있게 했다. 이를 통해 언어별 글자 수 길이와 크기 등을 더 쉽게 가늠하고 어떤 차이가 발생할 수 있는지를 알 수 있었다.
+![](/assets/img/03_bp_screen_Flow_2.png)
 
-![[LG전자_MH21Y_OLED_RemoteControl_Ver.1.30_KO_EN_CN_mov_000140.png| 언어별 글자 크기와 글자를 비교하며 흐름을 열람]]
 
 
 
