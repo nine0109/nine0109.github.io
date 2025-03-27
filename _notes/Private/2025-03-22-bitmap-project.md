@@ -43,13 +43,16 @@ date: 22-03-2025
 
 #### 폴더와 파일명 구조화하기
 ![](/assets/img/01_bp_folder_n_filenaming.png)
-~~최종 결과물에서 안티앨리어싱을 제거해야 하므로, 작업 ㅂ효율성을 위해 설계 및 그래픽 결과물 제작에 적합한 Figma를 사용했습니다.~~
-
-
+폴더면돠 
 
 
 [[https://atomicdesign.bradfrost.com/chapter-2/ |Atomic design]]
-그림과 같이 Design System 형태로 구성하여 재사용성을 높였으며, 이를 통해 설계와 GUI를 통합적으로 관리할 수 있도록 했습니다.
+그림과 같이 
+
+Design System 형태로 구성하여 재사용성을 높였으며, 이를 통해 설계와 GUI를 통합적으로 관리할 수 있도록 했습니다.
+
+
+
 
 #### 도트작업
 ![](/assets/img/01_bp_dot_ps.png)
