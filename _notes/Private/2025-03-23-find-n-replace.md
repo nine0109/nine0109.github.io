@@ -2,7 +2,7 @@
 title: 비트맵 프로젝트, Find & Replace 개발
 feed: show
 date: 23-03-2025
---- 
+---
 
 # Image Find & Replace
 
