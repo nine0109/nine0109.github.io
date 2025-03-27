@@ -1,7 +1,7 @@
 <!-- Parse internal links, external links, transclusions etc and manipuate the content to reflect it accordingly -->
 <div class="content">
     {% comment %}
-    <!-- 동영상 처리 부분: 마크다운 이미지 형식으로 사용된 동영상 파일 처리 -->
+    <!-- 동영상 처리 부분: 마크다운 이미지 형식으로 사용된 동영상 파일 처리  -->
     {% endcomment %}
     {%- assign video_content = content | replace: '![', '___IMG_START___' | replace: '](', '___IMG_MID___' | replace: ')', '___IMG_END___' -%}
     {%- assign parts = video_content | split: '___IMG_START___' -%}
