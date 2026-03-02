@@ -62,7 +62,7 @@
   </url>
   <url>
     <loc>https://nine0109.github.io/post/2025-04-06-Carla-10-windows-build</loc>
-    <lastmod>2025-04-05</lastmod>
+    <lastmod>2025-04-06</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -152,7 +152,7 @@
   </url>
   <url>
     <loc>https://nine0109.github.io/post/2025-12-14_amoeba-ai-studio</loc>
-    <lastmod>2025-12-23</lastmod>
+    <lastmod>2025-12-14</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>
@@ -181,8 +181,50 @@
     <priority>0.7</priority>
   </url>
   <url>
+    <loc>https://nine0109.github.io/post/2026-02-02_claude-skills-guide</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nine0109.github.io/post/2026-02-02_outsourcing-thinking</loc>
+    <lastmod>2026-02-02</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
     <loc>https://nine0109.github.io/post/2026-02-04_moltbook-ai-social-network</loc>
     <lastmod>2026-02-04</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nine0109.github.io/post/2026-02-06_claude-opus-4-6</loc>
+    <lastmod>2026-02-06</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nine0109.github.io/post/2026-02-13_seedance-2-0-launch</loc>
+    <lastmod>2026-02-13</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nine0109.github.io/post/2026-02-27_jack-dorsey-ai-layoffs</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nine0109.github.io/post/2026-02-27_nano-banana-2</loc>
+    <lastmod>2026-02-27</lastmod>
+    <changefreq>monthly</changefreq>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://nine0109.github.io/post/2026-03-02_product-design-changing</loc>
+    <lastmod>2026-03-02</lastmod>
     <changefreq>monthly</changefreq>
     <priority>0.7</priority>
   </url>

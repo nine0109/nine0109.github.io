@@ -1,0 +1,262 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2026-02-06_claude-opus-4-6/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>Claude Opus 4.6 공개 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.B6qzMc88.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ai </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> February 6, 2026 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 9 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> Claude Opus 4.6 공개 </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2026-02-06_claude-opus-4-6/hero.svg" alt="Claude Opus 4.6 공개" class="w-full h-full object-contain p-8" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <h2 id="요약">요약</h2>
+<ul>
+<li>Claude Opus 4.6은 향상된 코딩 능력과 장기적 작업 지속성을 갖춘 Anthropic의 최신 AI 모델로, 1M 토큰 컨텍스트 윈도우를 베타 지원하며 주요 벤치마크에서 업계 최고 수준 기록</li>
+<li>Adaptive thinking, context compaction, effort 조절, agent teams 등 개발자 제어 기능이 추가되어 장기 실행형 에이전트 운영이 용이</li>
+<li>API 가격은 $5/$25 per million tokens으로 이전과 동일하며, claude.ai, API, 주요 클라우드 플랫폼에서 즉시 사용 가능</li>
+</ul>
+<h2 id="댓글-요약">댓글 요약</h2>
+<ul>
+<li>토큰 사용 한도에 대한 아쉬움과 가격 인하 미적용에 대한 불만이 다수</li>
+<li>HN에서는 벤치마크 신뢰성, GPT-5.3 Codex와의 비교, $200/월 플랜의 지속 가능성, 1M 컨텍스트 윈도우의 의미 등 다양한 논의 진행</li>
+</ul>
+<hr>
+<h2 id="본문">본문</h2>
+<ul>
+<li>향상된 <strong>코딩 능력과 장기적 작업 지속성</strong>을 갖춘 Anthropic의 최신 AI 모델로, 1M 토큰 컨텍스트 윈도우를 베타로 지원</li>
+<li>주요 벤치마크에서 업계 최고 수준의 점수를 기록하며, GPT-5.2보다 약 144 Elo 포인트 우위</li>
+<li><strong>코드 리뷰·디버깅</strong>, <strong>대규모 코드베이스 처리</strong>, <strong>재무 분석·문서 작성</strong> 등 실무 중심 작업에서 성능이 강화됨</li>
+<li><strong>Adaptive thinking</strong>, <strong>context compaction</strong>, <strong>effort 조절</strong> 등 개발자 제어 기능이 추가되어 장기 실행형 에이전트 운영이 용이</li>
+<li>안전성 평가에서도 <strong>오류·남용·과잉 거부율이 낮은</strong> 결과를 보여, 고성능과 안전성을 동시에 달성한 모델로 평가</li>
+</ul>
+<hr>
+<h2 id="claude-opus-46-주요-개선점">Claude Opus 4.6 주요 개선점</h2>
+<ul>
+<li>Opus 4.6은 이전 버전 대비 <strong>계획 능력, 에이전트 지속성, 코드 품질 관리</strong>가 향상된 모델
+<ul>
+<li>대규모 코드베이스에서 더 안정적으로 작동하며, 자체 오류 탐지 및 수정 능력 강화</li>
+<li>1M 토큰 컨텍스트 윈도우(베타)로 장문·복합 작업 처리 가능</li>
+</ul>
+</li>
+<li><strong>일상 업무 활용성</strong>도 확대되어, 재무 분석·리서치·문서·스프레드시트·프레젠테이션 생성 등 다양한 작업 수행</li>
+<li><strong>Cowork 환경</strong>에서 멀티태스킹 자율 수행이 가능, 사용자를 대신해 복합 업무 처리</li>
+</ul>
+<h2 id="벤치마크-및-성능-평가">벤치마크 및 성능 평가</h2>
+<ul>
+<li><strong>Terminal-Bench 2.0</strong>에서 최고 점수, <strong>Humanity’s Last Exam</strong>에서도 모든 프런티어 모델 중 선두</li>
+<li><strong>GDPval-AA</strong> 평가에서 GPT-5.2보다 약 144 Elo 포인트, Opus 4.5보다 190 포인트 높은 성능</li>
+<li><strong>BrowseComp</strong> 테스트에서도 최고 성능을 기록, 온라인 정보 탐색 능력 강화</li>
+<li><strong>MRCR v2 (1M variant)</strong> 에서 76% 점수로, Sonnet 4.5의 18.5% 대비 큰 향상</li>
+<li>장문 컨텍스트 유지력과 정보 추적 능력이 개선되어 <strong>context rot</strong> 현상 완화</li>
+</ul>
+<h2 id="초기-사용-경험-및-파트너-피드백">초기 사용 경험 및 파트너 피드백</h2>
+<ul>
+<li>내부 엔지니어링 테스트에서 <strong>복잡한 문제 해결력과 판단력</strong>이 향상됨
+<ul>
+<li>어려운 문제에서는 깊이 있는 사고를 반복하며 더 나은 결과 도출</li>
+<li>단순 작업에서는 과도한 사고로 지연될 수 있어 <code>/effort</code> 파라미터로 조정 가능</li>
+</ul>
+</li>
+<li>초기 파트너들은 Opus 4.6이 <strong>자율적 실행 능력</strong>, <strong>복잡한 요청 처리</strong>, <strong>팀 협업 지원</strong>에서 탁월하다고 평가
+<ul>
+<li>대규모 코드베이스 탐색, 병렬 하위 작업 수행, 블로커 식별 등에서 정밀한 성능</li>
+<li>법률·금융·기술 콘텐츠 분석에서 높은 정확도(예: BigLaw Bench 90.2%)</li>
+<li>실제 테스트에서 40건 중 38건의 사이버보안 조사에서 Opus 4.5보다 우수한 결과</li>
+<li>수백만 라인 코드 마이그레이션을 절반 시간에 완료한 사례 보고</li>
+</ul>
+</li>
+</ul>
+<h2 id="안전성-및-보안-강화">안전성 및 보안 강화</h2>
+<ul>
+<li><strong>자동화된 행동 감사</strong>에서 기만·아첨·오용 협력 등 비정렬 행동 비율이 낮음</li>
+<li><strong>과잉 거부율(over-refusal)</strong> 이 가장 낮은 Claude 모델</li>
+<li>사용자 복지, 위험 요청 거부, 은밀한 유해 행동 탐지 등 새로운 안전성 평가 실시</li>
+<li><strong>해석가능성 연구</strong>를 통해 모델 내부 작동 원인 분석 및 잠재적 문제 탐지</li>
+<li><strong>사이버보안 능력 강화</strong>에 따라 6종의 신규 보안 프로브 도입, 악용 탐지 강화</li>
+<li><strong>방어적 활용</strong>으로 오픈소스 취약점 탐지·패치 지원, 향후 실시간 남용 차단 계획</li>
+</ul>
+<h2 id="제품-및-api-업데이트">제품 및 API 업데이트</h2>
+<ul>
+<li><strong>Claude Developer Platform</strong>에서 다음 기능 추가
+<ul>
+<li><strong>Adaptive thinking</strong>: 모델이 상황에 따라 심층 사고 여부를 자동 결정</li>
+<li><strong>Effort 레벨</strong>: low, medium, high(기본), max 네 단계 제공</li>
+<li><strong>Context compaction (베타)</strong> : 대화가 길어질 때 오래된 컨텍스트를 요약·대체</li>
+<li><strong>1M 토큰 컨텍스트 (베타)</strong> 및 <strong>128k 출력 토큰</strong> 지원</li>
+<li><strong>US-only inference</strong> 옵션 제공 (1.1배 요금)</li>
+</ul>
+</li>
+<li><strong>Claude Code</strong>에 <strong>agent teams</strong> 기능 추가, 여러 에이전트가 병렬 협업 가능</li>
+<li><strong>Claude in Excel</strong>은 비정형 데이터 구조화·다단계 변경 처리 능력 향상</li>
+<li><strong>Claude in PowerPoint</strong>(리서치 프리뷰)는 슬라이드 템플릿·폰트·레이아웃을 인식해 브랜드 일관성 유지</li>
+</ul>
+<h2 id="접근-및-가격">접근 및 가격</h2>
+<ul>
+<li>Opus 4.6은 <strong>claude.ai</strong>, <strong>API</strong>, 주요 클라우드 플랫폼에서 즉시 사용 가능</li>
+<li>API 모델명은 <code>claude-opus-4-6</code>, 가격은 <strong>$5/$25 per million tokens</strong>으로 이전과 동일</li>
+<li>200k 토큰 초과 프롬프트에는 프리미엄 요금($10/$37.50 per million tokens) 적용</li>
+</ul>
+<h2 id="결론">결론</h2>
+<ul>
+<li>Claude Opus 4.6은 <strong>장기 컨텍스트 처리, 자율적 에이전트 작업, 고급 추론 능력</strong>에서 큰 도약을 이룸</li>
+<li><strong>성능·안전성·개발자 제어성</strong>을 모두 강화한 모델로, 실무형 AI 도구의 새로운 기준 제시</li>
+</ul>
+<hr>
+<h2 id="댓글">댓글</h2>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=heim2">heim2</a> <a href="https://news.hada.io/comment?id=50762">24일전</a>
+맥스 쓰는데 뭔가 토큰을 많이 쓸수록 뿌듯… 안쓰면 아까움…</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=duse0001">duse0001</a> <a href="https://news.hada.io/comment?id=50708">24일전</a>
+인터넷에 돌던 가격 인하 내용은 적용 안됐네요</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=wegaia">wegaia</a> <a href="https://news.hada.io/comment?id=50752">24일전</a>
+구독자들 리밋 소진이 광속으로 다다른다는 글들이 레딧에 쏟아지는 중이네요.
+하던일도 있고해서 그냥 계속 4.5 쓰고 있는 중</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=xguru">xguru</a> <a href="https://news.hada.io/comment?id=50710">24일전</a>
+<a href="https://news.hada.io/topic?id=26438">한정 기간 동안 50달러 상당의 추가 사용 크레딧</a>은 준다고 하네요. ㅎㅎ</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=duse0001">duse0001</a> <a href="https://news.hada.io/comment?id=50727">24일전</a>
+Api 가격이 내려가면 자연스레 주간 한도가 올라갈거라 기대했는데 아쉽습니다 200달러 플랜 주간한도가 여유롭지않아서요..</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=princox">princox</a> <a href="https://news.hada.io/comment?id=50718">24일전</a>
+흑 너무 짜네요.. 안트로픽은 토큰을 뿌려줘라..!!</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=hmmhmmhm">hmmhmmhm</a> <a href="https://news.hada.io/comment?id=50706">24일전</a>
+오오 드디어~~~~</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=princox">princox</a> <a href="https://news.hada.io/comment?id=50698">24일전</a>
+Sonnet 5를 기대했는데, Opus 4.6이었네요 ㅎㅎ</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=neo">GN+</a> <a href="https://news.hada.io/comment?id=50688">24일전</a></p>
+<h6 id="hacker-news-의견들"><a href="https://news.ycombinator.com/item?id=46902223">Hacker News 의견들</a></h6>
+<ul>
+<li>자전거 프레임은 좀 <strong>삐뚤지만</strong>, 펠리컨 자체는 훌륭함
+그림은 <a href="https://gist.github.com/simonw/a6806ce41b4c721e240a4548ecdbe216?permalink_comment_id=5972110#gistcomment-5972110">여기에서 볼 수 있음</a>
+<ul>
+<li>펠리컨 그림에 <strong>오버피팅</strong>된 게 아닐까 궁금함</li>
+<li>“generate” 같은 단어 선택이 모델의 결과에 영향을 주는지 궁금함
+펠리컨의 두 다리가 같은 쪽에 있는 걸 바로 눈치챘는데, 실제로는 그렇지 않다는 걸 <strong>Wikipedia</strong>에서 확인했음
+프롬프트를 반복적으로 수정해 더 현실적인 결과를 얻을 수 있는지도 실험해봤는지 궁금함</li>
+<li>사실 대부분의 사람도 자전거를 제대로 못 그림
+프레임 구조나 <strong>기하학적 비율</strong>을 자주 틀림</li>
+<li>애니메이션 버전도 있음
+<a href="https://claude.ai/public/artifacts/3db12520-eaea-4769-82be-7e4cda778aba">링크</a></li>
+<li>이런 출력물들이 결국 모델 학습에 다시 들어가 <strong>벤치마크를 통과</strong>하게 되는 시점이 오지 않을까 생각함</li>
+</ul>
+</li>
+<li><strong>GPT-5.3 Codex</strong>가 <a href="https://openai.com/index/introducing-gpt-5-3-codex/">Terminal Bench</a>에서 77.3%로 압도적인 성능을 보였음
+단 35분 만에 기록이 깨졌다는 게 놀라움
+<ul>
+<li>모델 성능이 시간대나 서버 부하에 따라 달라지는데, 이런 <strong>벤치마크 신뢰성</strong>을 믿어도 되는지 의문임
+혹시 출시 직후엔 최고 성능으로 돌리고 이후엔 비용 절감을 위해 낮추는 건 아닌지 궁금함</li>
+<li>광범위한 벤치마크 리포트가 없어서 <strong>benchmaxxing</strong>으로 돌아간 건 아닌지 궁금함
+직접 써본 후 의견을 나눠보고 싶음</li>
+<li>점수가 10포인트나 오른 건 큰 변화인데, 실제 사용감에서도 <strong>질적 차이</strong>가 느껴질지 궁금함
+혹시 이제 벤치마크 포화 상태에 도달한 건 아닐까 생각함</li>
+<li><strong>Claude swe-bench</strong>는 80.8, Codex는 56.8이라 여전히 Claude 4.6이 전반적으로 우세해 보임</li>
+</ul>
+</li>
+<li><strong>Claude Code</strong>의 릴리스 노트 요약임
+Opus 4.6 추가, <strong>multi-agent 협업 기능</strong>, 자동 메모리 기록, 부분 대화 요약, VSCode 개선 등 다양한 업데이트가 포함됨
+<ul>
+<li>“Claude가 작업 중 자동으로 기억을 기록하고 불러온다”는 부분이 흥미로움
+<a href="https://code.claude.com/docs/en/memory">메모리 기능 문서</a>를 보면 <strong>Google Antigravity의 Knowledge 아티팩트</strong>와 비슷한 개념 같음</li>
+</ul>
+</li>
+<li>논의에서 두 가지가 혼동되고 있다고 생각함
+첫째는 <strong>토큰 단가 기반 수익성</strong>, 둘째는 <strong>모델 생애주기 경제학</strong>임
+추론 단가는 이익일 수 있지만, 전체 모델 프로그램은 여전히 적자일 수 있음
+진짜 질문은 “모델이 얼마나 오래 경쟁력을 유지해야 경제적으로 맞아떨어질까”임
+<ul>
+<li>“<strong>worse is better</strong>”를 기억해야 함
+최고가 아니어도 충분히 좋고, 전환 비용이 높으면 시장을 지배할 수 있음
+초기에는 손해를 감수하더라도 특정 <strong>도메인(예: 코딩)</strong> 중심으로 시장을 확보하는 게 합리적일 수 있음</li>
+<li>API 요금제 기준으로는 약간의 <strong>이익</strong>이 있을 것 같음
+하지만 사용량이 20배 늘어나는 플랜은 지속 가능성이 의문임
+지금의 “<strong>vibe-coding 르네상스</strong>”가 이런 비용 구조에서 유지될 수 있을지 모르겠음</li>
+<li>Dario가 팟캐스트에서 말했듯, 모델은 <strong>수명 전체 기준으로는 수익성</strong>이 있음
+연 단위 손익으로 보는 건 AI 기업의 특성상 부적절함</li>
+<li>진짜 흥미로운 건 “<strong>$200/월 플랜</strong>이 보조되고 있는가”임
+이게 현재 에이전트형 코딩 붐을 떠받치고 있음
+아마 약간은 보조 중이지만, 장기적으로는 2배 정도 인상될 가능성이 있음</li>
+</ul>
+</li>
+<li><strong>1M 컨텍스트 윈도우</strong>가 생긴 건 엄청난 업그레이드라 매우 만족스러움</li>
+<li>Anthropic의 전략이 아직도 잘 이해되지 않음
+대중 시장을 노리는 마케팅을 하지만 실제 강점은 <strong>코딩 중심</strong>임
+일반 연구나 정보 탐색에서는 ChatGPT나 Gemini가 훨씬 깊이 있고 표현도 좋음
+“헌법”이나 “인권” 같은 인간성 마케팅을 하지만 오히려 가장 <strong>거래적</strong>으로 느껴짐
+그래도 코딩용으로는 훌륭해서 계속 유료로 쓰고 있음
+<ul>
+<li>코드 외의 일반 대화에서도 Claude는 꽤 잘 작동함
+비기술 친구들도 ChatGPT에서 Claude로 옮겼고 다시 돌아간 경우를 못 봤음
+8개월 전만 해도 API에서만 쓸 만했는데 지금은 훨씬 나아짐</li>
+<li>영어 외 언어에서는 <strong>품질이 심각하게 떨어짐</strong>
+나는 체코어 사용자인데 Claude는 단어를 지어내고, Grok은 러시아어로 답할 때도 있음
+코딩엔 좋지만 일반 대화용으로는 불가능함</li>
+<li>모델이 일상적이지 않음
+<strong>에이전트형 작업</strong>이나 도구 사용에는 좋지만, 일상 질문에는 쓰지 않음</li>
+</ul>
+</li>
+<li><strong>Opus 4.6</strong>이 설치에 안 보였는데, 다시 설치 명령을 실행하니 나타났음 (v2.1.32)
+<a href="https://code.claude.com/docs/en/overview#get-started-in-30-seconds">설치 가이드</a>
+<ul>
+<li>이미 사용 중임</li>
+</ul>
+</li>
+<li>AI/LLM의 <strong>운영 비용</strong>이 실제로 줄고 있는지 궁금함
+“에이전트 팀” 개념은 멋지지만, 여러 모델을 동시에 돌리면 비용이 커서 현실적으로 어렵다고 느낌
+<ul>
+<li>토큰당 비용은 꾸준히 하락 중임
+OpenAI는 엔지니어링 최적화로 o3 가격을 1/5로 낮췄고, 다른 업체들도 비슷한 절감 효과를 얻었음
+예전의 “모든 요청에서 손해 본다”는 말은 사실과 다름</li>
+<li>그 루머는 반복되지만 실제로는 <strong>추론 단가</strong>가 원가보다 낮을 리 없다고 생각함
+전체 회사는 R&#x26;D와 훈련비로 적자지만, <strong>API 사용 자체는 이익</strong>임
+DeepSeek 같은 오픈 모델도 훨씬 낮은 가격으로도 수익을 내고 있음</li>
+<li>실제 데이터로 보면 손해일 리 없음
+예를 들어 Claude 4(약 400B 파라미터)는 DeepSeek V3(680B)보다 훨씬 비쌈
+Claude 입력 $1/M, 출력 $5/M vs DeepSeek 입력 $0.4/M, 출력 $1.2/M
+이 차이는 Anthropic이 <strong>훈련비를 회수</strong>해야 하기 때문임
+<a href="https://openrouter.ai/deepseek/deepseek-v3.2-speciale">DeepSeek 가격</a>, <a href="https://claude.com/pricing#api">Claude 가격</a></li>
+<li>실제 손익 계산은 어렵지만, <strong>감가상각</strong>과 모델 수명 같은 불확실성이 큼
+단순히 추론 수익만 보면 이익이지만, 전체 비용을 보면 그렇지 않을 수도 있음</li>
+<li>AI 에이전트 활용도는 아직 낮음
+코딩 보조로 쓰지만 자주 <strong>경로 수정</strong>이 필요함
+그래도 숙련된 인력을 고용하는 것보단 훨씬 저렴함</li>
+</ul>
+</li>
+<li>“<strong>We build Claude with Claude</strong>”라는 문구가 꽤 흥미로움
+<ul>
+<li>Claude Code에는 6000개 이상의 <strong>오픈 이슈</strong>가 있음
+60일 비활성 시 자동 정리되는데도 계속 늘어나는 중임</li>
+<li>매우 성공적인 제품이라 생각함
+그 문구가 편견을 드러내는 것 외엔 별 의미 없음</li>
+<li><strong>dogfooding</strong>의 중요성을 보여주는 사례라고 봄
+스스로 써보는 게 최고의 품질 개선 방법임</li>
+<li>CC의 <strong>샌드박싱</strong>은 거의 농담 수준임
+지금처럼 래퍼가 폭증하는 이유이며, 언젠가 보안 사고가 날 것 같음</li>
+<li>그래서 Claude Code가 <strong>React 앱이 터미널로 출력</strong>되는 구조인 게 설명됨</li>
+</ul>
+</li>
+<li>Opus 4.6을 체험해보라고 <strong>$50 크레딧</strong>을 추가로 제공 중임
+<a href="https://claude.ai/settings/usage">사용량 페이지</a>에서 바로 받을 수 있음
+아마 <strong>토큰 사용량 증가</strong>를 예상하거나 모델 홍보 목적일 것 같음</li>
+</ul>
+</blockquote> </article> <!-- Source Links --> <section class="max-w-2xl mx-auto px-6 pb-12"> <div class="flex items-center gap-3 text-sm text-muted-foreground"> <span class="text-[11px] font-bold uppercase tracking-[0.2em]">Source</span> <span class="w-4 h-[1px] bg-border"></span> <a href="https://news.hada.io/topic?id=26433" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">
+GeekNews
+</a> <span class="text-border">|</span> <a href="https://anthropic.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors"> anthropic.com </a> </div> </section> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

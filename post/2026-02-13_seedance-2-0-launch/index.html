@@ -1,0 +1,131 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2026-02-13_seedance-2-0-launch/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>Seedance 2.0 정식 출시 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.B6qzMc88.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ai </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> February 13, 2026 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 3 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> Seedance 2.0 정식 출시 </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2026-02-13_seedance-2-0-launch/hero.svg" alt="Seedance 2.0 정식 출시" class="w-full h-full object-contain p-8" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <h2 id="요약">요약</h2>
+<ul>
+<li>ByteDance Seed 팀이 공개한 차세대 멀티모달 영상 생성 모델로, 텍스트/이미지/오디오/비디오 입력을 통합 지원하며 물리 정확도와 현실감이 강화됨</li>
+<li>최대 9장 이미지, 3개 영상, 3개 오디오를 동시 입력할 수 있고, 15초 고품질 다중 카메라 출력과 스테레오 오디오를 지원하여 영화/광고/게임 등 산업용 콘텐츠 제작에 활용 가능</li>
+<li>종합 평가에서 업계 최고 수준의 생성 품질과 지시문 준수 성능을 기록했으며, 향후 세밀한 안정성과 다중 인물 일관성 개선 예정</li>
+</ul>
+<h2 id="댓글-요약">댓글 요약</h2>
+<ul>
+<li>홈페이지 데모는 인상적이나 실제 무료 체험이 어렵다는 경험 공유</li>
+<li>유료 사이트들이 난립하고 있으며, 공식 블로그에도 아직 중국어 포스팅만 존재한다는 현황 전달</li>
+</ul>
+<hr>
+<h2 id="본문">본문</h2>
+<ul>
+<li><strong>ByteDance Seed 팀</strong>이 공개한 차세대 <strong>멀티모달 영상 생성 모델</strong>로, 텍스트·이미지·오디오·비디오 입력을 통합 지원</li>
+<li><strong>물리 정확도와 현실감</strong>이 강화되어 복잡한 인물 상호작용과 운동 장면에서도 높은 안정성과 일관성 확보</li>
+<li>최대 <strong>9장 이미지·3개 영상·3개 오디오</strong>를 동시에 입력해 구성·운동·특효·음향을 반영하며, 영상 편집과 연장 기능으로 <strong>정밀한 제어</strong> 가능</li>
+<li><strong>15초 고품질 다중 카메라 출력</strong>과 <strong>스테레오 오디오</strong>를 지원해 영화·광고·게임 등 <strong>산업용 콘텐츠 제작 효율</strong>을 크게 향상</li>
+<li>종합 평가에서 <strong>업계 최고 수준의 생성 품질과 지시문 준수 성능</strong>을 기록했으며, 향후 세밀한 안정성과 다중 인물 일관성 개선 예정</li>
+</ul>
+<hr>
+<h2 id="seedance-20-개요">Seedance 2.0 개요</h2>
+<ul>
+<li>2026년 2월 12일 공개된 <strong>Seedance 2.0</strong>은 ByteDance의 <strong>통합 멀티모달 음·영상 생성 모델</strong>
+<ul>
+<li>텍스트, 이미지, 오디오, 비디오 네 가지 입력을 동시에 처리</li>
+<li>기존 1.5 버전 대비 생성 품질, 물리 정확도, 현실감, 제어성 모두 향상</li>
+</ul>
+</li>
+<li>산업용 영상 제작을 목표로 하며, <strong>영상 길이 15초</strong>, <strong>다중 카메라</strong>, <strong>스테레오 오디오</strong>를 지원</li>
+<li>현재 <strong>즉몽AI</strong>, <strong>Doubao(豆包)</strong> 등 플랫폼에서 체험 가능</li>
+</ul>
+<h2 id="주요-기능-및-기술-특징">주요 기능 및 기술 특징</h2>
+<ul>
+<li><strong>복잡한 운동·상호작용 안정성 강화</strong>
+<ul>
+<li>다중 인물의 동작과 물리 규칙을 자연스럽게 재현</li>
+<li>예시로, <strong>두 사람의 피겨스케이팅 장면</strong>에서 점프·회전·착지 동작을 현실적으로 구현</li>
+</ul>
+</li>
+<li><strong>멀티모달 입력 확장</strong>
+<ul>
+<li>최대 9장 이미지, 3개 영상, 3개 오디오, 자연어 명령을 혼합 입력</li>
+<li>입력 자료의 <strong>구도·운동·카메라워크·특효·음향 요소</strong>를 반영해 생성</li>
+</ul>
+</li>
+<li><strong>정밀한 제어 및 편집 기능</strong>
+<ul>
+<li>지시문 일관성 향상, 복잡한 스크립트도 정확히 재현</li>
+<li><strong>영상 연장·부분 편집</strong> 기능으로 장면·인물·동작 수정 가능</li>
+</ul>
+</li>
+<li><strong>고품질 오디오 생성</strong>
+<ul>
+<li><strong>양채널 스테레오</strong>로 배경음·효과음·해설을 동시 생성</li>
+<li><strong>ASMR·무협 장면</strong> 등에서 세밀한 음향 질감과 시각 동기화 구현</li>
+</ul>
+</li>
+<li><strong>산업 전반 적용성</strong>
+<ul>
+<li>광고, 영화, 게임, 해설 영상 등 다양한 제작 환경에 대응</li>
+<li>AI 기반으로 <strong>특수효과·촬영 비용 절감</strong> 및 제작 기간 단축</li>
+</ul>
+</li>
+</ul>
+<h2 id="성능-평가">성능 평가</h2>
+<ul>
+<li><strong>영상 생성 품질</strong>
+<ul>
+<li>운동 안정성, 지시문 준수, 미적 완성도에서 업계 선도 수준</li>
+<li>복잡한 동작·표정·카메라 연출을 정밀하게 표현</li>
+<li>일부 세부 안정성과 동적 생동감은 개선 필요</li>
+</ul>
+</li>
+<li><strong>오디오 생성 품질</strong>
+<ul>
+<li><strong>스테레오 사운드의 층위감</strong>과 장면 맞춤 음향 향상</li>
+<li>대사·음악·효과음의 시각적 일치도 강화</li>
+<li>다중 인물의 입 모양 동기화와 음성 왜곡은 일부 한계 존재</li>
+</ul>
+</li>
+<li><strong>멀티모달 참조 생성</strong>
+<ul>
+<li>다양한 입력 조합을 이해하고 정확히 반영</li>
+<li><strong>편집·연장 작업</strong>에서 높은 일관성과 사실성 확보</li>
+<li>다중 인물 일관성·텍스트 재현 정밀도는 추가 개선 필요</li>
+</ul>
+</li>
+</ul>
+<h2 id="종합-평가-및-향후-방향">종합 평가 및 향후 방향</h2>
+<ul>
+<li>Seedance 2.0은 <strong>“소리-화면 동기 생성”</strong> 에서 <strong>“통합 멀티모달 생성”</strong> 으로 발전함</li>
+<li><strong>물리 법칙 준수·장기 일관성</strong> 문제를 해결하며, 창작자의 자유도 확대</li>
+<li>향후 <strong>세밀한 품질 안정화</strong>와 <strong>인간 피드백 기반 정렬</strong>을 통해
+더 효율적이고 창의적인 <strong>AI 영상 제작 도구</strong>로 발전 예정</li>
+</ul>
+<hr>
+<h2 id="댓글">댓글</h2>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=roxie">roxie</a> <a href="https://news.hada.io/comment?id=52051">3일전</a>
+실제론 해봐야 알겠지만 홈페이지는 대단하네요</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=honglu">honglu</a> <a href="https://news.hada.io/comment?id=51125">17일전</a>
+올려주신거 보고 뽐뿌 와서 가입까지 해봤는데, 실제로는 무료로 써볼 수가 없네요. 해당 모델을 잠시 숨겨둔건지 무료 3 크레딧으로는 할 수 있는게 아무것도 없습니다… 흑흑</p>
+</blockquote>
+<blockquote>
+<p><a href="https://news.hada.io/user?id=xguru">xguru</a> <a href="https://news.hada.io/comment?id=51122">17일전</a>
+요 근래 이 seedance 2.0 영상이라고 엄청 돌아다니던 게 많은데, 이제 아예 정식으로 공개가 되었습니다.
+해커뉴스에는 seedance 로 검색하면 온갖 유료 사이트들이 판치고 있더군요. 뭔가 장사가 되나 봅니다.
+공식 블로그에도 아직 중국어 포스팅만 있네요. 거기에 영상이 좀 더 많습니다.
+<a href="https://seed.bytedance.com/en/blog/seedance-2-0-%E6%AD%A3%E5%BC%8F%E5%8F%91%E5%B8%83">https://seed.bytedance.com/en/blog/…</a></p>
+</blockquote> </article> <!-- Source Links --> <section class="max-w-2xl mx-auto px-6 pb-12"> <div class="flex items-center gap-3 text-sm text-muted-foreground"> <span class="text-[11px] font-bold uppercase tracking-[0.2em]">Source</span> <span class="w-4 h-[1px] bg-border"></span> <a href="https://news.hada.io/topic?id=26657" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors">
+GeekNews
+</a> <span class="text-border">|</span> <a href="https://seed.bytedance.com" target="_blank" rel="noopener noreferrer" class="hover:text-primary transition-colors"> seed.bytedance.com </a> </div> </section> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

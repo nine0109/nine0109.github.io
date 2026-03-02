@@ -42,6 +42,7 @@
     "title": "개발자 컨퍼런스 Pleos25 참관 후기",
     "description": "",
     "tags": [
+      "dev",
       "현대자동차",
       "개발자컨퍼런스",
       "Pleos",
@@ -92,6 +93,7 @@
     "title": "Carla 0.10.0 Windows build",
     "description": "",
     "tags": [
+      "dev",
       "carla"
     ]
   },
@@ -299,9 +301,67 @@
     "tags": []
   },
   {
+    "slug": "2026-02-02_claude-skills-guide",
+    "title": "Claude Skills 구축을 위한 완벽 가이드",
+    "description": "",
+    "tags": [
+      "ai",
+      "dev"
+    ]
+  },
+  {
+    "slug": "2026-02-02_outsourcing-thinking",
+    "title": "사고의 외주화 (Outsourcing thinking)",
+    "description": "",
+    "tags": [
+      "ai"
+    ]
+  },
+  {
     "slug": "2026-02-04_moltbook-ai-social-network",
     "title": "Moltbook - AI 에이전트들의 소셜 네트워크",
     "description": "",
     "tags": []
+  },
+  {
+    "slug": "2026-02-06_claude-opus-4-6",
+    "title": "Claude Opus 4.6 공개",
+    "description": "",
+    "tags": [
+      "ai"
+    ]
+  },
+  {
+    "slug": "2026-02-13_seedance-2-0-launch",
+    "title": "Seedance 2.0 정식 출시",
+    "description": "",
+    "tags": [
+      "ai"
+    ]
+  },
+  {
+    "slug": "2026-02-27_jack-dorsey-ai-layoffs",
+    "title": "트위터 창업자 잭 도시, AI 전환 때문에 4천명 감원 발표",
+    "description": "",
+    "tags": [
+      "ai"
+    ]
+  },
+  {
+    "slug": "2026-02-27_nano-banana-2",
+    "title": "Nano Banana 2 프로 기능과 빠른 속도를 결합",
+    "description": "",
+    "tags": [
+      "ai"
+    ]
+  },
+  {
+    "slug": "2026-03-02_product-design-changing",
+    "title": "프로덕트 디자인이 변하고 있다",
+    "description": "",
+    "tags": [
+      "ux",
+      "ai"
+    ]
   }
 ]
