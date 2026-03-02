@@ -1,0 +1,149 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2025-03-28-pleos25/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>개발자 컨퍼런스 Pleos25 참관 후기 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> 현대자동차 • 개발자컨퍼런스 </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> March 28, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 5 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> 개발자 컨퍼런스 Pleos25 참관 후기 </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2025-03-28-pleos25/hero.webp" alt="개발자 컨퍼런스 Pleos25 참관 후기" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <p>2025년 3월 28일 금요일 현대자동차 그룹은 통합 소프트웨어 브랜드 ‘플레오스(Pleos)‘를 선보였다. 현대자동차는 <strong>모빌리티 테크 기업</strong>으로의 전환을 본격화했다.</p>
+<p>모빌리티 테크 기업으로 Foundamental 전환은 제네시스와 현대자동차에서 사용하는 ccNC, ccIC 와 같은 <strong>기존 카 인포테인머트 시스템은 단종</strong>을 선언하는 것과도 같았다.</p>
+<p>Pleos는 2026년 상반기부터 차량에 탑재 예정이며, Pleos에는 AI가 탑재되어 사용자의 맥락에 맞는 대답과 제안을 한다. 2027년에는 룰베이스가 아닌 레벨 2+의 자율주행을 목표로 하고 있다.</p>
+<p>전시는 COXE에서 단 하루만 진행했으며, 7500명 이상의 관람이 있었다. Keynote 에는 Pleos를 통해 미래 모빌리티 산업을 위해 현대 자동차 그룹과 기협 협력을 맺은 삼성, 구글, 쏘카, 우버, Unity, 네이버 가 있었다.</p>
+<blockquote>
+<p>본 발표 내용은 4월 중에 온라인 스트리밍으로 공개한다고 한다.</p>
+</blockquote>
+<p>Pleos는 ‘더 많은’을 뜻하는 라틴어 ‘Pleo(플레오)’와 운영체제의 약자인 ‘OS(Operating System)’의 합성어로, 사람과 사물의 이동에 사용자 중심 가치를 더해 기술을 진화시키고 더 나은 이동을 실현하겠다는 현대자동차그룹의 비전을 담고 있다.</p>
+<hr>
+<p><img src="/images/2025-03-28-pleos25/pleos0001.png" alt=""></p>
+<p><em><strong>Software-defined everything</strong></em>
+자동차가 하드웨어 중심에서 소프트웨어 중심으로 변한것임을 공식화하고 그에 맞는 환경을 선보였다.</p>
+<p>비유하자면 스마트 폰에 바퀴가 달린 것이다. OS 업그레이드를 통해 새로운 기술을 사용할 수 있다. 데이터를 오픈해 서드파티에서 안드로이드 폰앱을 차량용으로 빠르게 확장하고 차량 환경에 최적화된 새로운 경험을 제공할 수 있게 되었다. 뿐만 아니라 Plug&#x26;Play로 자동차에 새로운 가젯을 쉽게 추가할 수 있게 되었다.</p>
+<p>하드웨어적인 측면과 소프트웨어적인 측면과 두가지로 소개하려고 한다.
+우선 소프트웨어가 올라가는 하드웨어를 소개한다.</p>
+<blockquote>
+<p>[!note]</p>
+<p><strong>기술 용어:</strong></p>
+</blockquote>
+<ul>
+<li>Pleos(플레오스) 현대 자동차 소프트웨어 브랜드</li>
+<li>Pleos Vehicle OS: 플레오스 OS</li>
+<li>AAOS(Android Automotive OS): 안드로이드 OS</li>
+<li>Pleos Connect: 플레오스 인포테인먼트</li>
+<li>Pleos Playground: 개발 환경 (개발 SDK 제공)</li>
+<li>NUMA: 차세대 도시 교통 협의체(민관 협력을 통해 교통과 이동 문제 해결)</li>
+<li>CODA: H/W 아키텍처 명</li>
+<li>HPVC(High-Performance Vehicle Computer): 메인 컴퓨터</li>
+<li>Gleo AI: 글레오 AI, 플레오스의 AI 에이전트 명; (e.g. 글레오 라디오 켜줘)</li>
+<li>Atria AI: 자율주행 AI (2027, Atrial AI를 탑재한 레벨2+ 출시 예정)</li>
+<li>Capora AI: 42dot 운송 관리 솔루션</li>
+</ul>
+<h2 id="1-하드웨어">1. 하드웨어</h2>
+<p>하드웨어 아키텍처명 CODA이다. 지금까지는 소프트웨어가 하드웨어에 종속되어 있어 기능을 추가할 때 마다, 새로운 제어(ECU, Electronic Control Unit)가 추가되었다.</p>
+<p>CODA Architecture는 기존 설계를 단순화, 확장할 수 있게 표준화했다. 데이터 센터와 유사하게 기존의 기능 중심이 컴퓨터 도메인과 I/O 도메인으로 나눠서 설계했다. 이를 통해 기존 하드웨어 컨트롤러의 66%를 제거했다고 한다.</p>
+<p><strong>CODA는 3개의 Zone에서 컨트롤러가 I/O 를 담당</strong>한다. 그리고 나머지 모든 처리는 **HPVC(High-Performance Vehicle Computer)**가 처리한다.</p>
+<p>쉽게 말해 매우 단순한 동작을 하는 독립형 장치의 IC칩에 SW가 임베디드되어 변경할 수 없고, 차량에 흩어진 장치들을 다시 통신하기 위해 매우 복잡한 형태였다. 이제 S/W와 H/W를 분리한 것이다.</p>
+<p><img src="/images/2025-03-28-pleos25/pleos0002.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0003.png" alt=""></p>
+<p><img src="/images/2025-03-28-pleos25/pleos0004.png%7CECU_eliminated" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0005.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0006.jpg" alt=""></p>
+<h2 id="2-소프트웨어">2. 소프트웨어</h2>
+<h4 id="vehicle-os">Vehicle OS</h4>
+<p>Vehicle OS(In-Vehicle distributed OS)는 AAOS(Android Automotive OS)를 기반으로 한다.
+<img src="/images/2025-03-28-pleos25/pleos0007.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0008.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0009.png" alt="">
+Rust 언어 사용 (소프트웨어 에러 이슈의 70%는 메모리 관련 버그)
+소프트웨어 구현시 취약성 보안</p>
+<h4 id="pleos-connect">Pleos Connect</h4>
+<p><strong>새로운 인포테인먼트 시스템명은 Pleos Connect</strong>이다. Pleos Connect는 2026년 2분기에 출시하는 신차부터 적용 예정이다. Pelos는 3개의 컬럼을 사용하고 있다. 가장 왼쪽은 클러스터와 센터페시아와 같은 일을 한다. 우측 2개의 컬럼은 주행 중 정보이다.</p>
+<p>화면은 16:9를 기준으로 하고 있으며 레이아웃은 Pleos에서 플랙서블하게 맞춰준다고 함 (이는, Android의 support-different-display-sizes와 같은 개념이다.)
+플레오스 개발자 사이트에 디자인 가이드가 있습니다. 자세한 내용은 디자인 가이드를 참고하기 바랍니다.(<a href="https://pleos.ai/playground/resources/docs/docs-design-pleos/intro">https://pleos.ai/playground/resources/docs/docs-design-pleos/intro</a>)</p>
+<p><img src="/images/2025-03-28-pleos25/pleos0010.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0011.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0012.png" alt=""></p>
+<h4 id="pleos-playground">Pleos Playground</h4>
+<p>Pleos Playground는 현대자동차그룹이 <strong>SDK문서, 샘플 코드, 개발 지원 도구는 물론, 실제 차량 없이 앱을 개발 및 테스트할 수 있는 환경과 디버깅 도구 등을 제공하는 플랫폼</strong>으로, 개발자들의 개발 편의성과 효율성을 극대화한다.</p>
+<p>AAOS가 제공하는 개발도구와 Pleos만의 확장 기능과 서비스를  SDK를 통해 제공한다. 디자인 가이드, API 문서, 샘플 코드 등도 함께 제공돼 차량용 애플리케이션을 개발할 수 있다.</p>
+<p>안드로이드 앱 개발자의 경우 기존 안드로이드 앱을 빠르게 Pleos로 포팅할 수 있다. 전시회에 참가한 업체 중 기존 서비스 Pleos에 최적화한 것이 아닌 포팅한 수준에서 전시한 경우도 있었다.</p>
+<p>또한 앱 마켓을 운영해 앱을 등록하고 심사를 거쳐 배포할 수 있게했다. JOSN과 같은 형태로 Gleo AI를 이용할 수 있으며 이런 경우 등록 심사 기간이 상대적으로 짧을 것이라고 한다.</p>
+<p>스마트폰 시장 초기에 폭발적으로 다양한 앱과 가젯(Gadjet)이 나왔듯 Pleos 앱 마켓이 열리면 다양한 앱과 가젯 출시를 기대한다.</p>
+<h4 id="gleo-ai">Gleo AI</h4>
+<p><img src="https://youtu.be/vu6RD-Q-uFw" alt=""></p>
+<p>Gleo AI</p>
+<ul>
+<li>맥락 인식</li>
+<li>사용자의 선호도와 패턴을 인식</li>
+<li>자연스러운 응답</li>
+<li>Supports 2 tones (friendly, formal) x 4 emotions (Neutral, Positive, Urgent, Sad) x 6 voice options</li>
+<li>Natural conversation mode without wake-up words</li>
+<li>Human-like response speed at 1560 tokens/s</li>
+<li>RAG responses enhanced with third-party app data</li>
+<li>Builds memory through repeated interactions and stores it persistently</li>
+</ul>
+<p><img src="/images/2025-03-28-pleos25/pleos0014.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0015.png" alt="">
+전세계 스마트폰 사용자 6.64B 자동차는 또 다른 모바일 디바이스, 모바일 생태계에 편입,
+모바일 폰과 유사한 인터페이스 제공으로 학습 곡선을 낮추고 스마트폰에서 사용하던 앱을 차량에서도 사용</p>
+<h4 id="samsung-smartthings">Samsung SmartThings</h4>
+<p><img src="/images/2025-03-28-pleos25/pleos0016.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0017.png" alt=""></p>
+<ul>
+<li>SmartThing
+<ul>
+<li>Find: Galaxy: 쇼핑몰 주차장 갤럭시 네트워크를 사용한 내 자동차 찾기</li>
+<li>Energy: 에너지 사용 최적화</li>
+<li>Car to Home: 집 귀가에 맞춘 실내 환경 최적화</li>
+<li>Home to Car
+<strong>집과 차량과의 경계를 넘은 통합된 라이프 스타일 제공</strong> 차량, 가전, 집을 넘나드는 새로운 서비스.</li>
+</ul>
+</li>
+<li>디바이스 모니터링과 제어를 넘어 에코스템을 통해</li>
+<li>자동차 생활 공간</li>
+<li>연결은 넘어 사용자의 맥락을 이해하고 능동적으로 반응하는 공간, 자동차와 스마트 홈이 하나의 유기적인 경험으로 이어지는 것.</li>
+</ul>
+<p>모바일에서 경험이 자연스럽게 차량으로 이어지길 바람 > 앱 마켓 제공</p>
+<h4 id="aaos">AAOS</h4>
+<p><img src="/images/2025-03-28-pleos25/pleos0018.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0019.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0020.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0021.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0022.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0023.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0024.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0025.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0026.png" alt=""></p>
+<h4 id="numanext-urban-mobility-alliance">NUMA(Next Urban Mobility Alliance)</h4>
+<p><strong>NUMA는 현대자동차의 지속 가능한 모빌리티 생태계를 위한 협의체</strong>이다. 도시·국가 단위의 모빌리티 혁신을 위한 협력 체계로 교통약자 지원, 지방 소멸 대응, 기후 위기 등 사회적 문제 해결을 목표로 민관 협력을 통해 데이터 연결 기반의 최적화된 이동 환경을 구현하고자 하는 생태계 구축을 목표한다.
+<img src="/images/2025-03-28-pleos25/pleos0027.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0028.png" alt=""></p>
+<h4 id="자율주행과-기타-파트너쉽">자율주행과 기타 파트너쉽</h4>
+<p>현대차는 완성차 기술 노하우를 웨이모 우버와는 전략적 파너트너로 주행 데이터를 함께한다. 네이버, 쏘카는 자사 서비스를 플레오스에 최적화한 것을 시연했다.</p>
+<p><strong>네이버</strong>
+<img src="https://youtu.be/cE8_hc69ysM" alt=""></p>
+<p><strong>Atria AI</strong>
+<img src="/images/2025-03-28-pleos25/pleos0030.png" alt="">
+<img src="https://youtu.be/hisaMhqj5DQ" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0031.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0032.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0033.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0034.png" alt="">
+<img src="/images/2025-03-28-pleos25/pleos0035.png" alt="">
+<strong>Uber</strong>
+<img src="/images/2025-03-28-pleos25/pleos0029.png" alt=""></p>
+<p><strong>참고 자료:</strong></p>
+<ul>
+<li><a href="https://devcon.hyundaimotorgroup.com/2025">Pleos 25 - 현대자동차그룹 개발자 컨퍼런스</a></li>
+<li><a href="https://pleos.ai/playground">Pleos Playground</a></li>
+<li><a href="https://www.youtube.com/watch?v=6f7ecnebcyY">모카 - 현대차 플레오스 Connect 데모 (7: 20)</a></li>
+<li><a href="https://www.hyundai.co.kr/news/CONT0000000000172880">현대자동차그룹 소식=개발자 컨퍼런스 ‘Pleos 25’개최</a></li>
+</ul> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

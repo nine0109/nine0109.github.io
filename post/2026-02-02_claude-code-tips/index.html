@@ -1,0 +1,106 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2026-02-02_claude-code-tips/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>Claude Code 창시자가 공개한 실전 사용 팁 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ai • dev </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> February 2, 2026 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 4 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> Claude Code 창시자가 공개한 실전 사용 팁 </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2026-02-02_claude-code-tips/hero.png" alt="Claude Code 창시자가 공개한 실전 사용 팁" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <p>Claude Code 팀의 Boris Cherny가 공개한 Claude Code 활용 팁 10가지.</p>
+<h2 id="1-병렬-작업을-최대한-활용">1. 병렬 작업을 최대한 활용</h2>
+<ul>
+<li>3~5개의 <strong>git worktree</strong>를 동시에 실행하고 각각 별도의 Claude 세션을 병렬로 운영하는 것이 <strong>클로드 코드 팀 내부</strong>에서 <strong>최고의 생산성 향상 팁</strong></li>
+<li>일부는 git checkout 방식을 선호하지만, 대부분의 Claude Code 팀원은 worktree 선호
+<ul>
+<li>이로 인해 <a href="https://code.claude.com/docs/en/common-workflows#run-parallel-claude-code-sessions-with-git-worktrees">Claude Desktop 앱에 <strong>네이티브 worktree 지원</strong> 기능이 추가</a>됨</li>
+</ul>
+</li>
+<li>worktree에 이름을 붙이고 <strong>shell alias</strong>(za, zb, zc)를 설정해 한 번의 키 입력으로 전환하는 방식도 활용</li>
+<li>로그 확인과 BigQuery 실행 전용 <strong>“analysis” worktree</strong>를 별도로 운영하는 팀원도 있음</li>
+</ul>
+<h2 id="2-복잡한-작업은-항상-plan-mode로-시작">2. 복잡한 작업은 항상 Plan Mode로 시작</h2>
+<ul>
+<li>복잡한 작업은 <strong>plan 모드</strong>로 시작하고, 계획 수립에 에너지를 쏟아 Claude가 <strong>한 번에 구현을 완료</strong>하도록 유도</li>
+<li>하나의 Claude가 계획을 작성하면, 두 번째 Claude를 띄워 <strong>스태프 엔지니어 역할로 검토</strong>시키는 방식도 사용</li>
+<li>작업이 잘못되는 순간 즉시 <strong>plan 모드로 돌아가 재계획</strong>하는 것이 중요하며, 무리하게 밀어붙이지 말 것</li>
+<li>검증 단계에서도 명시적으로 <strong>plan 모드 진입을 지시</strong>하는 것이 효과적</li>
+</ul>
+<h2 id="3-claudemd에-지속적으로-투자">3. CLAUDE.md에 지속적으로 투자</h2>
+<ul>
+<li>매번 수정할 때마다 “<strong>CLAUDE.md를 업데이트해서 같은 실수를 반복하지 않도록 해라</strong>”라고 지시</li>
+<li>Claude는 스스로 지켜야 할 규칙을 <strong>매우 잘 문서화</strong>하는 특성이 있음</li>
+<li>시간이 지나며 <strong>CLAUDE.md를 지속적으로 수정</strong>하고, Claude의 실수율이 측정 가능하게 줄어들 때까지 반복</li>
+<li>한 엔지니어는 모든 작업/프로젝트에 대해 <strong>notes 디렉토리</strong>를 유지하고 PR마다 업데이트하도록 Claude에 지시, CLAUDE.md가 이를 참조하도록 설정</li>
+</ul>
+<h2 id="4-자체-skill을-만들고-git에-커밋">4. 자체 Skill을 만들고 git에 커밋</h2>
+<p>클로드 코드 팀의 팁:</p>
+<ul>
+<li>하루에 한 번 이상 반복하는 작업은 <strong>Skill 또는 Slash Command로 만들기</strong></li>
+<li><strong>/techdebt</strong> 슬래시 커맨드를 만들어 세션 종료 시 중복 코드를 찾아 제거</li>
+<li>7일치 <strong>Slack, GDrive, Asana, GitHub</strong>를 하나의 컨텍스트 덤프로 동기화하는 슬래시 커맨드 셋업</li>
+<li><strong>analytics-engineer 스타일 에이전트</strong>를 만들어 dbt 모델 작성, 코드 리뷰, dev 환경 테스트 수행</li>
+<li>더 알아보기 <a href="https://code.claude.com/docs/en/skills#extend-claude-with-skills">Extend Claude with skills</a></li>
+</ul>
+<h2 id="5-버그-수정은-claude에게-맡김">5. 버그 수정은 Claude에게 맡김</h2>
+<ul>
+<li><strong>Slack MCP</strong>를 활성화하고 Slack 버그 스레드를 Claude에 붙여넣은 뒤 “fix”라고만 입력하면 컨텍스트 전환 없이 수정 가능</li>
+<li>또는 “<strong>Go fix the failing CI tests</strong>”라고만 지시하고 방법은 Claude에게 맡길 것</li>
+<li><strong>docker logs</strong>를 Claude에 전달해 분산 시스템 트러블슈팅에 활용 — 놀라울 정도로 유능함</li>
+</ul>
+<h2 id="6-프롬프트-수준-끌어올리기">6. 프롬프트 수준 끌어올리기</h2>
+<ul>
+<li>“<strong>이 변경사항을 엄격히 검토하고, 내가 테스트를 통과할 때까지 PR 만들지 마</strong>”라고 지시해 Claude를 리뷰어로 활용</li>
+<li>“<strong>이게 작동한다는 걸 증명해봐</strong>”라고 하며 main 브랜치와 feature 브랜치 간 동작 차이를 diff하도록 요청</li>
+<li>평균적인 수정 결과가 나오면 “<strong>지금까지 알게 된 모든 것을 바탕으로 이걸 버리고 우아한 솔루션을 구현해</strong>”라고 지시</li>
+<li>작업 전달 전 <strong>상세한 스펙 작성</strong>과 모호함 제거가 출력 품질 향상의 핵심</li>
+</ul>
+<h2 id="7-터미널과-환경-설정">7. 터미널과 환경 설정</h2>
+<ul>
+<li>클로드 코드 팀에서는 <strong>Ghostty</strong> 터미널 선호
+<ul>
+<li>동기화 렌더링, <strong>24비트 컬러</strong>, 적절한 유니코드 지원이 장점</li>
+</ul>
+</li>
+<li><strong>/statusline</strong>으로 상태바를 커스터마이징해 <strong>컨텍스트 사용량</strong>과 <strong>현재 git 브랜치</strong> 항상 표시</li>
+<li>터미널 탭에 색상 코드와 이름을 붙이고 <strong>tmux</strong> 사용 — 작업/worktree당 하나의 탭</li>
+<li><strong>음성 받아쓰기</strong> 활용 권장
+<ul>
+<li>타이핑보다 3배 빠르게 말할 수 있고, 프롬프트가 훨씬 상세해짐</li>
+<li>macOS에서 fn 키 두 번 누르기로 활성화</li>
+</ul>
+</li>
+<li>추가 팁 : <a href="https://code.claude.com/docs/en/terminal-config">Optimize your terminal setup</a></li>
+</ul>
+<h2 id="8-서브에이전트-활용">8. 서브에이전트 활용</h2>
+<ul>
+<li>Claude가 더 많은 연산을 투입하길 원하면 요청에 “<strong>use subagents</strong>”를 추가</li>
+<li>개별 작업을 서브에이전트에 위임해 <strong>메인 에이전트의 컨텍스트 윈도우</strong>를 깔끔하고 집중된 상태로 유지</li>
+<li>권한 요청을 <strong>Opus 4.5</strong>로 라우팅하는 hook 설정 — 공격 스캔 후 <a href="https://code.claude.com/docs/en/hooks#permissionrequest">안전한 요청은 자동 승인</a></li>
+</ul>
+<h2 id="9-데이터분석-작업에-claude-활용">9. 데이터·분석 작업에 Claude 활용</h2>
+<ul>
+<li>Claude Code에 “<strong>bq</strong>” CLI를 사용해 즉석에서 메트릭을 가져오고 분석하도록 요청</li>
+<li>코드베이스에 <strong>BigQuery skill</strong>을 체크인해두고 팀 전체가 Claude Code에서 직접 분석 쿼리 실행</li>
+<li>6개월 이상 SQL을 직접 작성하지 않았음</li>
+<li>CLI, MCP, API가 있는 <strong>모든 데이터베이스</strong>에 동일하게 적용 가능</li>
+</ul>
+<h2 id="10-claude를-활용한-학습">10. Claude를 활용한 학습</h2>
+<ul>
+<li><strong>/config</strong>에서 “<strong>Explanatory</strong>” 또는 “<strong>Learning</strong>” 출력 스타일을 활성화하면 Claude가 변경 사항의 <strong>이유(why)</strong> 를 설명</li>
+<li>익숙하지 않은 코드를 설명하는 <strong>시각적 HTML 프레젠테이션</strong> 생성 요청 — 놀라울 정도로 좋은 슬라이드를 제작함</li>
+<li>새로운 프로토콜과 코드베이스 이해를 위해 <strong>ASCII 다이어그램</strong>으로 그리도록 요청</li>
+<li><strong>간격 반복 학습(spaced-repetition) skill</strong> 구축
+<ul>
+<li>사용자가 이해한 내용을 설명하면 Claude가 빈틈을 채우는 <strong>추가 질문을 하고 그 결과를 저장</strong></li>
+</ul>
+</li>
+</ul>
+<p>출처: <a href="https://x.com/bcherny/status/2017742741636321619">https://x.com/bcherny/status/2017742741636321619</a></p> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

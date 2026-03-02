@@ -1,0 +1,63 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2025-04-05-llm-context1/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>LLM 컨텍스트 - 개발을 위한 Vanilla AI 채팅 활용 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ai • MCP </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> April 5, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 3 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> LLM 컨텍스트 - 개발을 위한 Vanilla AI 채팅 활용 </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2025-04-05-LLM-Context1/hero.png" alt="LLM 컨텍스트 - 개발을 위한 Vanilla AI 채팅 활용" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <p>이 글은 <a href="https://www.cyberchitta.cc/articles/llm-ctx-why.html">cyberchitta 블로그</a>중 일부를 번역했습니다.</p>
+<h2 id="채팅-인터페이스의-매력">채팅 인터페이스의 매력</h2>
+<ol>
+<li>유연한 문제 해결 및 학습: 웹 기반 채팅 인터페이스는 개발자의 자연스러운 사고 과정을 반영하는 대화적이고 반복적인 접근 방식을 제공합니다. 이 형식은 문제 해결과 학습을 동시에 용이하게 하여 솔루션을 쉽게 탐색하고 개념을 즉시 명확히 할 수 있습니다.</li>
+<li>문맥적 연속성: 채팅 인터페이스를 통해 개발자는 대화 내내 맥락을 구축하고 유지할 수 있으며, 끊임없이 배경 정보를 다시 설명하지 않고도 복잡한 문제나 여러 단계로 구성된 프로세스를 더 쉽게 논의할 수 있습니다.</li>
+<li>개발 작업의 다양성: 신속한 프로토타입 제작부터 디버깅, 리팩토링, 심지어 아키텍처 논의까지, 채팅 인터페이스는 다양한 개발 활동을 위한 유연한 환경을 제공합니다. 이를 통해 개발자는 고수준 개념이나 특정 코드 문제를 빠르게 설명하고 자세한 응답이나 구현을 받을 수 있습니다.</li>
+<li>LLM 한계 완화: LLM은 강력한 도구이지만, 가끔 환각을 일으키거나, 사양을 오해하거나, 불완전하거나 버그가 있는 코드를 생성할 수 있습니다. 채팅 인터페이스를 통해 개발자는 이러한 문제를 즉시 명확히 하고 수정하고, 코드나 더 일반적으로 텍스트에서 최상의 아이디어를 선별할 수 있습니다.</li>
+<li>모바일 접근성: 채팅 인터페이스에는 종종 모바일 버전이 있어 개발자가 이동 중에도 데스크톱에서 시작한 대화를 계속할 수 있습니다. 캐시된 프로젝트 컨텍스트가 있는 프리미엄 서비스는 추가적인 유연성을 제공하여 개발자가 모바일 기기에서 새로운 컨텍스트 인식 대화를 시작할 수 있도록 합니다. 데스크톱 개발을 대체하지는 않지만 특정하고 가벼운 작업에 도움이 될 수 있습니다.</li>
+<li>즐거운 협업: 마지막으로, 채팅 인터페이스를 통해 AI와 함께 일하는 것은 인간 파트너와 협업하는 것과 비슷하게 매력적이고 즐거운 경험이 될 수 있습니다. 이러한 상호 작용적인 역동성은 개발 작업을 더 재미있고 (따라서) 더 생산적으로 만듭니다.</li>
+</ol>
+<h2 id="개발을-위한-채팅-인터페이스-사용의-과제">개발을 위한 채팅 인터페이스 사용의 과제</h2>
+<p>웹 기반 채팅 인터페이스는 강력한 기능을 제공하지만 개발 작업에 효과적으로 사용하려면 다음과 같은 몇 가지 과제가 있습니다.</p>
+<ol>
+<li>
+<p>컨텍스트 관리 및 워크플로 중단:</p>
+<ul>
+<li>여러 파일이나 코드 조각을 수동으로 복사하여 붙여넣는 일은 시간이 많이 걸리고 지루하며, 종종 각 컨텍스트에 대해 여러 작업이 필요합니다.</li>
+<li>각 채팅 중에 어떤 맥락을 제공할지 끊임없이 결정해야 하는 인지적 부담은 개발자의 흐름과 사고 과정을 방해합니다.</li>
+<li>개발 환경과 채팅 인터페이스 부분을 번갈아가며 사용하면 생산성이 집중되기도 하고 저하되기도 합니다.</li>
+</ul>
+</li>
+<li>
+<p>세션 간 일관성 유지: 여러 채팅 세션에서 일관된 맥락을 보장하는 것은 어려운 일이며, 종종 프로젝트 구조와 배경에 대한 반복적인 설명이 필요합니다.</p>
+</li>
+</ol>
+<!-- 이 빈 줄은 새로운 목록을 시작하기 위한 분리선 역할을 합니다 -->
+<!-- 1. 첫 번째 항목
+2. 두 번째 항목
+   1. 중첩된 첫 번째 항목
+   2. 중첩된 두 번째 항목 -->
+<h2 id="llm-컨텍스트-소개">LLM 컨텍스트 소개</h2>
+<p>이러한 과제를 해결하고 기존 채팅 인터페이스의 강점을 활용하기 위해 LLM Context를 개발했습니다. 이 도구는 다음을 통해 AI 지원 개발을 향상시킵니다.</p>
+<ol>
+<li>효율적인 컨텍스트 관리: 프로젝트에서 관련 파일을 빠르게 선택하여 공유하고, 단일 작업으로 AI에 필수 정보를 제공합니다.</li>
+<li>간소화된 워크플로: 몇 번의 키보드 입력만으로 손쉽게 컨텍스트를 업데이트하고, 개발 초점이 바뀌어도 원활한 대화를 나눌 수 있습니다.</li>
+<li>투명성 및 통제:
+<ul>
+<li>AI와 공유되는 콘텐츠가 정확히 무엇인지 검토하세요.</li>
+<li>AI가 사용자의 특정 요구 사항에 맞춰 초점을 맞추도록 프롬프트를 사용자 정의하세요.</li>
+</ul>
+</li>
+<li>원활한 통합: 선호하는 웹 기반 채팅 인터페이스와 함께 작동하여 플랫폼을 변경하지 않고도 기능을 향상시킵니다.</li>
+</ol>
+<h4 id="참고자료">참고자료</h4>
+<ul>
+<li><a href="https://www.cyberchitta.cc/articles/llm-ctx-why.html">cyberchitta 블로그</a></li>
+</ul> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

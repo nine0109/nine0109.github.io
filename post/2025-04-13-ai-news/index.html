@@ -1,0 +1,117 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2025-04-13-ai-news/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>AI News LLAMA4, A2A - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ai • news </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> April 13, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 4 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> AI News LLAMA4, A2A </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2025-04-13-ai-news/hero.webp" alt="AI News LLAMA4, A2A" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <h2 id="라마-4-제품군-출시">라마 4 제품군 출시</h2>
+<p>본 글은 AI Times에서 발췌했습니다. 원문은 하단 링크를 참고하세요.</p>
+<p>2025년 4월 5일, 멀티모달 기능을 갖춘 ‘라마 4’ 제품군을 출시했다. 오픈AI나 구글 등의 최첨단 모델과 맞먹는 성능을 갖춘 것은 물론, 멀티모달 기능을 통해 ‘오픈 소스 최강’의 위치를 되찾으려고 시도한 점이 특징이다.
+이 중 스카우트와 매버릭은 이날부터 <a href="https://www.llama.com/llama-downloads/">라마닷컴</a>과 <a href="https://huggingface.co/meta-llama">허깅페이스</a>에서 다운로드할 수 있다</p>
+<p>메타는 5일(현지시간) <strong>▲라마 4 스카우트(Scout) ▲라마 4 매버릭(Maverick) ▲라마 4 베히모스(Behemoth)</strong> 등 멀티모달 제품군을 공개했다.
+라마 4는 전문가 혼합(MoE)’ 방식을 채택했다.
+<img src="https://cdn.aitimes.com/news/photo/202504/169377_184961_4847.png" alt=""></p>
+<p>특히 컨텍스트 창의 크기가 무려 1000만(10M) 토큰이다. 기존 최대인 ‘제미나이’의 200만 토큰보다 5배나 큰 것으로, 최근 산업계의 컨텍스트 창 확대 요구에 맞춘 것이다.
+그리고 스카우트와 매버릭은 베히모스를 ‘증류(distillation)‘했다고 밝혔다. 딥시크 역시 R-1 출시 당시 증류한 소형 모델을 공개했다.
+딥시크의 장점을 취하면서도 딥시크는 갖추지 못한 멀티모달 기능에 집중했다.
+최근 트렌드인 추론 모델이 아니라는 점도 주목할만 하다. 다만 성능은 프론티어급 모델을 능가하거나 맞먹는다고 밝혔다.</p>
+<p>라마 4 스카우트는 16개의 전문가 모델로 구성됐으며, 활성 매개변수는 170억개(17B)다.
+단일 엔비디아 ‘H100’ GPU로 구동이 가능한 소형모델이지만, 이전 모든 세대의 라마 모델보다 성능이 뛰어나다고 설명했다. 벤치마크에서는 마이크로소프트의 ‘젬마 3’를 비롯해 ‘제미나이 플래시-라이트’, ‘미스트랄 3.1’ 등 동급 모델보다 뛰어난 성적을 거뒀다고 밝혔다.
+사실상 주력 모델로 볼 수 있는 라마 4 매버릭은 총 매개변수 4000억개(400B) 중 활성 매개변수는 170억개다. 그러나 전문가 모델은 128개로, 스카우트의 8배 규모다</p>
+<p>매버릭 역시 동급 최고의 멀티모달모델(LMM)이라고 강조했다. 특히 각종 벤치마크에서 현존 최고급의 LMM인 ‘GPT-4o’와 ‘제미나이 2.0 플래시’를 능가했다.</p>
+<p><img src="https://cdn.aitimes.com/news/photo/202504/169377_184962_4922.png" alt="https://cdn.aitimes.com/news/photo/202504/169377_184962_4922.png"></p>
+<p>동시에 추론과 코딩에서는 딥시크-V3 최신 버전과 비슷한 결과를 달성했다고 밝혔다. V3에 비해 활성 매개변수의 절반도 안 된다고 밝혔다. 또 인간 선호도 평가인 LM아레나에서는 ELO 1417점을 기록, 동급 최고의 가성비를 제공한다고 덧붙였다.</p>
+<p><strong>베히모스는 스카우트와 매버릭을 증류하는 데 사용한 ‘교사’ 모델이다.</strong> 16개의 전문가와 2880억개(288B)의 활성 매개변수를 가진 “지금까지 등장한 가장 강력하고 똑똑한 모델 중 하나”라고 소개했다.</p>
+<p>STEM 벤치마크에서는 최첨단 모델인 ‘GPT-4.5’와 ‘클로드 3.7 소네트’, ‘제미나이 2.0 프로’보다 성능이 뛰어나다고 전했다. 메타는 “베히모스는 아직 훈련 중으로, 출시에 앞서 소개하게 돼 기쁘다”라고 밝혔다.</p>
+<p><img src="https://pbs.twimg.com/media/GnyiPdwbwAAgA3e?format=jpg&#x26;name=medium" alt="https://pbs.twimg.com/media/GnyiPdwbwAAgA3e?format=jpg&#x26;name=medium"></p>
+<p><img src="https://pbs.twimg.com/media/GnzCatXa0AAFqcW?format=png&#x26;name=medium" alt="https://pbs.twimg.com/media/GnzCatXa0AAFqcW?format=png&#x26;name=medium"></p>
+<hr>
+<h2 id="메타-스마트-안경-하이퍼-노바">메타 스마트 안경 ‘하이퍼 노바’</h2>
+<p>이 안경은 기존 휴대폰 액세서리에 불과하던 보조 장치를 넘어, 휴대폰 없이도 사용할 수 있게 제작됐다.
+이 디스플레이는 평소 정면을 쳐다보면 흐릿해지지만, 아래를 내려다보면 선명하게 등장한다. 제품을 켜면 디스플레이에는 회사 로고 등이 포함된 ‘부팅 화면’이 표시되며, 메타의 혼합현실 헤드셋 ‘퀘스트’와 비슷하게 구성된 홈 화면이 나타난다.
+여기에는 사진 촬영과 사진 보기, 지도 전용 앱 등 모바일용 앱이 포함돼 있다. 메타의 메신저나 왓츠앱 등 통화 기능도 지원한다. 구글 안드로이드 마켓에 포함된 것으로, 메타가 별도의 스토어를 구축할 계획은 없는 것으로 알려졌다.
+또 지난해 커넥트 행사에서 선보였던 손목밴드 컨트롤러를 제공할 예정이다. 이를 통해 간단한 손짓으로 내장 디스플레이에서 앱을 작동하는 장치다. ‘시러스(Ceres)‘라는 코드명을 가진 메타의 야심작으로, 안경과 함께 제공된다.
+9월 열리는 ‘커넥트’ 행사에서 공개될 가능성이 크며, 계획은 변경될 수도 있다. 실제 메타는 프라이버시 침해를 막기 위해 카메라 없는 스마트 안경을 개발에 나섰다가, 얼마 전 이를 취소한 것으로 알려졌다.</p>
+<p>이 밖에도 메타는 ‘슈퍼노바 2(Supernova 2)‘라는 내부 디스플레이가 없는 안경도 제작 중이다. 기능은 기존 레이밴 안경과 흡사하지만, 외형이 고글형인 것으로 알려졌다. 이 제품도 지난 1월 블룸버그가 개발 중인 것을 확인했던 제품으로, 최근 공공장소에서 테스트를 시작했다고 전했다</p>
+<p><a href="https://www.aitimes.com/news/articleView.html?idxno=169288">AI Times: 메타 스마트 안경 ‘하이퍼 노바’</a></p>
+<hr>
+<h2 id="google-agent2agenta2a프로토콜-공개">Google Agent2Agent(A2A프로토콜 공개)</h2>
+<p><a href="https://hackernoon.com/google-a2a-a-first-look-at-another-agent-agent-protocol">MCP와 A2A비교 원문</a>
+2024년 4월 10일</p>
+<p><a href="https://news.hada.io/topic?id=20274">원문</a>
+Google이 새로운 에이전트-에이전트 프로토콜 A2A (Agent to Agent)를 오픈소스로 공개했습니다.
+Anthropic의 MCP와 유사하지만 목적과 구조 측면에서는 차별점이 존재합니다. MCP는 하나의 LLM이 외부 API나 도구를 활용하는데 중점을 둔 클라이언트로 쉽게 같은 MCP서버를 다양한 LLM으로 환경에 넣을 수 있습니다. A2A는 클라이언트 서버 구조로 서로 다른 에이전트들이 독립적으로 존재하며, 독립적인 에이전트들 간의 협업에 중점을 두었다고 합니다.</p>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th align="left">Feature</th><th align="left">A2A</th><th align="left">MCP</th></tr></thead><tbody><tr><td align="left">Primary Use Case</td><td align="left">Agent-to-agent communication and collaboration</td><td align="left">Providing context and tools (external API/SDK) to LLMs</td></tr><tr><td align="left">Core Architecture</td><td align="left">Client-server (agent-to-agent)</td><td align="left">Client-host-server (application-LLM-external resource)</td></tr><tr><td align="left">Standard Interface</td><td align="left">JSON specification, Agent Card, Tasks, Messages, Artifacts</td><td align="left">JSON-RPC 2.0, Resources, Tools, Memory, Prompts</td></tr><tr><td align="left">Key Features</td><td align="left">Multimodal, dynamic, secure collaboration, task management, capability discovery</td><td align="left">Modularity, security boundaries, reusability of connectors, SDKs, tool discovery</td></tr><tr><td align="left">Communication Protocol</td><td align="left">HTTP, JSON-RPC, SSE</td><td align="left">JSON-RPC 2.0 over stdio, HTTP with SSE (or streamable HTTP)</td></tr><tr><td align="left">Performance Focus</td><td align="left">Asynchronous communication for load handling</td><td align="left">Efficient context management, parallel processing, caching for high throughput</td></tr><tr><td align="left">Adoption &#x26; Community</td><td align="left">Good initial industry support, nascent ecosystem</td><td align="left">Substantial adoption from entire industry, fast growing community</td></tr></tbody></table>
+<hr>
+<h4 id="기타-소식">기타 소식:</h4>
+<ul>
+<li><a href="https://academy.openai.com/">OpenAI 아카데미</a></li>
+<li><a href="https://www.anthropic.com/news/introducing-claude-for-education">클로드 애듀케이션</a></li>
+<li><a href="https://x.com/midjourney/status/1908012961840672947">미디저니 새모델 V7</a></li>
+<li><a href="https://news.hada.io/topic?id=20142">앤트로픽, 추론 모델은 진짜 생각을 말하지 않는다</a></li>
+</ul>
+<h4 id="참고자료">참고자료:</h4>
+<ul>
+<li><a href="https://www.aitimes.com/news/articleView.html?idxno=169377">AI Times: ‘메타, ‘최강 성능 멀티모달’ 라마 4 제품군 출시</a></li>
+<li><a href="https://x.com/Ahmad_Al_Dahle/status/1908595680828154198">Ahmad AI Dahle Lading Gen AI@Meta</a></li>
+<li><a href="https://ai.meta.com/blog/llama-4-multimodal-intelligence/">Meta blog</a></li>
+<li><a href="https://www.llama.com/">llama.com</a></li>
+<li><a href="https://www.youtube.com/watch?v=e9uE_C1GvFo&#x26;t=5s">조코딩</a></li>
+<li><a href="https://news.hada.io/topic?id=20274">GeekNews</a></li>
+<li><a href="https://hackernoon.com/google-a2a-a-first-look-at-another-agent-agent-protocol">MCP와 A2A비교_Bruce Li</a></li>
+</ul> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

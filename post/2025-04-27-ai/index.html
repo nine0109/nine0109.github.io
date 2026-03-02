@@ -1,0 +1,128 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2025-04-27-ai/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>untitled - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ai • dev </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> April 27, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 4 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> untitled </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2025-04-27-ai/hero.webp" alt="untitled" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <h2 id="메타-글래스">메타 글래스</h2>
+<h2 id="nari">Nari</h2>
+<p>한국 대학생 두 명이 오디오 생성 AI, ‘DIA’</p>
+<p>Adobe, 이미지, 영상 제작용 생성형 AI 앱 ‘파이어플라이</p>
+<h2 id="ms-업무용-추론-에이전트-2종-상반기-국내-출시">MS 업무용 추론 에이전트 2종 상반기 국내 출시</h2>
+<p><a href="https://www.aitimes.com/news/articleView.html?idxno=170011">https://www.aitimes.com/news/articleView.html?idxno=170011</a>
+서 추론 에이전트 ‘리서처’ ‘애널리스트’ 2종을 공개한 바 있다. 이어 며칠 전 미국에서 MS 365 코파일럿 라이선스를 보유한 사용자를 대상으로 출시를 시작했다.</p>
+<p>애널리스트는 추론 모델 ‘o3-미니’를 활용해 고급 분석 기능을 제공하는 에이전트다. 시연 연상에서는 ‘전기차 충전소 제품별 매출 정리 엑셀 파일’을 입력해 업체별 가격 및 시각화된 인사이트 자료(그래프) 등을 도출하는 모습을 선보였다.</p>
+<p>이날에는 국내를 포함한 전 세계 31개국 3만1000명의 근로자를 대상으로 설문조사를 진행, 그 결과를 공유했다. ‘프론티어 기업의 탄생’과 ‘AI 에이전트로 새롭게 창출되는 일자리’ 등을 키워드로 소개했다.</p>
+<p>프론티어 기업이란 인공지능(AI) 에이전트를 적절하고 효율적으로 업무에 적극 활용할 줄 아는 ‘개척자’ 역할의 기업을 의미한다.</p>
+<p>이에 기업의 단계별 AI 활용도도 소개했다.</p>
+<p>1단계는 ‘인간과 AI 어시스턴트와의 협업’이다. AI가 반복적 업무를 보조, 효율을 높여주는 정도를 의미한다. 2단계는 ‘인간-AI 에이전트의 협업’이다. AI가 팀의 디지털 동료로 합류해 사람의 지시에 따라 전략 수립 등 업무를 수행하는 것을 의미한다.</p>
+<p>마지막 3단계는 ‘인간이 관리자의 역할을 맡아 AI 에이전트를 운영’하는 것이다. 인간이 일의 방향을 제시하면, 에이전트가 전체 업무 흐름을 주도하는 방식이다. 에이전트의 업무에도 필요시에는 인간이 개입할 수 있다.</p>
+<p>이 과정에서 “에이전트가 보안 데이터를 활용하지 않도록 액세스 권한 자체를 명확하게 설정하고, 어떤 정보에 접근했는지 판단하는 것이 중요해질 것”이라고 강조했다.</p>
+<p>AI 에이전트가 활성화되는 만큼 관련 일자리도 창출될 것으로 전망했다. AI 트레이너와 에이전트-데이터 전문가, 투자수익률(ROI) 분석가 등을 예로 들었다.</p>
+<p>출처 : AI타임스(<a href="https://www.aitimes.com">https://www.aitimes.com</a>)</p>
+<h2 id="mac-os-sequoia-1541">mac OS Sequoia 15.4.1</h2>
+<h2 id="리서치를-사용한-일정-만들기">리서치를 사용한 일정 만들기</h2>
+<h2 id=""></h2>
+<p>2025년 4월 15일 Anthropic에서 <a href="https://www.anthropic.com/news/research">Claude Research</a>를 발표했습니다. 2024년에는 AI 전문가들 Rag를 가장 큰 키워드로 뽑았고 실제 많은 기업들이 Rag를 사용한 개발이 있었습니다. 2025년의 키워드는 에이전트입니다. MCP를 사용한 많은 에이전트가 사용자의 데이터를 액세스해서 맥락을 읽고 사용자를 도와주고 있습니다. 하지만, MCP는 개발자 모드에서 활성화되며, 엔드 유저를 대상으로 하고 있지 않습니다.</p>
+<p>Claude Research는 엔드유저를 대상으로 한 에이전트는 Deep Research라고 할 수 있습니다. Open AI, Gemini, Manus 이러한 리서치 제품은 주제에 맞추어 AI가 단계별로 추론하며 정보를 확산하고 이후 요약한 결론을 도출합니다.
+LLM은 학습 데이터에서 생성하는 것이고 이는 최신 데이터를 반영하지 못한다는 구조적인 어려움이 있었습니다. 이러한 단점을 보완해 <a href="Perplexity.ai">Perplexity.ai</a>와 같은 서비스들이 최신 트랜드를 반영해야하는 리서치 업무에 주목을 받기도 했습니다.</p>
+<p>OpenAI 출시와 비슷한 시기에 <a href="https://manus.im/">Manus</a>에서는 리서치 에이전트 Manus 베타 버전을 출시했다. 200달러에 OpenAI Pro요금에서만 제공한 리서치 모델을 manus에서는 chart를 포함한 종합 보고서를 만들어주며 베타 서비스 기간으로 사용 금액은 무료였습니다. 정식 출시를 한 지금은 월 39달러에 3900 크레딧을 제공하는 요금제를 제공하고 있습니다.</p>
+<h2 id="주요-ai-딥-리서치-도구-기능-비교">주요 AI 딥 리서치 도구 기능 비교</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>기능</th><th>Gemini Deep Research</th><th>OpenAI Deep Research</th><th>Manus</th><th>Claude Research</th></tr></thead><tbody><tr><td>출시일</td><td>2024년 12월 11일</td><td>2025년 2월 2일</td><td>2025년 3월 6일</td><td>2025년 4월 15일</td></tr><tr><td>인터넷</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td>단계별 추론</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr><tr><td>차트</td><td>?</td><td>✓</td><td>✓</td><td>?</td></tr><tr><td>워크스페이스 통합</td><td>-</td><td>?</td><td>-</td><td>✓</td></tr><tr><td>이메일/캘린더 액세스</td><td>-</td><td>?</td><td>-</td><td>✓</td></tr><tr><td>가격</td><td>무료</td><td>$200</td><td>월 $39</td><td>월 $100</td></tr><tr><td>보고서</td><td>✓</td><td>✓</td><td>✓</td><td>✓</td></tr></tbody></table>
+<h2 id="claude-reserach">Claude Reserach</h2>
+<p><a href="https://www.anthropic.com/news/research">Claude Research</a>는 인터넷을 사용해 정보를 수집하는 <strong>리서치</strong>와이메일, 캘린더, 문서를 Claude에 연결하는 <strong>Google Workspace</strong>통합 기능이라고 합니다.
+사용자의 업무 관련 공간을 열람하고 이를 배경으로 사용자 질문에  다양한 추론을 제공할 수 있는 에이전트인 것입니다.
+이것은 MCP에 있는 여러 서버들 중 하나와 유사합니다. 기존 MCP는 사용시 엑세스할 경로를 설정하고 에이전트에게 열람해서 수행할 것을 요청하는 형태로 였으습니다. <a href="https://www.anthropic.com/news/research">Claude Research</a>의 자료를 보면 사용자의 데이터를 Rag와 같이 유형화 또는 인덱싱 시켜서 검색에 사용하는 것으로 보입니다. (이와 유사한 기술로는 Cursor에서 Code를 인덱싱하는 것이 있습니다.)</p>
+<p>Claude research blog 마지막 문단과 같이 몇 주 안에 더 큰 서비스로 확장할 것으로 기대됩니다.</p>
+<blockquote>
+<p><strong>Getting started</strong></p>
+<p>This is just the beginning of updates to make Claude an even better collaborator. In the coming weeks, we’ll expand the range of content sources available and the ability for Claude to do research in more depth.</p>
+</blockquote>
+<h4 id="참고자료">참고자료:</h4>
+<ul>
+<li><a href="https://www.anthropic.com/news/research">Claude Research, Apr 16 2025</a></li>
+<li><a href="https://openai.com/index/introducing-deep-research/">OpenAI Deep Research, Feb 2 2025</a></li>
+<li><a href="https://gemini.google/overview/deep-research/">Gemini Deep Research, Dec 11 2024</a></li>
+<li><a href="https://en.wikipedia.org/wiki/Manus_(AI_agent)">wikipedia, manus</a></li>
+<li><a href="https://www.computerworld.com/article/3815697/openai-launches-deep-research-agent-for-multi-step-research-tasks.html">Lynn Greiner blog, OpenAI launches deep research agent for multi-step research tasks</a></li>
+<li><a href="https://www.cio.com/article/3843942/%EB%A7%88%EB%88%84%EC%8A%A4-%EC%98%A4%ED%94%88ai%EB%B3%B4%EB%8B%A4-%EB%8D%94-%EB%82%98%EC%9D%84%EA%B9%8C.html">Tristan Fincken blog, 마누스, 오픈AI보다 더 나을까?</a></li>
+<li><a href="https://selectstar.ai/ko/blog/insight/manus-and-ai-agent/">selectstar blog, 마누스 (Manus)와 AI 에이전트</a></li>
+</ul> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

@@ -1,0 +1,374 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2025-05-25_variables2sheets_guide/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>Variables2Sheets 사용 가이드 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ux • dev </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> May 25, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 8 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> Variables2Sheets 사용 가이드 </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2025-05-25_variables2sheets_guide/hero.webp" alt="Variables2Sheets 사용 가이드" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <!-- 다국어 콘텐츠 데이터 -->
+<script type="application/json" id="multilang-content">
+{
+  "ko": {
+    "title": "Variables2Sheets 사용 가이드",
+    "subtitle": "Figma Variables를 효율적으로 관리할 수 있는 최적의 도구입니다.",
+    "installLink": "🔗 Figma Community에서 설치하기",
+    "features": {
+      "title": "주요 기능",
+      "list": [
+        "**쉬운 Variables 내보내기**: 복잡한 변수를 간단하게 시트로 변환",
+        "**쉬운 Variables 가져오기**: 시트 데이터를 Figma로 한 번에 임포트",
+        "**직관적인 Variables 편집**: 시트에서 편집 후 바로 적용",
+        "**Variables Alias 지원**: 별칭 기능으로 더 유연한 관리",
+        "**다국어 지원**: 영어, 한국어 (추가 언어 업데이트 예정)",
+        "**다양한 파일 형식**: JSON(전체 컬렉션), CSV 저장 지원"
+      ]
+    },
+    "quickStart": {
+      "title": "빠른 시작 가이드",
+      "export": {
+        "title": "Variables 내보내기",
+        "steps": [
+          "**내보내기 탭** 선택",
+          "내보낼 **컬렉션** 선택",
+          "**복사 버튼** 클릭",
+          "클립보드에 데이터가 복사됩니다"
+        ]
+      },
+      "edit": {
+        "title": "구글 시트에서 편집하기",
+        "steps": [
+          "구글 시트에서 **A1 셀 클릭** 후 붙여넣기 (`Ctrl+V` 또는 `Cmd+V`)",
+          "**첫 번째 헤더 행은 편집하지 마세요**",
+          "**두 번째 행(D2)**부터 데이터를 편집합니다"
+        ]
+      },
+      "import": {
+        "title": "Variables 가져오기",
+        "steps": [
+          "편집한 시트 데이터를 **전체 선택** (`Ctrl+A`) 후 **복사** (`Ctrl+C`)",
+          "variables2sheets 플러그인의 **가져오기 탭** 클릭",
+          "데이터 입력 상자에 **붙여넣기** (`Ctrl+V`)",
+          "**가져오기 버튼** 클릭하여 완료"
+        ]
+      }
+    },
+    "advanced": {
+      "title": "고급 사용법",
+      "warning": "**중요**: 첫 번째 행의 헤더 레이블(Collection, Key, Type)은 수정하지 마세요.",
+      "sections": {
+        "collection": {
+          "title": "컬렉션 관리",
+          "content": [
+            "**A열**: 아이템의 컬렉션 위치",
+            "컬렉션명을 수정하면 해당 컬렉션으로 아이템이 이동됩니다",
+            "존재하지 않는 컬렉션명 입력 시 새 컬렉션을 자동 생성합니다"
+          ]
+        },
+        "key": {
+          "title": "키 구조 편집",
+          "content": [
+            "**B열**: Variables의 그룹 구조",
+            "슬래시(`/`)로 계층 구조를 표현합니다",
+            "마지막 레이블이 실제 Variable 이름이 됩니다",
+            "예: `color/primary/main` → `main`이라는 이름의 변수"
+          ]
+        },
+        "type": {
+          "title": "타입 변경",
+          "description": "지원하는 타입: `String`, `Color`, `Number`, `Boolean`",
+          "content": [
+            "C열에서 타입을 수정하면 Import 시 해당 타입으로 적용됩니다"
+          ]
+        },
+        "data": {
+          "title": "데이터 편집",
+          "content": [
+            "**D열 이후**: 실제 데이터 값",
+            "각 타입에 맞는 형식으로 입력하세요",
+            "**Alias 지원**: `{collection/key}` 형식으로 별칭 설정 가능"
+          ]
+        },
+        "mode": {
+          "title": "모드 관리",
+          "content": [
+            "**Type 컬럼 이후(D1~)**: 각 컬럼이 Collection의 Mode에 해당",
+            "Mode명 수정 시 새로운 Mode가 추가됩니다",
+            "**Figma Pro**: 최대 4개 Mode 지원",
+            "**무료 버전**: 1개 Mode만 사용 가능"
+          ]
+        }
+      }
+    },
+    "fileOptions": {
+      "title": "파일 저장 옵션",
+      "json": {
+        "title": "JSON 저장",
+        "content": [
+          "**전체 컬렉션**을 JSON 형식으로 내보내기",
+          "백업 및 버전 관리에 유용"
+        ]
+      },
+      "csv": {
+        "title": "CSV 저장",
+        "content": [
+          "**선택한 컬렉션**만 CSV로 내보내기",
+          "외부 도구와의 호환성 확보"
+        ]
+      },
+      "setting": "**설정 방법**: Export 탭 → 고급 옵션에서 원하는 형식 선택"
+    },
+    "proTips": {
+      "title": "Pro Tips 🎯",
+      "tips": [
+        "**Alias 활용**: Export 시 고급 옵션에서 'Alias 사용' 체크박스를 해제하면 실제 값으로 내보낼 수 있습니다",
+        "**일괄 편집**: 여러 변수의 타입이나 값을 한 번에 수정할 때 시트의 자동 채우기 기능을 활용하세요",
+        "**백업 습관**: 중요한 작업 전에는 항상 JSON 형식으로 백업을 생성하세요"
+      ]
+    },
+    "references": {
+      "title": "참고 자료 📚",
+      "link": "variables2sheets Figma Community 페이지"
+    }
+  },
+  "en": {
+    "title": "Variables2Sheets User Guide",
+    "subtitle": "The optimal tool for efficiently managing Figma Variables.",
+    "installLink": "🔗 Install from Figma Community",
+    "features": {
+      "title": "Key Features",
+      "list": [
+        "**Easy Variables Export**: Simply convert complex variables into sheets",
+        "**Easy Variables Import**: Import sheet data to Figma at once",
+        "**Intuitive Variables Editing**: Edit in sheets and apply immediately",
+        "**Variables Alias Support**: More flexible management with alias functionality",
+        "**Multi-language Support**: English, Korean (more languages coming soon)",
+        "**Various File Formats**: JSON (full collection), CSV save support"
+      ]
+    },
+    "quickStart": {
+      "title": "Quick Start Guide",
+      "export": {
+        "title": "Export Variables",
+        "steps": [
+          "Select **Export tab**",
+          "Choose **collection** to export",
+          "Click **Copy button**",
+          "Data is copied to clipboard"
+        ]
+      },
+      "edit": {
+        "title": "Edit in Google Sheets",
+        "steps": [
+          "Click **A1 cell** in Google Sheets and paste (`Ctrl+V` or `Cmd+V`)",
+          "**Do not edit the first header row**",
+          "Edit data from the **second row (D2)**"
+        ]
+      },
+      "import": {
+        "title": "Import Variables",
+        "steps": [
+          "**Select all** edited sheet data (`Ctrl+A`) and **copy** (`Ctrl+C`)",
+          "Click **Import tab** in variables2sheets plugin",
+          "**Paste** in data input box (`Ctrl+V`)",
+          "Click **Import button** to complete"
+        ]
+      }
+    },
+    "advanced": {
+      "title": "Advanced Usage",
+      "warning": "**Important**: Do not modify the header labels (Collection, Key, Type) in the first row.",
+      "sections": {
+        "collection": {
+          "title": "Collection Management",
+          "content": [
+            "**Column A**: Collection location of items",
+            "Modifying collection name moves items to that collection",
+            "New collection is automatically created when entering non-existing collection name"
+          ]
+        },
+        "key": {
+          "title": "Key Structure Editing",
+          "content": [
+            "**Column B**: Group structure of Variables",
+            "Use slash (`/`) to represent hierarchical structure",
+            "The last label becomes the actual Variable name",
+            "Example: `color/primary/main` → Variable named `main`"
+          ]
+        },
+        "type": {
+          "title": "Type Modification",
+          "description": "Supported types: `String`, `Color`, `Number`, `Boolean`",
+          "content": [
+            "Modifying type in column C applies the corresponding type during Import"
+          ]
+        },
+        "data": {
+          "title": "Data Editing",
+          "content": [
+            "**Column D onwards**: Actual data values",
+            "Enter values in the format appropriate for each type",
+            "**Alias Support**: Set aliases using `{collection/key}` format"
+          ]
+        },
+        "mode": {
+          "title": "Mode Management",
+          "content": [
+            "**After Type column (D1~)**: Each column corresponds to a Collection Mode",
+            "Modifying Mode name adds a new Mode",
+            "**Figma Pro**: Supports up to 4 Modes",
+            "**Free version**: Only 1 Mode available"
+          ]
+        }
+      }
+    },
+    "fileOptions": {
+      "title": "File Save Options",
+      "json": {
+        "title": "JSON Save",
+        "content": [
+          "Export **entire collection** in JSON format",
+          "Useful for backup and version management"
+        ]
+      },
+      "csv": {
+        "title": "CSV Save",
+        "content": [
+          "Export **selected collection only** as CSV",
+          "Ensures compatibility with external tools"
+        ]
+      },
+      "setting": "**Setup Method**: Export tab → Select desired format from advanced options"
+    },
+    "proTips": {
+      "title": "Pro Tips 🎯",
+      "tips": [
+        "**Alias Utilization**: Uncheck 'Use Alias' checkbox in advanced options during Export to export with actual values",
+        "**Batch Editing**: Use spreadsheet's auto-fill feature when modifying multiple variables' types or values at once",
+        "**Backup Habit**: Always create JSON format backups before important work"
+      ]
+    },
+    "references": {
+      "title": "References 📚",
+      "link": "variables2sheets Figma Community Page"
+    }
+  }
+}
+</script>
+<!-- 다국어 토글 UI -->
+<div class="language-toggle">
+  <button class="lang-button active" data-lang="ko">한국어</button>
+  <button class="lang-button" data-lang="en">English</button>
+</div>
+<!-- 다국어 교체 가능한 섹션들 -->
+<div class="multilang-replaceable">
+<!-- Jekyll 레이아웃에서 frontmatter 제목이 다국어로 렌더링되므로 중복 제거 -->
+<p><span data-i18n="subtitle">Figma Variables를 효율적으로 관리할 수 있는 최적의 도구입니다.</span></p>
+<p><a href="https://www.figma.com/community/plugin/1458735501504134412/variables2sheets" data-i18n="installLink">🔗 Figma Community에서 설치하기</a></p>
+<hr>
+<blockquote>
+<p>[!note] <span data-i18n="features.title"><strong>주요 기능</strong></span></p>
+<div data-i18n="features.list">
+- **쉬운 Variables 내보내기**: 복잡한 변수를 간단하게 시트로 변환
+- **쉬운 Variables 가져오기**: 시트 데이터를 Figma로 한 번에 임포트
+- **직관적인 Variables 편집**: 시트에서 편집 후 바로 적용
+- **Variables Alias 지원**: 별칭 기능으로 더 유연한 관리
+- **다국어 지원**: 영어, 한국어 (추가 언어 업데이트 예정)
+- **다양한 파일 형식**: JSON(전체 컬렉션), CSV 저장 지원
+</div>
+</blockquote>
+<hr>
+<h2 id="1-빠른-시작-가이드">1. <span data-i18n="quickStart.title">빠른 시작 가이드</span></h2>
+<h3 id="1-variables-내보내기">1. <span data-i18n="quickStart.export.title">Variables 내보내기</span></h3>
+<p><img src="/images/2025-05-25_variables2sheets_guide/export.png" alt=""></p>
+<div data-i18n="quickStart.export.steps">
+1. **내보내기 탭** 선택
+2. 내보낼 **컬렉션** 선택
+3. **복사 버튼** 클릭
+4. 클립보드에 데이터가 복사됩니다
+</div>
+<h3 id="2-구글-시트에서-편집하기">2. <span data-i18n="quickStart.edit.title">구글 시트에서 편집하기</span></h3>
+<p><img src="/images/2025-05-25_variables2sheets_guide/Sheet.png" alt=""></p>
+<div data-i18n="quickStart.edit.steps">
+1. 구글 시트에서 **A1 셀 클릭** 후 붙여넣기 (`Ctrl+V` 또는 `Cmd+V`)
+2. **첫 번째 헤더 행은 편집하지 마세요**
+3. **두 번째 행(D2)**부터 데이터를 편집합니다
+</div>
+<h3 id="3-variables-가져오기">3. <span data-i18n="quickStart.import.title">Variables 가져오기</span></h3>
+<p><img src="/images/2025-05-25_variables2sheets_guide/import.png" alt=""></p>
+<div data-i18n="quickStart.import.steps">
+1. 편집한 시트 데이터를 **전체 선택** (`Ctrl+A`) 후 **복사** (`Ctrl+C`)
+2. variables2sheets 플러그인의 **가져오기 탭** 클릭
+3. 데이터 입력 상자에 **붙여넣기** (`Ctrl+V`)
+4. **가져오기 버튼** 클릭하여 완료
+</div>
+<hr>
+<h2 id="2-고급-사용법">2. <span data-i18n="advanced.title">고급 사용법</span></h2>
+<blockquote>
+<p>[!warning] <span data-i18n="advanced.warning"><strong>중요</strong>: 첫 번째 행의 헤더 레이블(Collection, Key, Type)은 수정하지 마세요.</span></p>
+</blockquote>
+<h4 id="컬렉션-관리"><span data-i18n="advanced.sections.collection.title">컬렉션 관리</span></h4>
+<div data-i18n="advanced.sections.collection.content">
+- **A열**: 아이템의 컬렉션 위치
+- 컬렉션명을 수정하면 해당 컬렉션으로 아이템이 이동됩니다
+- 존재하지 않는 컬렉션명 입력 시 새 컬렉션을 자동 생성합니다
+</div>
+<h4 id="키-구조-편집"><span data-i18n="advanced.sections.key.title">키 구조 편집</span></h4>
+<div data-i18n="advanced.sections.key.content">
+- **B열**: Variables의 그룹 구조
+- 슬래시(`/`)로 계층 구조를 표현합니다
+- 마지막 레이블이 실제 Variable 이름이 됩니다
+- 예: `color/primary/main` → `main`이라는 이름의 변수
+</div>
+<h4 id="타입-변경"><span data-i18n="advanced.sections.type.title">타입 변경</span></h4>
+<p><span data-i18n="advanced.sections.type.description">지원하는 타입: <code>String</code>, <code>Color</code>, <code>Number</code>, <code>Boolean</code></span></p>
+<div data-i18n="advanced.sections.type.content">
+- C열에서 타입을 수정하면 Import 시 해당 타입으로 적용됩니다
+</div>
+<h4 id="데이터-편집"><span data-i18n="advanced.sections.data.title">데이터 편집</span></h4>
+<div data-i18n="advanced.sections.data.content">
+- **D열 이후**: 실제 데이터 값
+- 각 타입에 맞는 형식으로 입력하세요
+- **Alias 지원**: `{collection/key}` 형식으로 별칭 설정 가능
+</div>
+<h4 id="모드-관리"><span data-i18n="advanced.sections.mode.title">모드 관리</span></h4>
+<div data-i18n="advanced.sections.mode.content">
+- **Type 컬럼 이후(D1~)**: 각 컬럼이 Collection의 Mode에 해당
+- Mode명 수정 시 새로운 Mode가 추가됩니다
+- **Figma Pro**: 최대 4개 Mode 지원
+- **무료 버전**: 1개 Mode만 사용 가능
+</div>
+<hr>
+<h2 id="3-파일-저장-옵션">3. <span data-i18n="fileOptions.title">파일 저장 옵션</span></h2>
+<h4 id="json-저장"><span data-i18n="fileOptions.json.title">JSON 저장</span></h4>
+<div data-i18n="fileOptions.json.content">
+- **전체 컬렉션**을 JSON 형식으로 내보내기
+- 백업 및 버전 관리에 유용
+</div>
+<h4 id="csv-저장"><span data-i18n="fileOptions.csv.title">CSV 저장</span></h4>
+<div data-i18n="fileOptions.csv.content">
+- **선택한 컬렉션**만 CSV로 내보내기
+- 외부 도구와의 호환성 확보
+</div>
+<p><span data-i18n="fileOptions.setting"><strong>설정 방법</strong>: Export 탭 → 고급 옵션에서 원하는 형식 선택</span></p>
+<hr>
+<h2 id="4-pro-tips">4. <span data-i18n="proTips.title">Pro Tips 🎯</span></h2>
+<div data-i18n="proTips.tips">
+- **Alias 활용**: Export 시 고급 옵션에서 'Alias 사용' 체크박스를 해제하면 실제 값으로 내보낼 수 있습니다
+- **일괄 편집**: 여러 변수의 타입이나 값을 한 번에 수정할 때 시트의 자동 채우기 기능을 활용하세요
+- **백업 습관**: 중요한 작업 전에는 항상 JSON 형식으로 백업을 생성하세요
+</div>
+<hr>
+<h2 id="5-참고-자료">5. <span data-i18n="references.title">참고 자료 📚</span></h2>
+<ul>
+<li><a href="https://www.figma.com/community/plugin/1458735501504134412/variables2sheets"><span data-i18n="references.link">variables2sheets Figma Community 페이지</span></a></li>
+</ul>
+</div> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

@@ -1,0 +1,74 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2025-05-11-retrocolorconverter/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>두 번째 피그마 플러그인 Retro Color Converter 제작 후기 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ux • dev </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> May 11, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 2 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> 두 번째 피그마 플러그인 Retro Color Converter 제작 후기 </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2025-05-11-RetroColorConverter/hero.webp" alt="두 번째 피그마 플러그인 Retro Color Converter 제작 후기" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <h2 id="들어가며">들어가며</h2>
+<p>두 번째 피그마 플러그인 <strong>Retro Color Converter</strong>를 출시했습니다. 현재 <a href="https://www.figma.com/community/plugin/1503380730850924505/retro-color-converter">피그마 커뮤니티에서 심사 중</a>이며, 실무 경험에서 찾은 실질적인 문제를 해결하기 위해 개발한 플러그인입니다.</p>
+<h2 id="플러그인-기능">플러그인 기능</h2>
+<p>Retro Color Converter는 선택한 오브젝트를 제한된 색상의 PNG 이미지로 변환해주는 플러그인입니다. 특히 레트로 스타일의 디자인이나 하드웨어 제약이 있는 프로젝트에 유용합니다.</p>
+<h4 id="지원하는-색상-깊이">지원하는 색상 깊이</h4>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>Bit Depth</th><th>총 색상 수</th><th>그레이 레벨</th></tr></thead><tbody><tr><td>6-bit</td><td>64가지</td><td>4단계</td></tr><tr><td>9-bit</td><td>512가지</td><td>8단계</td></tr><tr><td>12-bit</td><td>4096가지</td><td>16단계</td></tr></tbody></table>
+<h2 id="개발-배경">개발 배경</h2>
+<h4 id="현실적인-제약-상황">현실적인 제약 상황</h4>
+<p>새 프로젝트에서 디자인 요구사항을 확인하던 중, “입력은 16비트이지만 출력은 RGB444(12비트)“라는 제약사항을 받았습니다. 이는 이미지 처리 과정에서는 16비트를 사용하지만, 최종 화면에 표시되는 결과물은 12비트 색상으로 제한된다는 의미였습니다. UX/GUI 저작도구들은 최신의 단말을 지원하는데 포커스가 맞춰져 있습니다. 이에, 저성능 MCU(Microcontroller Unit) 환경에서의 UX/GUI 설계에 직면한 어려움을 해결하고자 플러그인을 만들었습니다.</p>
+<h4 id="인지-부하와-작업-효율">인지 부하와 작업 효율</h4>
+<p>피그마에서는 12비트로 작업물을 열람하거나, export하는 방법을 제공하고 있지 않습니다. 12비트로 열람하려면 포토샵을 사용해 이미지를 12비트로 변환해야 합니다. 이러한 방식은 작업 흐름에 심각한 중단을 가져왔습니다.</p>
+<ul>
+<li><strong>컨텍스트 스위칭의 비용</strong>: 인간은 서로 다른 작업 환경 간 전환에 상당한 인지적 부하를 경험합니다</li>
+<li><strong>주의력 분산</strong>: 작업 도구 변경은 집중력 저하와 실수 확률 증가로 이어집니다</li>
+<li><strong>반복 작업의 누적 피로</strong>: 매번 포토샵을 거쳐야 하는 과정은 생산성을 크게 저해합니다</li>
+</ul>
+<p>이러한 문제를 해결하기 위해 “같은 도구 내에서의 원활한 워크플로우”를 목표로 플러그인을 개발했습니다.</p>
+<h2 id="사용자-경험-설계">사용자 경험 설계</h2>
+<h4 id="단순함">단순함</h4>
+<p>초기 버전은 디더링 옵션 하나만 제공하는 극도로 단순한 형태였습니다. 이는 “핵심 기능에 집중”하라는 UX 원칙을 잘 보여주는 예시로 지금도 단순한 버전이 제 개인 도구로는 좋다고 생각합니다.</p>
+<h4 id="대중성">대중성</h4>
+<p>12비트 디더링이라는 한가지 기능은 너무나 제한적인 조건으로 퍼블리싱 후 혼자 사용할 것 같았습니다.
+픽셀아트에 사용할 수 있게 도구의 기능을 확장 시켰습니다. 3가지 색상 깊이를 정의할 수 있고 디더링 옵션의 단계 또한 3단계로 나눴습니다.
+이러한 확장된 기능성은 복잡도를 증가시켜 초기의 단순한 경쟁력을 잃게 만들었습니다.
+추후, 드롭다운 또는 패널 Show/Hide와 같은 <strong>점진적 기능 공개</strong>로 확장성과 기능을 조정하려고 합니다.</p>
+<h2 id="마치며">마치며</h2>
+<p>이 플러그인으로 사용자가 사고 과정을 방해 받지 않고 자연스럽게 업무를 확장해 가는데 도움 되었으면 합니다.
+디자인 도구의 진정한 가치는 기술적 구현보다는 “사용자의 시간과 인지적 자원을 아껴주는 것”에 있다고 생각합니다.</p>
+<hr>
+<h3 id="참고-자료">참고 자료</h3>
+<ul>
+<li><a href="https://www.figma.com/community/plugin/1503380730850924505/retro-color-converter">Retro Color Converter</a></li>
+</ul> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

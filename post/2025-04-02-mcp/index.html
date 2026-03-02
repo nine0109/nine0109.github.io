@@ -1,0 +1,96 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2025-04-02-mcp/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>MCP(Model Context Protocol) - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ai • 에이전트 </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> April 2, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 3 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> MCP(Model Context Protocol) </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2025-04-02-mcp/hero.png" alt="MCP(Model Context Protocol)" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <h2 id="what-is-mcpmodel-context-protocol">What is MCP(Model Context Protocol)</h2>
+<p>MCP는 Claude를 만든 Anthropic이 만든 개방형 표준입니다. MCP로 AI 모델은 데이터 소스에 안전하게 액세스하고 상호 작용할 수 있습니다. 대규모 언어 모델(LLM)이 안전하고 통제된 방식으로 외부 시스템에서 컨텍스트를 검색할 수 있는 표준화된 방식을 만듭니다. MCP는 AI 모델과 데이터 서비스 간의 브리지 역할을 함으로써 데이터 신선도, 환각 감소, 통제된 데이터 액세스를 포함한 AI 애플리케이션의 중요한 과제를 해결하는 데 도움이 됩니다.</p>
+<p>MCP는 2025년 3월 GithUb Starlet 1위를 했으며, 많은 개발자와 AI전문가들이 2025년은 MCP가 AI시장에 가장 큰 충격으로 보고 있습니다.
+<img src="/images/2025-04-02-mcp/04_03_000012.png" alt="alt text"></p>
+<p><a href="https://x.com/haltakov/status/1897964297239879742/photo/1">@haltakov</a> X 에 포스트한 흐름을 보면 MCP 전후 상황을 알 수 있습니다.
+Without MCP에서 AI 앱들은 각 서비스에 맞춰 개발해야 합니다. With MCP에서 개발자는 표준화된 프로토콜을 사용한 서버를 만듭니다. 각 클라이어트(AI 앱)에서는 서버를 사용해 다양한 서비스를 접속할 수 있습니다.</p>
+<blockquote>
+<p>어떤 사람들은 MCP가 복잡성을 더한다고 주장하지만, 실제로는 복잡성을 줄입니다! MCP가 없다면 각 클라이언트는 모든 서버/도구와 통합해야 하므로 N×M 통합이 발생합니다. MCP를 사용하면 모든 클라이언트와 모든 서버가 MCP와 통합되어 N+M 연결만 발생합니다
+<img src="/images/2025-04-02-mcp/001.png" alt=""></p>
+</blockquote>
+<blockquote>
+<p>[!note]</p>
+<p><strong>Without MCP</strong></p>
+</blockquote>
+<ul>
+<li>AI App1 > Custom impementation > Custom prompt login > Custom tool calls > Custom data acces</li>
+<li>AI App2 > Custom impementation > Custom prompt login > Custom tool calls > Custom data acces</li>
+<li>AI App3 > Custom impementation > Custom prompt login > Custom tool calls > Custom data acces</li>
+</ul>
+<blockquote>
+<p>[!note]</p>
+<p><strong>With MCP</strong></p>
+</blockquote>
+<ul>
+<li>MCP Client(AI App) x n > MCP server(MCP Protocal) > Service x n</li>
+</ul>
+<p>이와 같이 MCP 서버는 AI 모델 요청을 특정 데이터 소스 작업으로 변환하는 중개자 역할을 합니다.
+또한 표준화된 프로토콜로 에이전트 개발 효율성이 크게 향상되어 <strong>AI 클라이언를 내게 맞는 에이전트로 만들어줄 MCP Server가 빠르게 나오고 있습니다.</strong>
+AI 에이전트 시대가 시작되었다고 합니다.</p>
+<p>다음은 Star-history에서 뽑은 몇 가지 주목할 만한 구현입니다.</p>
+<ul>
+<li><a href="https://github.com/bytebase/dbhub">데이터베이스 MCP 서버</a></li>
+<li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem">파일 시스템 MCP 서버</a></li>
+<li><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/brave-search">Brave Search MCP 서버</a></li>
+<li><a href="https://github.com/punkpeye/awesome-mcp-servers">멋진 MCP 서버 컬렉션</a></li>
+</ul>
+<h2 id="mcp-server-설치해-보기">MCP Server 설치해 보기</h2>
+<p><strong>Node.js 설치</strong></p>
+<p>Node.js는 20.0 이상으로 설치하세요. <a href="https://nodejs.org/ko">Node.js</a>
+홈 화면에 있는 다운로드 버튼은 LTS(Long Term Support)버전으로 일반 버전과 달리 안정성을 두고 지원기간이 길어집니다. 다운받아서 설치하시기 바랍니다.
+<img src="/images/2025-04-02-mcp/mcp_node.png" alt="alt text"></p>
+<p><strong>Claude설치와 MCP Server정의</strong></p>
+<ol>
+<li>Claude 데스크탑 앱 Settings를 선택합니다.</li>
+<li>Developer 탭을 선택 후 Edit Config를 선택합니다.</li>
+<li>Finder(탐색기)가 열리고 “claude_desktop_config.json” 파일 아이템에 하이라이트가 됩니다. 파일 열기를 합니다.</li>
+<li>메모장 또는 문서 편집에서 아래 서버 정의 코드를 붙여 넣기 합니다.</li>
+<li>“본 텍스트는 MCP 서버가 열람할 경로로 바꿔 주세요”를 변경합니다. “예: /user/wkk/desktop”</li>
+<li>Claude 데스크탑 앱을 종료 후 다시 켜면 아래에 도구(Tools)이 표시되어 있습니다. 키워드를 입력시 (예: 바탕화면 파일 파일 분석해줘)</li>
+<li>폴더 접근에 권한을 묻습니다. 승인합니다.</li>
+<li>LLM이 로컬 폴더를 열람 후 결과를 보고 합니다.</li>
+</ol>
+<p><img src="/images/2025-04-02-mcp/mcp_fileserver.png" alt="alt text"></p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="json"><code><span class="line"><span style="color:#9ECBFF">    "mcpServers"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "filesystem"</span><span style="color:#E1E4E8">: {</span></span>
+<span class="line"><span style="color:#79B8FF">        "command"</span><span style="color:#E1E4E8">: </span><span style="color:#9ECBFF">"npx"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#79B8FF">        "args"</span><span style="color:#E1E4E8">: [</span></span>
+<span class="line"><span style="color:#9ECBFF">            "-y"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            "@modelcontextprotocol/server-filesystem"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#9ECBFF">            "MCP 서버가 열람할 폴더 경로"</span><span style="color:#E1E4E8">,</span></span>
+<span class="line"><span style="color:#E1E4E8">        ]</span></span>
+<span class="line"><span style="color:#E1E4E8">        }</span></span>
+<span class="line"><span style="color:#E1E4E8">    }</span></span></code></pre>
+<p><a href="https://github.com/modelcontextprotocol/servers/tree/main/src/filesystem">코든 원본 mcpServers</a></p>
+<p>끝으로 Figma MCP 서버를 사용해 컨텍스트 메뉴 클릭으로 Cursor에 코드를 만드는 유튜브 영상을 공유합니다.
+<img src="https://www.youtube.com/watch?v=6G9yb-LrEqg" alt=""></p>
+<h4 id="참고자료">참고자료</h4>
+<ul>
+<li><a href="https://docs.anthropic.com/en/docs/agents-and-tools/mcp?q=mcp">https://docs.anthropic.com/en/docs/agents-and-tools/mcp?q=mcp</a></li>
+<li><a href="https://spec.modelcontextprotocol.io/specification/2025-03-26/">https://spec.modelcontextprotocol.io/specification/2025-03-26/</a></li>
+<li><a href="https://www.star-history.com/blog/mcp-server">https://www.star-history.com/blog/mcp-server</a></li>
+<li><a href="https://www.youtube.com/watch?v=EswVjHZMn74">https://www.youtube.com/watch?v=EswVjHZMn74</a></li>
+<li>MCP server market:
+<ul>
+<li><a href="https://smithery.ai/">https://smithery.ai/</a></li>
+<li><a href="https://www.pulsemcp.com/use-cases">https://www.pulsemcp.com/use-cases</a></li>
+<li><a href="https://mcp.so/">https://mcp.so/</a></li>
+</ul>
+</li>
+</ul> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

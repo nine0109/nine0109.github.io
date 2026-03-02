@@ -1,0 +1,103 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/privacy-policy/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>개인정보처리방침 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> December 28, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 3 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> 개인정보처리방침 </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/privacy-policy/hero.webp" alt="개인정보처리방침" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <h1 id="개인정보처리방침-privacy-policy">개인정보처리방침 (Privacy Policy)</h1>
+<p><strong>최종 업데이트: 2025년 12월 28일</strong></p>
+<p>본 블로그(<a href="https://nine0109.github.io">https://nine0109.github.io</a>, 이하 “사이트”)는 방문자의 개인정보 보호를 중요하게 생각합니다. 본 개인정보처리방침은 사이트가 어떤 정보를 수집하고 어떻게 사용하는지 설명합니다.</p>
+<h2 id="1-수집하는-정보">1. 수집하는 정보</h2>
+<h3 id="자동-수집-정보">자동 수집 정보</h3>
+<p>본 사이트는 다음의 제3자 서비스를 통해 익명의 방문 데이터를 수집합니다:</p>
+<ul>
+<li><strong>Google Analytics</strong>: 방문자 수, 페이지뷰, 체류 시간, 접속 기기/브라우저 정보</li>
+<li><strong>Google AdSense</strong>: 광고 표시 및 클릭 관련 데이터</li>
+</ul>
+<p>이러한 정보는 쿠키를 통해 수집되며, 개인을 직접 식별하지 않습니다.</p>
+<h3 id="직접-제공-정보">직접 제공 정보</h3>
+<p>본 사이트는 회원가입, 로그인, 댓글 기능이 없으므로 방문자가 직접 개인정보를 제공하는 경우는 없습니다.</p>
+<h2 id="2-쿠키-사용">2. 쿠키 사용</h2>
+<p>본 사이트는 다음 목적으로 쿠키를 사용합니다:</p>
+<ul>
+<li>웹사이트 트래픽 분석 (Google Analytics)</li>
+<li>맞춤형 광고 제공 (Google AdSense)</li>
+</ul>
+<p>브라우저 설정에서 쿠키를 비활성화할 수 있으나, 일부 기능이 제한될 수 있습니다.</p>
+<h2 id="3-제3자-서비스">3. 제3자 서비스</h2>
+<p>본 사이트는 다음의 제3자 서비스를 이용합니다:</p>
+<h3 id="google-analytics">Google Analytics</h3>
+<ul>
+<li>제공자: Google LLC</li>
+<li>목적: 웹사이트 방문 통계 분석</li>
+<li>개인정보처리방침: <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a></li>
+</ul>
+<h3 id="google-adsense">Google AdSense</h3>
+<ul>
+<li>제공자: Google LLC</li>
+<li>목적: 맞춤형 광고 제공</li>
+<li>개인정보처리방침: <a href="https://policies.google.com/privacy">Google 개인정보처리방침</a></li>
+<li>광고 설정: <a href="https://adssettings.google.com">Google 광고 설정</a></li>
+</ul>
+<h2 id="4-정보-보안">4. 정보 보안</h2>
+<p>본 사이트는 GitHub Pages에서 호스팅되며, HTTPS를 통해 안전한 연결을 제공합니다.</p>
+<h2 id="5-아동-개인정보">5. 아동 개인정보</h2>
+<p>본 사이트는 만 14세 미만의 아동을 대상으로 하지 않으며, 의도적으로 아동의 개인정보를 수집하지 않습니다.</p>
+<h2 id="6-본-방침의-변경">6. 본 방침의 변경</h2>
+<p>본 개인정보처리방침은 필요에 따라 변경될 수 있습니다. 변경 시 이 페이지에 업데이트됩니다.</p>
+<h2 id="7-문의">7. 문의</h2>
+<p>본 개인정보처리방침에 대한 문의사항이 있으시면 GitHub 저장소의 Issue를 통해 연락해 주시기 바랍니다.</p>
+<hr>
+<h1 id="privacy-policy">Privacy Policy</h1>
+<p><strong>Last Updated: December 28, 2025</strong></p>
+<p>This blog (<a href="https://nine0109.github.io">https://nine0109.github.io</a>, hereinafter “Site”) values the privacy of its visitors. This Privacy Policy explains what information we collect and how we use it.</p>
+<h2 id="1-information-we-collect">1. Information We Collect</h2>
+<h3 id="automatically-collected-information">Automatically Collected Information</h3>
+<p>This site collects anonymous visitor data through the following third-party services:</p>
+<ul>
+<li><strong>Google Analytics</strong>: Number of visitors, page views, session duration, device/browser information</li>
+<li><strong>Google AdSense</strong>: Ad display and click-related data</li>
+</ul>
+<p>This information is collected through cookies and does not directly identify individuals.</p>
+<h3 id="information-you-provide">Information You Provide</h3>
+<p>This site does not have registration, login, or comment features, so visitors do not directly provide personal information.</p>
+<h2 id="2-cookie-usage">2. Cookie Usage</h2>
+<p>This site uses cookies for the following purposes:</p>
+<ul>
+<li>Website traffic analysis (Google Analytics)</li>
+<li>Personalized advertising (Google AdSense)</li>
+</ul>
+<p>You can disable cookies in your browser settings, but some features may be limited.</p>
+<h2 id="3-third-party-services">3. Third-Party Services</h2>
+<p>This site uses the following third-party services:</p>
+<h3 id="google-analytics-1">Google Analytics</h3>
+<ul>
+<li>Provider: Google LLC</li>
+<li>Purpose: Website visit statistics analysis</li>
+<li>Privacy Policy: <a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+</ul>
+<h3 id="google-adsense-1">Google AdSense</h3>
+<ul>
+<li>Provider: Google LLC</li>
+<li>Purpose: Personalized advertising</li>
+<li>Privacy Policy: <a href="https://policies.google.com/privacy">Google Privacy Policy</a></li>
+<li>Ad Settings: <a href="https://adssettings.google.com">Google Ad Settings</a></li>
+</ul>
+<h2 id="4-information-security">4. Information Security</h2>
+<p>This site is hosted on GitHub Pages and provides secure connections through HTTPS.</p>
+<h2 id="5-childrens-privacy">5. Children’s Privacy</h2>
+<p>This site is not intended for children under 14 years of age, and we do not intentionally collect personal information from children.</p>
+<h2 id="6-changes-to-this-policy">6. Changes to This Policy</h2>
+<p>This Privacy Policy may be updated as needed. Changes will be posted on this page.</p>
+<h2 id="7-contact">7. Contact</h2>
+<p>If you have questions about this Privacy Policy, please contact us through the GitHub repository Issues.</p> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

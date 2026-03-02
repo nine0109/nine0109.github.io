@@ -1,0 +1,91 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/review/nanobanana-comment/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>[REVIEW] NanoBanana 문서 검토 코멘트 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Review Banner --> <div class="bg-amber-500/10 border-b border-amber-500/30"> <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between"> <div class="flex items-center gap-3"> <span class="text-xs px-2 py-1 bg-amber-500/20 text-amber-600 dark:text-amber-400 rounded font-bold uppercase tracking-wider">
+Review Mode
+</span> <span class="text-sm text-muted-foreground">
+이 문서는 리뷰 대기 중입니다
+</span> </div> <a href="/review" class="text-xs font-medium text-amber-600 dark:text-amber-400 hover:underline">
+← 리뷰 목록으로
+</a> </div> </div> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/review" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Review List
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> review • nanobanana </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> August 31, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 2 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> NanoBanana 문서 검토 코멘트 </h1> </header> <!-- Hero Image -->  <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <h1 id="2025-08-31_nanobananamd-문장-검토-코멘트-재검토">2025-08-31_NanoBanana.md 문장 검토 코멘트 (재검토)</h1>
+<h2 id="수정된-부분-확인">수정된 부분 확인 ✅</h2>
+<ul>
+<li>라인 14: “여러 이미지를 하나의 이미지로” - <strong>수정 완료</strong></li>
+<li>라인 22: “@eyishazyer가 X에 포스트한” - <strong>수정 완료</strong></li>
+<li>라인 33: “두 개의 기술을 사용해” - <strong>수정 완료</strong></li>
+<li>라인 50: “원본의 스타일을 유지한 후” - <strong>수정 완료</strong></li>
+<li>라인 53: ”#### 8. 인물 변경” - <strong>수정 완료</strong></li>
+<li>라인 54: “변경하거나” - <strong>수정 완료</strong></li>
+<li>라인 57: ”#### 9. 포즈와 장소 변경” - <strong>수정 완료</strong></li>
+</ul>
+<h2 id="새로-발견된-오류-및-개선-사항">새로 발견된 오류 및 개선 사항</h2>
+<h3 id="라인-77-여전히-오류">라인 77 (여전히 오류)</h3>
+<ul>
+<li><strong>현재</strong>: <code>![](https://blog.adobe.com/ko/publish/...)</code></li>
+<li><strong>문제</strong>: 웹페이지 URL을 이미지로 표시</li>
+<li><strong>수정</strong>: <code>[Adobe 블로그: Gemini 2.5 Flash 모델 적용](https://blog.adobe.com/ko/publish/...)</code></li>
+</ul>
+<h3 id="라인-80-문장-미완성">라인 80 (문장 미완성)</h3>
+<ul>
+<li><strong>현재</strong>: “나노바나나 API를 사용해 동영상을 만들거나, 피규어를 만들기와 같이 재밌는 이미지를 만들어주는 서비스들이 출시되고 있습니다. 이미지 2장을 넣어”</li>
+<li><strong>문제</strong>:
+<ol>
+<li>“만들기와 같이” → “만들기 같이” 또는 “만들기와 같은”</li>
+<li>“이미지 2장을 넣어” - 문장이 끝나지 않음</li>
+</ol>
+</li>
+<li><strong>수정</strong>: “나노바나나 API를 사용해 동영상을 만들거나, 피규어 만들기 같은 재밌는 이미지를 만들어주는 서비스들이 출시되고 있습니다.”</li>
+</ul>
+<h3 id="라인-81-여전히-오류">라인 81 (여전히 오류)</h3>
+<ul>
+<li><strong>현재</strong>: “실무에서는 원하는 스티일을 또는 원하는 캐릭터를 찾고 나노 바나나를 사용해 합성는 것으로 업무 흐름이 변경이 예상됩니다.”</li>
+<li><strong>문제</strong>:
+<ol>
+<li>“스티일” → “스타일” (맞춤법)</li>
+<li>“나노 바나나” → “나노바나나” (일관성)</li>
+<li>“합성는” → “합성하는” (어미 오류)</li>
+<li>“변경이” → “변화가” (더 자연스러운 표현)</li>
+</ol>
+</li>
+<li><strong>수정</strong>: “실무에서는 원하는 스타일이나 캐릭터를 찾고 나노바나나를 사용해 합성하는 것으로 업무 흐름의 변화가 예상됩니다.”</li>
+</ul>
+<h3 id="라인-92-구조">라인 92 (구조)</h3>
+<ul>
+<li><strong>현재</strong>: “No newline at end of file”</li>
+<li><strong>문제</strong>: 불필요한 텍스트</li>
+<li><strong>수정</strong>: 제거 필요</li>
+</ul>
+<h2 id="내용-구조-개선-제안">내용 구조 개선 제안</h2>
+<h3 id="섹션-4-마치며">섹션 4 “마치며”</h3>
+<ul>
+<li><strong>라인 76</strong>: “Adobe는 Firefly에” - 좋은 수정</li>
+<li><strong>라인 79</strong>: “이와 같이” - 좋은 연결 표현</li>
+</ul>
+<h3 id="추가-개선-사항">추가 개선 사항</h3>
+<ol>
+<li><strong>라인 69-72</strong>: 새로 추가된 ”#### 12. 다양한 이미지로 합성하기” 섹션에 설명 문구 추가 권장</li>
+<li><strong>전체적</strong>: “나노바나나”와 “나노 바나나” 혼용 여전히 남아있음 - 완전 통일 필요</li>
+</ol>
+<h2 id="긴급-수정-필요-사항">긴급 수정 필요 사항</h2>
+<ol>
+<li><strong>라인 80</strong>: 문장 미완성 (“이미지 2장을 넣어”)</li>
+<li><strong>라인 81</strong>: 여러 맞춤법/문법 오류</li>
+<li><strong>라인 77</strong>: 잘못된 마크다운 링크 문법</li>
+</ol> </article> <!-- Review Actions --> <section class="max-w-3xl mx-auto px-6 py-12 border-t border-border"> <div class="bg-amber-500/5 border border-amber-500/20 rounded-lg p-6"> <h3 class="text-lg font-medium mb-4">리뷰 완료 후</h3> <p class="text-sm text-muted-foreground mb-4">
+문서 확인이 완료되면 Claude에게 다음과 같이 요청하세요:
+</p> <code class="block bg-background border rounded px-4 py-3 text-sm">
+"리뷰 완료, 발행해줘"
+</code> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

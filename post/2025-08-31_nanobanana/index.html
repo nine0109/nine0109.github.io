@@ -1,0 +1,82 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/post/2025-08-31_nanobanana/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>NanoBana - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Home
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> ai • Gemini </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> August 31, 2025 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 2 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> NanoBana </h1> </header> <!-- Hero Image --> <div class="max-w-4xl mx-auto px-6 mb-20"> <div class="aspect-[1200/630] overflow-hidden bg-accent"> <img src="/images/2025-08-31_NanoBanana/hero.webp" alt="NanoBana" class="w-full h-full object-cover" loading="eager"> </div> </div> <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <p>8월 26일(화요일) Gemini 2.5 Flash Image(aka 나노바나나)가 출시되었습니다.
+여러 이미지를 하나의 이미지로 합성하고, 풍부한 스토리텔링을 위해 캐릭터의 일관성을 유지하고, 자연어를 사용하여 원하는 대로 변형하고, Gemini의 세계관을 활용하여 이미지를 생성하고 편집할 수 있습니다.
+<a href="https://developers.googleblog.com/en/introducing-gemini-2-5-flash-image/">구글 공식 블로그</a></p>
+<p><strong>사용 사례</strong>
+<img src="/images/2025-08-31_NanoBanana/gemini-2-5-image-editing-character-consistency.original.png" alt="">
+하나의 캐릭터의 일관성을 유지하며 높은 품질로 합성합니다.</p>
+<p>@eyishazyer가 X에 포스트한 재밌는 사용 사례를 20개를 공유했습니다. 나노바나나를 어떻게 사용할 수 있는지 아이디어 일부를 공유합니다.</p>
+<h4 id="1-사진--사진-합성">1. 사진 + 사진 합성</h4>
+<p>두 장의 사진으로 맥락에 어울리게 합성합니다.
+<img src="/images/2025-08-31_NanoBanana/Eyisha_Zyer_1_Combine_photos_into_new_scenes.mp4" alt=""></p>
+<h4 id="2-프롬프트를-사용한-합성">2. 프롬프트를 사용한 합성</h4>
+<p>빈 공간을 프롬프트로 채웁니다. 원본의 빛과 색감을 고려해 합성합니다.
+<img src="/images/2025-08-31_NanoBanana/Eyisha_Zyer_2_Can_edit_image_by_describing_to_it.mp4" alt=""></p>
+<h4 id="3-나노바나나--런웨이-act-2">3. 나노바나나 + 런웨이 Act 2</h4>
+<p>두 개의 기술을 사용해 일관성을 유지하며 캐릭터를 변경합니다.
+<img src="/images/2025-08-31_NanoBanana/Eyisha_Zyer_3_Nano_Banana_Runway_Act_2.mp4" alt=""></p>
+<h4 id="4-제품-변경">4. 제품 변경</h4>
+<p>시작 프레임에 제품을 넣어 광고를 생성합니다.
+<img src="/images/2025-08-31_NanoBanana/Eyisha_Zyer_4_Start_frames_for_Ads.mp4" alt=""></p>
+<h4 id="5-독창적인-제품-만들기">5. 독창적인 제품 만들기</h4>
+<p>레인 부츠의 형태를 유지하고 꽃의 이미지에서 영감을 받은 형태로 합성합니다.
+<img src="/images/2025-08-31_NanoBanana/Eyisha_Zyer_5_Move_styles_from_one_image_to_another.mp4" alt=""></p>
+<h4 id="6-텍스트-변경">6. 텍스트 변경</h4>
+<p>원본의 느낌을 유지하며, 텍스트를 변경합니다.
+<img src="/images/2025-08-31_NanoBanana/Gzg_nLMbcAAxper.jpeg" alt=""></p>
+<h4 id="7-스타일을-유지">7. 스타일을 유지</h4>
+<p>원본의 스타일을 유지한 후 형태를 변경합니다.
+<img src="/images/2025-08-31_NanoBanana/GyySTswWkAA_L5_.jpeg" alt=""></p>
+<h4 id="8-인물-변경">8. 인물 변경</h4>
+<p>원본에서 칵테일잔을 들고 있게 변경하거나 인물을 변경합니다.
+<img src="/images/2025-08-31_NanoBanana/Gytyxd9bQAAcTvQ.jpeg" alt=""></p>
+<h4 id="9-포즈와-장소-변경">9. 포즈와 장소 변경</h4>
+<p>오락실에서 당구장으로 그리고 당구치는 모습으로 캐릭터를 유지하고 배경에 어울리게 합성합니다.
+<img src="/images/2025-08-31_NanoBanana/GytywMAacAEPz_q.jpeg" alt=""></p>
+<h4 id="10-지우기">10. 지우기</h4>
+<p>음료를 마시게 하거나, 앞에 있는 잔을 지웁니다.
+<img src="/images/2025-08-31_NanoBanana/GytyydSacAQKen0.jpeg" alt=""></p>
+<h4 id="11-씬-만들기">11. 씬 만들기</h4>
+<p>배경과 캐릭터의 옷의 일관성을 유지하며 씬을 생성합니다.
+<img src="/images/2025-08-31_NanoBanana/GytyzSwaAAAqfC9.jpeg" alt=""></p>
+<h4 id="12-다양한-이미지로-합성하기">12. 다양한 이미지로 합성하기</h4>
+<p>13개의 이미지를 단일 이미지로 합성했습니다. 썬글라스, 앵무새, 옷 착장, 퍼그와 헤드폰
+<img src="/images/2025-08-31_NanoBanana/GzYYDUoWIAA8x0l.jpeg" alt=""></p>
+<h4 id="13-지도를-사용한-이미지-생성">13. 지도를 사용한 이미지 생성</h4>
+<p>화살표로 뷰포인트를 지정해서 금문교 이미지를 생성합니다.
+<img src="/images/2025-08-31_NanoBanana/GzhDPulbsAAZRG5.png" alt=""></p>
+<h4 id="14-밑그림과-사진으로-생성">14. 밑그림과 사진으로 생성</h4>
+<p>정교한 포즈를 위해 밑그림을 그린 후 사진으로 생성합니다.
+<img src="/images/2025-08-31_NanoBanana/GzbyOavbQAAMvH0.jpeg" alt=""></p>
+<hr>
+<h2 id="마치며">마치며</h2>
+<p>@eyishazyer의 X에는 더 많은 사례가 있습니다.
+제가 카운트한 8~11번 하나씩 소개 하고 있지만, @D_studioproject의 포스트를 리트윗한 것으로 4컷을 1개로 카운트하고 있습니다.</p>
+<p>Adobe는 Firefly에 나노바나나 API를 사용하겠다고 8월 29일(금요일)에 발표했습니다.
+<img src="https://blog.adobe.com/ko/publish/2025/08/29/adobe-firefly-adobe-express-now-feature-googles-gemini-flash-image-model" alt="">
+이와 같이 업계는 매우 빠르게 변하는 것 같습니다.
+나노바나나 API를 사용해 동영상을 만들거나, 피규어를 만들기와 같이 재밌는 이미지를 만들어주는 서비스들이 출시되고 있습니다.
+실무에서는 원하는 스티일을 또는 원하는 캐릭터를 찾고 나노바나나를 사용해 합성하는 것으로 업무 흐름의 변화가 예상됩니다.</p>
+<!-- ![](/images/2025-08-31_NanoBanana/Eyisha_Zyer_9_A_new_era_of_indie_anime_animators.mp4) -->
+<hr>
+<h2 id="참고-자료">참고 자료 📚</h2>
+<ul>
+<li><a href="https://developers.googleblog.com/en/introducing-gemini-2-5-flash-image/">Google</a></li>
+<li><a href="https://x.com/eyishazyer/status/1961395568712012122">@eyishazyer</a></li>
+<li><a href="https://blog.adobe.com/ko/publish/2025/08/29/adobe-firefly-adobe-express-now-feature-googles-gemini-flash-image-model">Adobe</a></li>
+</ul> </article> <!-- Author --> <section class="max-w-3xl mx-auto px-6 py-24 border-t border-border"> <div class="flex gap-10 items-start"> <div class="w-24 h-24 flex-shrink-0 bg-accent grayscale overflow-hidden"> <div class="w-full h-full bg-gradient-to-br from-primary/20 to-accent"></div> </div> <div class="flex flex-col gap-4"> <div> <h4 class="text-lg font-bold tracking-widest uppercase">Wonkyu Kim</h4> <p class="text-xs text-muted-foreground uppercase tracking-widest mt-1"> UX Designer &amp; AI Team Lead </p> </div> <p class="text-muted-foreground leading-relaxed max-w-sm">UX Designer exploring the intersection of human-centered design and AI technology. Sharing lessons from building design systems and leading AI-driven product initiatives.</p> <div class="flex gap-6 pt-2">    </div> </div> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>

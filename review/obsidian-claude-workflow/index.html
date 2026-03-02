@@ -1,0 +1,197 @@
+<!DOCTYPE html><html lang="ko"> <head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><link rel="icon" type="image/png" href="/favicon.png"><link rel="canonical" href="https://nine0109.github.io/review/obsidian-claude-workflow/"><meta name="generator" content="Astro v5.17.1"><!-- Fonts --><link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap" rel="stylesheet"><!-- SEO --><title>[REVIEW] Obsidian + Claude Code 워크플로우 - AW</title><meta name="description" content><!-- RSS --><link rel="alternate" type="application/rss+xml" title="AW RSS Feed" href="/feed.xml"><!-- Theme initialization (prevent flash) --><script>
+      const theme = localStorage.getItem('theme') ||
+        (window.matchMedia('(prefers-color-scheme: dark)').matches ? 'dark' : 'light');
+      if (theme === 'dark') document.documentElement.classList.add('dark');
+    </script><link rel="stylesheet" href="/assets/archives.Ba0DBCYx.css"></head> <body class="font-sans antialiased min-h-screen"> <header class="sticky top-0 z-50 bg-background/80 backdrop-blur-md border-b border-border"> <div class="max-w-6xl mx-auto px-6 h-20 flex items-center justify-between"> <div class="flex items-center gap-12"> <a href="/" class="text-sm font-bold tracking-[0.2em] uppercase">
+AW
+</a> <nav class="hidden md:flex items-center gap-8"> <a href="/tag/ai" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> AI </a><a href="/tag/ux" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> UX </a><a href="/tag/dev" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Dev </a><a href="/prompt-styles" class="text-[13px] font-medium text-muted-foreground hover:text-primary transition-colors uppercase tracking-widest"> Prompt </a> </nav> </div> <div class="flex items-center gap-6"> <button id="search-button" class="text-muted-foreground hover:text-primary transition-colors flex items-center gap-2" aria-label="Search"> <svg class="w-5 h-5" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> </button> <button id="theme-toggle" class="text-muted-foreground hover:text-primary transition-colors" aria-label="Toggle theme"> <svg id="sun-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="12" cy="12" r="4"></circle> <path d="M12 2v2"></path> <path d="M12 20v2"></path> <path d="m4.93 4.93 1.41 1.41"></path> <path d="m17.66 17.66 1.41 1.41"></path> <path d="M2 12h2"></path> <path d="M20 12h2"></path> <path d="m6.34 17.66-1.41 1.41"></path> <path d="m19.07 4.93-1.41 1.41"></path> </svg> <svg id="moon-icon" class="w-5 h-5 hidden" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"></path> </svg> </button> </div> </div> </header> <!-- Search Dialog --> <div id="search-backdrop" class="fixed inset-0 z-50 bg-black/50 backdrop-blur-sm hidden"> <div class="fixed left-1/2 top-20 w-full max-w-2xl -translate-x-1/2 p-4"> <div class="bg-background rounded-lg shadow-2xl border border-border overflow-hidden"> <div class="flex items-center gap-3 px-4 py-3 border-b border-border"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <circle cx="11" cy="11" r="8"></circle> <path d="m21 21-4.3-4.3"></path> </svg> <input id="search-input" type="text" placeholder="Search posts... (use # for tags)" class="flex-1 border-none bg-transparent text-lg outline-none placeholder:text-muted-foreground"> <button id="search-close" class="p-1 hover:bg-accent rounded-md"> <svg class="w-5 h-5 text-muted-foreground" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="M18 6 6 18"></path> <path d="m6 6 12 12"></path> </svg> </button> </div> <div id="search-results" class="max-h-[60vh] overflow-y-auto py-2"> <p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p> </div> </div> </div> </div> <script type="module">let s=null;const r=document.getElementById("search-backdrop"),i=document.getElementById("search-input"),n=document.getElementById("search-results"),f=document.getElementById("search-close"),h=document.getElementById("search-button"),p=document.getElementById("theme-toggle"),y=document.getElementById("sun-icon"),L=document.getElementById("moon-icon");function u(){const e=document.documentElement.classList.contains("dark");y?.classList.toggle("hidden",e),L?.classList.toggle("hidden",!e)}u();p?.addEventListener("click",()=>{const e=document.documentElement.classList.contains("dark");document.documentElement.classList.toggle("dark"),localStorage.setItem("theme",e?"light":"dark"),u()});async function v(){if(!s)try{s=await(await fetch("/search-data.json")).json()}catch{s=[]}return s}function m(){r?.classList.remove("hidden"),i?.focus(),document.body.style.overflow="hidden",v()}function l(){r?.classList.add("hidden"),i&&(i.value=""),n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>'),document.body.style.overflow=""}function E(e){if(!(!n||!e)){if(e.length===0){n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">No results found</p>';return}n.innerHTML=e.map(t=>`
+      <a href="/post/${encodeURIComponent(t.slug)}" class="block px-4 py-3 hover:bg-accent transition-colors">
+        <div class="font-medium">${t.title}</div>
+        ${t.description?`<div class="text-sm text-muted-foreground line-clamp-1 mt-1">${t.description}</div>`:""}
+        ${t.tags?.length?`<div class="flex gap-2 mt-2">${t.tags.slice(0,3).map(c=>`<span class="text-xs text-primary font-medium">#${c}</span>`).join("")}</div>`:""}
+      </a>
+    `).join("")}}function k(e){if(!s||!e.trim()){n&&(n.innerHTML='<p class="px-4 py-8 text-center text-muted-foreground">Start typing to search...</p>');return}const t=e.toLowerCase(),c=t.startsWith("#"),o=c?t.slice(1):t,g=s.filter(a=>c?a.tags?.some(d=>d.toLowerCase().includes(o)):a.title.toLowerCase().includes(o)||a.description?.toLowerCase().includes(o)||a.tags?.some(d=>d.toLowerCase().includes(o)));E(g.slice(0,10))}h?.addEventListener("click",m);f?.addEventListener("click",l);r?.addEventListener("click",e=>{e.target===r&&l()});i?.addEventListener("input",e=>k(e.target.value));document.addEventListener("keydown",e=>{(e.metaKey||e.ctrlKey)&&e.key==="k"&&(e.preventDefault(),m()),e.key==="Escape"&&l()});</script>  <main> <!-- Review Banner --> <div class="bg-amber-500/10 border-b border-amber-500/30"> <div class="max-w-6xl mx-auto px-6 py-3 flex items-center justify-between"> <div class="flex items-center gap-3"> <span class="text-xs px-2 py-1 bg-amber-500/20 text-amber-600 dark:text-amber-400 rounded font-bold uppercase tracking-wider">
+Review Mode
+</span> <span class="text-sm text-muted-foreground">
+이 문서는 리뷰 대기 중입니다
+</span> </div> <a href="/review" class="text-xs font-medium text-amber-600 dark:text-amber-400 hover:underline">
+← 리뷰 목록으로
+</a> </div> </div> <!-- Back Link --> <div class="max-w-6xl mx-auto px-6 pt-12"> <a href="/review" class="inline-flex items-center gap-2 text-xs font-bold uppercase tracking-widest text-muted-foreground hover:text-primary transition-colors group"> <svg class="w-4 h-4 transition-transform group-hover:-translate-x-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"> <path d="m12 19-7-7 7-7"></path> <path d="M19 12H5"></path> </svg>
+Back to Review List
+</a> </div> <!-- Article Header --> <header class="max-w-3xl mx-auto px-6 pt-16 pb-12 text-center"> <div class="flex justify-center items-center gap-4 mb-6">  <span class="text-[11px] font-bold text-primary uppercase tracking-[0.2em]"> workflow • claude </span> <span class="w-4 h-[1px] bg-border"></span>  <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> January 28, 2026 </span> <span class="w-4 h-[1px] bg-border"></span> <span class="text-[11px] font-medium text-muted-foreground uppercase tracking-[0.2em]"> 3 Min Read </span> </div> <h1 class="text-4xl md:text-5xl lg:text-6xl font-medium leading-[1.1] mb-8"> Obsidian + Claude Code 워크플로우 </h1> </header> <!-- Hero Image -->  <!-- Article Content --> <article class="max-w-2xl mx-auto px-6 pb-24 prose"> <p>Obsidian에서 노트를 작성하고, Claude Code가 편집/보강하는 협업 워크플로우입니다.</p>
+<h2 id="레포지토리-구조-submodule">레포지토리 구조 (Submodule)</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>레포지토리</th><th>용도</th><th>경로</th></tr></thead><tbody><tr><td><code>nine0109/notes</code></td><td>노트 전용 (Obsidian, 모바일)</td><td>독립 관리</td></tr><tr><td><code>nine0109/nine0109.github.io</code></td><td>사이트 전체</td><td><code>_notes/</code> → submodule</td></tr></tbody></table>
+<h3 id="submodule-적용-브랜치">Submodule 적용 브랜치</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>브랜치</th><th>상태</th></tr></thead><tbody><tr><td><code>main</code></td><td>적용됨</td></tr><tr><td><code>develop</code></td><td>적용됨</td></tr></tbody></table>
+<h3 id="장점">장점</h3>
+<ul>
+<li>아이폰 Working Copy에서 notes 레포만 클론하면 됨</li>
+<li>노트와 사이트 코드 분리</li>
+<li>각각 독립적으로 커밋/푸시 가능</li>
+<li>main/develop 모두 동일한 submodule 구조</li>
+</ul>
+<h2 id="환경별-설정">환경별 설정</h2>
+<h3 id="데스크탑-obsidian--claude-code">데스크탑 (Obsidian + Claude Code)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>설정</th></tr></thead><tbody><tr><td>Vault 경로</td><td><code>~/Documents/GitHub/notes</code></td></tr><tr><td>플러그인</td><td>Obsidian Git</td></tr><tr><td>자동 백업</td><td>활성화 권장</td></tr></tbody></table>
+<h3 id="모바일-working-copy">모바일 (Working Copy)</h3>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>항목</th><th>설정</th></tr></thead><tbody><tr><td>클론 레포</td><td><code>nine0109/notes</code></td></tr><tr><td>브랜치</td><td><code>main</code></td></tr></tbody></table>
+<h2 id="요청-방식">요청 방식</h2>
+<p>문서 내에 Obsidian 주석으로 Claude에게 요청:</p>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">%%cl: 요청 내용%%</span></span></code></pre>
+<h3 id="요청-예시">요청 예시</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="markdown"><code><span class="line"><span style="color:#E1E4E8">%%cl: 이 문서 오타 수정해줘%%</span></span>
+<span class="line"><span style="color:#E1E4E8">%%cl: 1, 2, 3 섹션 내용 보강해줘%%</span></span>
+<span class="line"><span style="color:#E1E4E8">%%cl: 영어로 번역해줘%%</span></span>
+<span class="line"><span style="color:#E1E4E8">%%cl: 태그 정리해줘%%</span></span></code></pre>
+<h3 id="장점-1">장점</h3>
+<ul>
+<li>Obsidian에서 <code>%%</code>는 주석 처리되어 미리보기에 표시 안 됨</li>
+<li>짧고 입력하기 쉬움</li>
+</ul>
+<h2 id="워크플로우-흐름">워크플로우 흐름</h2>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="text"><code><span class="line"><span>1. [Obsidian/모바일] 노트 작성/수정</span></span>
+<span class="line"><span>2. [Obsidian/모바일] %%cl: 요청%% 추가</span></span>
+<span class="line"><span>3. [Git] 커밋 &#x26; 푸시 (notes 레포)</span></span>
+<span class="line"><span>4. [Claude Code] "XX 문서 수정했어" 알림</span></span>
+<span class="line"><span>5. [Claude Code] 요청 확인 및 처리</span></span>
+<span class="line"><span>6. [Claude Code] 문서 수정 완료 &#x26; 푸시</span></span>
+<span class="line"><span>7. [Obsidian/모바일] pull로 변경 내용 확인</span></span></code></pre>
+<h2 id="사용-가능한-요청-유형">사용 가능한 요청 유형</h2>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+<table><thead><tr><th>유형</th><th>설명</th><th>예시</th></tr></thead><tbody><tr><td>문서 정리</td><td>구조, 포맷팅 개선</td><td>섹션 정리, 표 추가</td></tr><tr><td>내용 보강</td><td>설명 추가, 예시 보완</td><td>상세 설명 추가</td></tr><tr><td>오타 수정</td><td>맞춤법, 문법 교정</td><td>오탈자 수정</td></tr><tr><td>번역</td><td>한/영 번역</td><td>영문 번역</td></tr><tr><td>태그 정리</td><td>태그 추가/수정</td><td>관련 태그 추천</td></tr><tr><td>코드 검토</td><td>코드 블록 검토</td><td>코드 개선 제안</td></tr></tbody></table>
+<h2 id="퍼블리싱-흐름">퍼블리싱 흐름</h2>
+<h3 id="1-notes-레포-변경-푸시">1. notes 레포 변경 푸시</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/Documents/GitHub/notes</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#79B8FF"> -A</span><span style="color:#E1E4E8"> &#x26;&#x26; </span><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "update notes"</span><span style="color:#E1E4E8"> &#x26;&#x26; </span><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> push</span></span></code></pre>
+<h3 id="2-메인-사이트에서-submodule-업데이트">2. 메인 사이트에서 submodule 업데이트</h3>
+<pre class="astro-code github-dark" style="background-color:#24292e;color:#e1e4e8; overflow-x: auto;" tabindex="0" data-language="bash"><code><span class="line"><span style="color:#79B8FF">cd</span><span style="color:#9ECBFF"> ~/Documents/GitHub/nine0109.github.io</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> submodule</span><span style="color:#9ECBFF"> update</span><span style="color:#79B8FF"> --remote</span><span style="color:#9ECBFF"> _notes</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> add</span><span style="color:#9ECBFF"> _notes</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> commit</span><span style="color:#79B8FF"> -m</span><span style="color:#9ECBFF"> "update notes submodule"</span></span>
+<span class="line"><span style="color:#B392F0">git</span><span style="color:#9ECBFF"> push</span></span></code></pre>
+<h2 id="주의사항">주의사항</h2>
+<ul>
+<li>notes 레포와 메인 레포는 <strong>별도로 커밋/푸시</strong> 필요</li>
+<li>사이트 배포 시 submodule 업데이트 필수</li>
+<li>요청 주석(<code>%%cl: %%</code>)은 처리 후 자동 삭제됨</li>
+</ul> </article> <!-- Review Actions --> <section class="max-w-3xl mx-auto px-6 py-12 border-t border-border"> <div class="bg-amber-500/5 border border-amber-500/20 rounded-lg p-6"> <h3 class="text-lg font-medium mb-4">리뷰 완료 후</h3> <p class="text-sm text-muted-foreground mb-4">
+문서 확인이 완료되면 Claude에게 다음과 같이 요청하세요:
+</p> <code class="block bg-background border rounded px-4 py-3 text-sm">
+"리뷰 완료, 발행해줘"
+</code> </div> </section> </main>  <footer class="bg-accent border-t border-border py-20"> <div class="max-w-6xl mx-auto px-6 flex flex-col md:flex-row justify-between items-center gap-10"> <div class="text-[11px] font-medium tracking-wide">
+© 2026 Wonkyu Kim. All rights reserved.
+</div> <div class="flex gap-12 text-[11px] font-bold uppercase tracking-widest text-muted-foreground"> <a href="/archives" class="hover:text-primary transition-colors"> Archives </a><a href="/feed.xml" class="hover:text-primary transition-colors"> RSS Feed </a> </div> </div> </footer> </body></html>
