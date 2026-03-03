@@ -6,7 +6,7 @@
     "tags": [
       "dev",
       "ux",
-      "Bitmap",
+      "bitmap",
       "안티엘리어싱",
       "디자인시스템"
     ]
@@ -18,8 +18,8 @@
     "tags": [
       "dev",
       "ux",
-      "Bitmap",
-      "Figma",
+      "bitmap",
+      "figma",
       "다국어",
       "피그마플러그인"
     ]
@@ -30,10 +30,10 @@
     "description": "",
     "tags": [
       "dev",
-      "Bitmap",
-      "OCR",
+      "bitmap",
+      "ocr",
       "Find&Replace",
-      "CUDA",
+      "cuda",
       "자동화"
     ]
   },
@@ -45,7 +45,7 @@
       "dev",
       "현대자동차",
       "개발자컨퍼런스",
-      "Pleos",
+      "pleos",
       "인포테인먼트"
     ]
   },
@@ -56,7 +56,7 @@
     "tags": [
       "ai",
       "에이전트",
-      "MCP"
+      "mcp"
     ]
   },
   {
@@ -76,7 +76,7 @@
     "description": "",
     "tags": [
       "ai",
-      "MCP"
+      "mcp"
     ]
   },
   {
@@ -85,7 +85,7 @@
     "description": "",
     "tags": [
       "ai",
-      "MCP"
+      "mcp"
     ]
   },
   {
@@ -112,8 +112,8 @@
     "description": "",
     "tags": [
       "ai",
-      "Research",
-      "MCP"
+      "research",
+      "mcp"
     ]
   },
   {
@@ -123,7 +123,7 @@
     "tags": [
       "ai",
       "ux",
-      "Agent"
+      "agent"
     ]
   },
   {
@@ -133,9 +133,9 @@
     "tags": [
       "ux",
       "dev",
-      "Plugin",
-      "Figma",
-      "Design"
+      "plugin",
+      "figma",
+      "design"
     ]
   },
   {
@@ -145,9 +145,9 @@
     "tags": [
       "ux",
       "dev",
-      "Plugin",
-      "Figma",
-      "Design"
+      "plugin",
+      "figma",
+      "design"
     ]
   },
   {
@@ -157,9 +157,9 @@
     "tags": [
       "ai",
       "ux",
-      "Plugin",
-      "Figma",
-      "Design"
+      "plugin",
+      "figma",
+      "design"
     ]
   },
   {
@@ -169,10 +169,10 @@
     "tags": [
       "ux",
       "dev",
-      "Plugin",
-      "Figma",
-      "Design",
-      "Guide"
+      "plugin",
+      "figma",
+      "design",
+      "guide"
     ]
   },
   {
@@ -182,10 +182,10 @@
     "tags": [
       "ux",
       "dev",
-      "Plugin",
-      "Figma",
-      "Design",
-      "News"
+      "plugin",
+      "figma",
+      "design",
+      "news"
     ]
   },
   {
@@ -195,12 +195,12 @@
     "tags": [
       "ux",
       "dev",
-      "Plugin",
-      "Figma",
-      "PowerPoint",
-      "Export",
-      "Design",
-      "Guide"
+      "plugin",
+      "figma",
+      "powerpoint",
+      "export",
+      "design",
+      "guide"
     ]
   },
   {
@@ -209,9 +209,9 @@
     "description": "",
     "tags": [
       "ai",
-      "Gemini",
-      "Images",
-      "NanoBanana"
+      "gemini",
+      "images",
+      "nanobanana"
     ]
   },
   {
@@ -221,8 +221,8 @@
     "tags": [
       "ai",
       "ux",
-      "Stitch",
-      "Figma"
+      "stitch",
+      "figma"
     ]
   },
   {
@@ -237,10 +237,10 @@
     "description": "",
     "tags": [
       "ai",
-      "OpenAI",
-      "DevDay",
-      "ChatGPT",
-      "Figma"
+      "openai",
+      "devday",
+      "chatgpt",
+      "figma"
     ]
   },
   {
@@ -249,9 +249,9 @@
     "description": "",
     "tags": [
       "ai",
-      "Gemini",
-      "Images",
-      "NanoBanana"
+      "gemini",
+      "images",
+      "nanobanana"
     ]
   },
   {
@@ -270,7 +270,7 @@
     "title": "AI가 오픈소스 생태계를 파괴하는 방법: Tailwind CSS와 Stack Overflow의 몰락",
     "description": "",
     "tags": [
-      "AI",
+      "ai",
       "오픈소스",
       "Tailwind CSS",
       "Stack Overflow",
@@ -283,7 +283,7 @@
     "description": "",
     "tags": [
       "ai",
-      "Anthropic",
+      "anthropic",
       "소프트웨어엔지니어링",
       "미래예측"
     ]
