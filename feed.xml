@@ -5,13 +5,20 @@
     <link>https://nine0109.github.io</link>
     <description>UX Design and AI insights by Wonkyu Kim</description>
     <language>ko</language>
-    <lastBuildDate>Wed, 04 Mar 2026 10:43:56 GMT</lastBuildDate>
+    <lastBuildDate>Tue, 10 Mar 2026 02:23:35 GMT</lastBuildDate>
     <atom:link href="https://nine0109.github.io/feed.xml" rel="self" type="application/rss+xml"/>
     <item>
       <title><![CDATA[프로덕트 디자인이 변하고 있다]]></title>
       <link>https://nine0109.github.io/post/2026-03-02_product-design-changing</link>
       <guid isPermaLink="true">https://nine0109.github.io/post/2026-03-02_product-design-changing</guid>
       <pubDate>Mon, 02 Mar 2026 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Figma AI 이미지 도구와 인터랙티브 프로토타이핑]]></title>
+      <link>https://nine0109.github.io/post/2026-02-27-workflow-lab-ai-image-tooling-figma</link>
+      <guid isPermaLink="true">https://nine0109.github.io/post/2026-02-27-workflow-lab-ai-image-tooling-figma</guid>
+      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[]]></description>
     </item>
     <item>
@@ -25,13 +32,6 @@
       <title><![CDATA[Nano Banana 2 프로 기능과 빠른 속도를 결합]]></title>
       <link>https://nine0109.github.io/post/2026-02-27_nano-banana-2</link>
       <guid isPermaLink="true">https://nine0109.github.io/post/2026-02-27_nano-banana-2</guid>
-      <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
-      <description><![CDATA[]]></description>
-    </item>
-    <item>
-      <title><![CDATA[워크플로우 랩: Figma의 AI 이미지 도구와 인터랙티브 프로토타이핑]]></title>
-      <link>https://nine0109.github.io/post/2026-02-27_workflow-lab-ai-image-tooling-figma</link>
-      <guid isPermaLink="true">https://nine0109.github.io/post/2026-02-27_workflow-lab-ai-image-tooling-figma</guid>
       <pubDate>Fri, 27 Feb 2026 00:00:00 GMT</pubDate>
       <description><![CDATA[]]></description>
     </item>
@@ -99,6 +99,27 @@
       <description><![CDATA[]]></description>
     </item>
     <item>
+      <title><![CDATA[About]]></title>
+      <link>https://nine0109.github.io/post/about</link>
+      <guid isPermaLink="true">https://nine0109.github.io/post/about</guid>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+    <item>
+      <title><![CDATA[Contact]]></title>
+      <link>https://nine0109.github.io/post/contact</link>
+      <guid isPermaLink="true">https://nine0109.github.io/post/contact</guid>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+    <item>
+      <title><![CDATA[개인정보처리방침]]></title>
+      <link>https://nine0109.github.io/post/privacy-policy</link>
+      <guid isPermaLink="true">https://nine0109.github.io/post/privacy-policy</guid>
+      <pubDate>Sun, 28 Dec 2025 00:00:00 GMT</pubDate>
+      <description><![CDATA[]]></description>
+    </item>
+    <item>
       <title><![CDATA[ai 서비스 ]]></title>
       <link>https://nine0109.github.io/post/2025-12-14_amoeba-ai-studio</link>
       <guid isPermaLink="true">https://nine0109.github.io/post/2025-12-14_amoeba-ai-studio</guid>
@@ -124,27 +145,6 @@
       <link>https://nine0109.github.io/post/2025-09-30_dev</link>
       <guid isPermaLink="true">https://nine0109.github.io/post/2025-09-30_dev</guid>
       <pubDate>Tue, 30 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[]]></description>
-    </item>
-    <item>
-      <title><![CDATA[Stitch]]></title>
-      <link>https://nine0109.github.io/post/2025-09-27_stitch</link>
-      <guid isPermaLink="true">https://nine0109.github.io/post/2025-09-27_stitch</guid>
-      <pubDate>Sat, 27 Sep 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[]]></description>
-    </item>
-    <item>
-      <title><![CDATA[NanoBana]]></title>
-      <link>https://nine0109.github.io/post/2025-08-31_NanoBanana</link>
-      <guid isPermaLink="true">https://nine0109.github.io/post/2025-08-31_NanoBanana</guid>
-      <pubDate>Sun, 31 Aug 2025 00:00:00 GMT</pubDate>
-      <description><![CDATA[]]></description>
-    </item>
-    <item>
-      <title><![CDATA[PPTmaker 사용 가이드]]></title>
-      <link>https://nine0109.github.io/post/2025-08-24_PPTmaker</link>
-      <guid isPermaLink="true">https://nine0109.github.io/post/2025-08-24_PPTmaker</guid>
-      <pubDate>Sun, 24 Aug 2025 00:00:00 GMT</pubDate>
       <description><![CDATA[]]></description>
     </item>
   </channel>
